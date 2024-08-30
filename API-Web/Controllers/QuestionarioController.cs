@@ -14,7 +14,7 @@ namespace API_Web.Controllers
         private readonly QuestionarioContext _context;
         private readonly ILogger<QuestionarioController> _logger;
 
-        public QuestionarioController(QuestionarioContext context, ILogger<QuestionarioController> logger)  // Adicione o logger ao construtor
+        public QuestionarioController(QuestionarioContext context, ILogger<QuestionarioController> logger)
         {
             _context = context;
             _logger = logger;
@@ -71,7 +71,6 @@ namespace API_Web.Controllers
 
             return Ok(randomComentario);
         }
-
         [HttpGet("average-exhibitions")]
         public async Task<ActionResult<double>> GetAverageExhibitions()
         {
@@ -83,15 +82,11 @@ namespace API_Web.Controllers
 
                 if (respostas.Any())
                 {
-                    var averageExhibitions = respostas
-                        .Select(ConvertSatisfacaoToNumeric)
-                        .Where(n => n.HasValue)
-                        .Average(n => n.Value);
-
+                    var averageExhibitions = CalcularMedia(respostas);
                     return Ok(averageExhibitions);
                 }
                 else
-                { 
+                {
                     return Ok(0);
                 }
             }
@@ -102,20 +97,72 @@ namespace API_Web.Controllers
             }
         }
 
+        [HttpGet("average-satisfaction")]
+        public async Task<ActionResult<double>> GetAverageSatisfaction()
+        {
+            try
+            {
+                var respostas = await _context.QuestionarioRespostas
+                    .Select(q => q.SatisfacaoGeral)
+                    .ToListAsync();
+
+                if (respostas.Any())
+                {
+                    var averageSatisfaction = CalcularMedia(respostas);
+                    return Ok(averageSatisfaction);
+                }
+                else
+                {
+                    return Ok(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao calcular a média de satisfação.");
+                return StatusCode(500, "Erro interno do servidor.");
+            }
+        }
+        private double CalcularMedia(List<string> respostas)
+        {
+            var valores = respostas
+                .Select(ConvertSatisfacaoToNumeric)
+                .Where(n => n.HasValue)
+                .Select(n => n.Value)
+                .ToList();
+
+            _logger.LogInformation("Valores numéricos convertidos: {Valores}", string.Join(", ", valores));
+
+            if (valores.Any())
+            {
+                var media = valores.Average();
+                _logger.LogInformation("Média calculada: {Media}", media);
+                return media;
+            }
+            else
+            {
+                _logger.LogWarning("Nenhum valor válido encontrado para calcular a média.");
+                return 0;
+            }
+        }
+
+
         private double? ConvertSatisfacaoToNumeric(string satisfacao)
         {
+            satisfacao = satisfacao?.Trim().ToLower();
+
             return satisfacao switch
             {
-                "Excelente" => 5,
-                "Muito boa" => 4,
-                "Boa" => 3,
-                "Regular" => 2,
-                "Ruim" => 1,
+                "excelente" => 5,
+                "muito boa" => 4,
+                "boa" => 3,
+                "regular" => 2,
+                "ruim" => 1,
                 _ => null
             };
         }
 
 
-    }
 
+
+    }
 }

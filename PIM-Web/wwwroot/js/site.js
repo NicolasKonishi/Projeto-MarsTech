@@ -144,9 +144,10 @@ async function fetchRandomComments() {
 
 fetchRandomComments();
 
-/////
+
 document.addEventListener('DOMContentLoaded', function () {
     fetchAverageExhibitions();
+    fetchAverageSatisfaction();
 });
 
 async function fetchAverageExhibitions() {
@@ -157,8 +158,7 @@ async function fetchAverageExhibitions() {
         }
 
         const averageExhibitions = await response.json();
-
-        document.querySelector('.metrics-container .metric:nth-child(2) .percentage').textContent = averageExhibitions.toFixed(2) || '0.00';
+        document.querySelector('.metrics-container .metric:nth-child(2) .percentage').textContent = averageExhibitions.toFixed(1) || '0.0';
 
     } catch (error) {
         console.error('Erro:', error);
@@ -166,7 +166,22 @@ async function fetchAverageExhibitions() {
     }
 }
 
-///////////
+async function fetchAverageSatisfaction() {
+    try {
+        const response = await fetch('https://localhost:7195/api/Questionario/average-satisfaction');
+        if (!response.ok) {
+            throw new Error('Erro ao buscar a média de satisfação.');
+        }
+
+        const averageSatisfaction = await response.json();
+        document.querySelector('.metrics-container .metric:nth-child(1) .percentage').textContent = averageSatisfaction.toFixed(1) || '0.0';
+
+    } catch (error) {
+        console.error('Erro:', error);
+        document.querySelector('.metrics-container .metric:nth-child(1) .percentage').textContent = 'Erro ao buscar dados';
+    }
+}
+
 document.getElementById("submit-form").addEventListener("click", async function () {
     const visitante = {
         satisfacaoGeral: document.getElementById("satisfaction-1").value,
