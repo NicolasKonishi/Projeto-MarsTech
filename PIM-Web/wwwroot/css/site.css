@@ -472,21 +472,6 @@ textarea.user-input {
     resize: vertical;
 }
 
-.submit-button {
-    background-color: #ff4500;
-    color: #fff;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-    .submit-button:hover {
-        background-color: #e03a00;
-    }
-
 .first-inputs {
     display: flex;
     width: 100%;
@@ -531,21 +516,23 @@ textarea.user-input {
     outline: none;
 }
 
-.submit-button {
+.submit-button1 {
     width: 10rem;
     height: 3.2rem;
-    background-color: #ff4400;
-    color: #fff;
     font-family: "DM Sans", sans-serif;
     font-weight: 500;
     border: 0rem solid #ff4400;
-    font-size: 1.1rem;
     cursor: pointer;
     margin-top: 1rem;
+    background-color: #ff4500;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
 }
 
-    .submit-button:hover {
-        color: #fff;
+    .submit-button1:hover {
+        background-color: #e03a00;
     }
 
 .results-container {
@@ -847,7 +834,7 @@ footer {
         text-align: center;
         margin: 1rem 0rem;
         font-size: 1.5rem;
-        width: 60%;
+        width: 100%;
         align-self: center;
     }
 
@@ -872,7 +859,7 @@ footer {
         width: 60%;
     }
 
-    .submit-button {
+    .submit-button1 {
         width: 60%;
         padding: 0rem;
         font-size: 1.5rem;
@@ -1038,7 +1025,7 @@ footer {
         background-position: center;
     }
 
-    .submit-button {
+    .submit-button1 {
         width: 60%;
         padding: 15px;
         font-size: 1.2rem;

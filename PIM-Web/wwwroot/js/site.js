@@ -71,6 +71,7 @@
 
     showImage(currentIndex);
 });
+
 const metrics = {
     overallSatisfaction: 75,
     serviceRating: 90,
@@ -106,7 +107,6 @@ function updateMetrics() {
         testimonialsContainer.appendChild(quoteElement);
     });
 }
-
 updateMetrics();
 
 document.getElementById("submit-form").addEventListener("click", async function () {
