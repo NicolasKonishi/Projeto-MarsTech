@@ -1,0 +1,1816 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "DM Sans", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #090401;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    height: 10vh;
+    width: 100%;
+    padding: 0px 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: hsla(212, 14%, 18%, 0.055);
+    z-index: 1;
+}
+
+.logo {
+    width: 30rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1rem;
+}
+
+.logo-img {
+    width: 40%;
+    height: auto;
+}
+
+.logo-text {
+    color: #fff;
+    font-size: 2rem;
+}
+
+    .logo-text:hover {
+        color: #ff4500;
+    }
+
+nav {
+    width: 100%;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li {
+    font-size: 1.1rem;
+    font-family: "Dela Gothic One", sans-serif;
+    color: #fff;
+}
+
+    li a {
+        font-size: 1.1rem;
+        font-family: "Dela Gothic One", sans-serif;
+        color: #fff;
+        text-decoration: none;
+    }
+
+        li a:visited {
+            color: #fff;
+        }
+
+        li a:link {
+            color: #fff;
+        }
+
+        li a:hover {
+            color: #ff4500;
+            cursor: pointer;
+        }
+
+#search-icon {
+    color: #fff;
+    cursor: pointer;
+}
+
+    #search-icon:hover {
+        color: #ff4500;
+    }
+
+#menu-icon {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal {
+    width: 100%;
+    height: 130vh;
+    position: absolute;
+}
+
+.home-container {
+    background-image: url("images/bg1.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 130vh;
+    display: flex;
+    justify-content: center;
+}
+
+.presentation-container {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    margin-top: 15rem;
+    padding: 1rem;
+    color: #fff;
+}
+
+    .presentation-container h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .presentation-container h1 {
+        font-size: 3rem;
+        text-align: left;
+        margin-bottom: 0rem;
+        font-family: "Dela Gothic One", sans-serif;
+    }
+
+    .presentation-container span {
+        color: #ff4500;
+    }
+
+    .presentation-container p {
+        text-align: left;
+        font-size: 1.5rem;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 500;
+        margin-bottom: 10rem;
+    }
+
+    .presentation-container button:hover {
+        background-color: transparent;
+        color: #fff;
+    }
+
+.image-carousel-container {
+    background: url("images/bg2.png") no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 10rem;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.carousel-and-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 60%;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item1 {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+    .carousel-item1 img {
+        width: 100%;
+        border-radius: 20px;
+        height: auto;
+    }
+
+.carousel-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.carousel-button {
+    background-color: transparent;
+    border: 0.1rem solid #ffa500;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+    .carousel-button.selected {
+        background-color: #ffa500;
+        border-color: #ffa500;
+    }
+
+.info {
+    width: 36%;
+    justify-content: left;
+    padding: 7rem 1rem 2rem 1rem;
+    color: #fff;
+}
+
+#info-title {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+}
+
+#info-description {
+    font-family: "DM Sans ", sans-serif;
+    font-size: 1.5rem;
+}
+
+.destaks-container {
+    width: 100%;
+    height: 20rem;
+    padding: 0 1rem;
+    position: absolute;
+    top: 100vh;
+}
+
+.destaks-content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+    color: #fff;
+    padding: 0 2rem 2rem 2rem;
+}
+
+#square-1 {
+    background-color: rgba(255, 68, 0, 1);
+}
+
+    #square-1 i {
+        color: rgba(255, 255, 255, 1);
+        font-size: 10rem;
+    }
+
+.destaks-span {
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+.destaks-paragraph {
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+#destaks-span-gold {
+    color: #ff4500;
+}
+
+#square-2 {
+    background-color: #740b0b;
+}
+
+#square-3 {
+    background-color: rgba(255, 68, 0, 1);
+    padding: 0 10rem;
+}
+
+    #square-3 i {
+        color: #ffffff;
+        font-size: 3rem;
+    }
+
+.divider {
+    border: none;
+    border-top: 0.2rem solid #ffffff;
+    border-radius: 03123rem;
+    margin: 0.1rem 0;
+    width: 45%;
+}
+
+#divider-white {
+    border-top: 0.2rem solid #fff;
+}
+
+.welcome-container {
+    width: 100%;
+    height: 100vh;
+}
+
+.signature-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.signature-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: end;
+    background-color: #fff;
+    padding-bottom: 10rem;
+}
+
+.signature-text {
+    width: 90%;
+    height: 30%;
+    row-gap: 20px;
+    align-self: center;
+    text-align: center;
+    padding: 0px 40px;
+    margin-bottom: 90px;
+}
+
+.signature-title {
+    width: 100%;
+}
+
+    .signature-title h1 {
+        font-size: 5rem;
+        color: #ff4500;
+        font-family: "Dela Gothic One", sans-serif;
+    }
+
+    .signature-title h5 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        letter-spacing: 0.5rem;
+    }
+
+.signature-text p {
+    margin-top: 4rem;
+    font-size: 1.3rem;
+    font-family: "DM Sans";
+    text-align: justify;
+}
+
+.astronaut-container {
+    background-color: #fff;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+}
+
+.astronaut-img {
+    margin-left: 1rem;
+}
+
+.form-container {
+    width: 100%;
+    height: 200vh;
+    display: flex;
+}
+
+.form-img {
+    background-image: url("images/Image.png");
+    background-position: 50% 50%;
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+}
+
+.form-content {
+    background-color: #491400;
+    width: 100%;
+    height: 100%;
+    padding: 6rem 2rem 6rem 6rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5rem;
+}
+
+.form-title {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+    .form-title h2 {
+        margin: 0;
+        font-size: 1rem;
+        letter-spacing: 0.6rem;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .form-title h1 {
+        margin: 0;
+        font-size: 3.5rem;
+        color: #ff4500;
+    }
+
+#form-divider {
+    width: 20%;
+    margin-top: 1rem;
+}
+
+.form-description {
+    text-align: justify;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin: 2rem 2rem 0rem 0rem;
+}
+
+.form-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+    .input-container label {
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.3rem;
+        justify-content: left;
+        color: #fff;
+    }
+
+textarea.user-input {
+    resize: vertical;
+}
+
+.submit-button {
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .submit-button:hover {
+        background-color: #e03a00;
+    }
+
+.first-inputs {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    height: 7rem;
+    width: 49%;
+}
+
+.user-input {
+    height: 100%;
+    width: 100%;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.2rem;
+    color: #2e353d;
+    padding: 0 1rem;
+    border: none;
+    outline: none;
+}
+
+#user-message-input {
+    width: 50%;
+    height: 200px;
+    margin-bottom: 5rem;
+}
+
+#user-message {
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    resize: none;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.1rem;
+    color: #2e353d;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.submit-button {
+    width: 10rem;
+    height: 3.2rem;
+    background-color: #ff4400;
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    border: 0rem solid #ff4400;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+    .submit-button:hover {
+        color: #fff;
+    }
+
+.results-container {
+    width: 100%;
+    padding: 8rem 12rem;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results-title {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+    .results-title h2 {
+        color: #5c6f87;
+        margin: 0;
+        font-size: 1.3rem;
+        letter-spacing: 0.5rem;
+        font-weight: 500;
+        font-family: "MontSerrat", sans-serif;
+    }
+
+    .results-title h1 {
+        margin: 0;
+        font-family: "Dela Gothic One", sans-serif;
+        font-size: 3.5rem;
+        color: #ff4500;
+    }
+
+.metrics-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 6rem;
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+    .metric h3 {
+        font-size: 1.5rem;
+        font-family: "MontSerrat", sans-serif;
+        color: #2e353d;
+        margin-bottom: 2rem;
+    }
+
+.percentage-circle {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    background-color: #ff4500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.percentage {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.testimonials-results-container {
+    width: 100%;
+}
+
+.testimonials-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.testimonials-quotes {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    align-items: center;
+}
+
+.quote {
+    background-color: #fff;
+    padding: 2rem 4rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    text-align: center;
+    font-style: italic;
+}
+
+    .quote p {
+        font-size: 1.5rem;
+    }
+
+.quote-author {
+    margin-top: 10rem;
+    font-size: 1.5rem;
+    color: #ff8255;
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(43, 21, 0);
+    padding: 10rem 8rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-text {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+}
+
+    .about-text h2 {
+        color: #ff6f00;
+        font-size: 1.2rem;
+        letter-spacing: 0.4rem;
+        font-weight: 700;
+    }
+
+    .about-text p {
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #d4d4d4;
+        line-height: 1.8;
+    }
+
+.social-media {
+    display: flex;
+    gap: 1rem;
+}
+
+    .social-media i {
+        font-size: 1.5rem;
+        color: #d4d4d4;
+        cursor: pointer;
+    }
+
+        .social-media i:hover {
+            color: #ff6f00;
+        }
+
+.theme-posts {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+    .theme-posts h2 {
+        color: #ff6f00;
+        font-size: 1.2rem;
+        letter-spacing: 4px;
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+
+.posts {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.post-img {
+    width: 20%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.post-content {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 1rem;
+}
+
+    .post-content p {
+        font-family: "DM Sans", sans-serif;
+        color: #d4d4d4;
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+
+        .post-content p:hover {
+            color: #ff6f00;
+            cursor: pointer;
+        }
+
+.post-date {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#clock-icon {
+    color: #ff6f00;
+}
+
+.post-date span {
+    font-family: "DM Sans", sans-serif;
+    color: #d4d4d4;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.copyright {
+    background-color: rgb(43, 21, 0);
+    color: #fff;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .copyright span {
+        font-family: "DM Sans", sans-serif;
+        letter-spacing: 0.5rem;
+        color: #ffffff;
+        font-size: 0.9rem;
+    }
+
+@media (max-width: 1440px) {
+    .presentation-container {
+        width: 60%;
+        row-gap: 0.5rem;
+        margin-top: 8rem;
+    }
+
+        .presentation-container h1 {
+            margin-bottom: 0rem;
+            font-size: 3rem;
+        }
+
+        .presentation-container h3 {
+            font-size: 2.3rem;
+            margin-bottom: 5rem;
+        }
+
+        .presentation-container p {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+    .welcome-container {
+        margin-top: 10rem;
+    }
+
+    .signature-content {
+        padding-bottom: 10rem;
+    }
+
+    .signature-text {
+        width: 90%;
+        height: 30%;
+        row-gap: 20px;
+        align-self: center;
+        text-align: center;
+        padding: 0px 40px;
+    }
+
+    .signature-title h5 {
+        font-size: 2rem;
+    }
+
+    .signature-title h1 {
+        font-size: 5rem;
+    }
+
+    .signature-text p {
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.5rem;
+    }
+
+    .form-img {
+        display: none;
+    }
+
+    .form-title {
+        align-items: center;
+    }
+
+    .form-container {
+        height: 100%;
+    }
+
+    .form-description {
+        text-align: center;
+        margin: 1rem 0rem;
+        font-size: 1.5rem;
+        width: 60%;
+        align-self: center;
+    }
+
+    .form-content {
+        row-gap: 1.2rem;
+    }
+
+    .form-inputs {
+        align-items: center;
+    }
+
+    .input-container {
+        width: 60%;
+        height: 9rem;
+    }
+
+        .input-container label {
+            font-size: 1.8rem;
+        }
+
+    #user-message-input {
+        width: 60%;
+    }
+
+    .submit-button {
+        width: 60%;
+        padding: 0rem;
+        font-size: 1.5rem;
+    }
+
+    .content {
+        padding: 0 90px;
+    }
+
+    #square-3 {
+        padding: 0 60px;
+    }
+
+    .testimonials-cards-container {
+        padding: 0 100px;
+    }
+
+    .post-content {
+        padding: 0 55px 0 10px;
+    }
+}
+
+@media (max-width: 1280px) {
+
+    .home-container {
+        height: 100vh;
+        padding-top: 2rem;
+    }
+
+    .presentation-container {
+        width: 70%;
+        row-gap: 0.5rem;
+        margin-top: 20rem;
+    }
+
+        .presentation-container h1 {
+            margin-bottom: 0rem;
+            font-size: 3rem;
+        }
+
+        .presentation-container h3 {
+            font-size: 2.3rem;
+            margin-bottom: 5rem;
+        }
+
+        .presentation-container p {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+    .carousel-item1 img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .info {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #info-title {
+        font-size: 2rem;
+    }
+
+    #info-description {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .destaks-container {
+        display: none;
+    }
+
+    .destaks-paragraph {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        padding: 0rem 2rem;
+    }
+
+    .welcome-container {
+        display: block;
+        height: 80%;
+        margin-top: 1rem;
+    }
+
+    .signature-container {
+        display: block;
+        height: 100%;
+        margin-top: 2rem;
+    }
+
+    .signature-content {
+        height: 50%;
+    }
+
+    .signature-text {
+        width: 90%;
+        height: 30%;
+        row-gap: 20px;
+        align-self: center;
+        text-align: center;
+        padding: 0px 40px;
+    }
+
+    .signature-title h5 {
+        font-size: 2rem;
+    }
+
+    .signature-title h1 {
+        font-size: 5rem;
+    }
+
+    .signature-text p {
+        font-family: "DM Sans", sans-serif;
+        font-size: 2rem;
+    }
+
+    .astronaut-img {
+        display: none;
+    }
+
+    .image-carousel-container {
+        padding: 5rem;
+    }
+
+    .carousel-buttons {
+        margin-top: 1.5rem;
+        gap: 1.2rem;
+    }
+
+    .carousel-button {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .info {
+        margin-top: 0rem;
+        width: 100%;
+    }
+
+    #info-title {
+        margin-bottom: 4rem;
+    }
+
+    #info-description {
+        font-size: 1.2rem;
+        text-align: left;
+        padding: 0rem 1.9rem;
+    }
+
+    .testimonials-cards-container {
+        padding: 0 110px;
+    }
+
+    .form-content {
+        width: 100%;
+        padding: 5rem;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .submit-button {
+        width: 60%;
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    .metrics-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .metric {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .testimonials-title {
+        font-size: 1.5rem;
+    }
+
+    .quote {
+        width: 80%;
+    }
+
+        .quote p {
+            font-size: 1.5em;
+        }
+
+    footer {
+        padding: 5rem;
+    }
+
+    @media (max-width: 1024px) {
+        header {
+            display: none;
+        }
+
+        .presentation-container {
+            width: 90%;
+            row-gap: 0.5rem;
+            margin-top: 5rem;
+        }
+
+            .presentation-container h1 {
+                margin-bottom: 0rem;
+                text-align: center;
+                font-size: 3rem;
+            }
+
+            .presentation-container h3 {
+                font-size: 2.3rem;
+                margin-bottom: 5rem;
+                text-align: center;
+            }
+
+            .presentation-container p {
+                margin-bottom: 1rem;
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+        .destaks-container {
+            padding: 0 1rem;
+        }
+
+        .content {
+            padding: 0rem 1rem;
+        }
+
+        .carousel {
+            padding: 2rem 0rem;
+        }
+
+        .info {
+            padding: 5rem 0rem;
+        }
+
+        .form-img {
+            display: none;
+        }
+
+        .input-container label {
+            font-size: 1.5rem;
+        }
+
+        #info-description {
+            font-size: 1.2rem;
+        }
+
+        #user-message-input {
+            height: 5rem;
+        }
+
+        #form-divider {
+            display: none;
+        }
+
+        .user-input {
+            height: 3rem;
+        }
+
+        .form-inputs {
+            row-gap: 1rem;
+        }
+
+        .form-description {
+            width: 90%;
+        }
+
+        .form-content {
+            padding: 5rem 5rem;
+        }
+
+        .quote {
+            width: 100%;
+        }
+
+        .theme-posts {
+            width: 45%;
+        }
+
+        .post-content {
+            padding: 0 0 0 10px;
+        }
+    }
+
+    @media (max-width: 835px) {
+        nav {
+            display: none;
+        }
+
+        .home-container {
+            align-items: center;
+        }
+
+        .presentation-container {
+            width: 90%;
+            margin-top: 0;
+        }
+
+        .destaks-container {
+            display: none;
+            padding: 0 40px;
+            top: 150vh;
+        }
+
+        .destaks-content {
+            grid-template-columns: repeat(1, 1fr);
+            row-gap: 10px;
+        }
+
+        .content {
+            height: 300px;
+            row-gap: 10px;
+            padding: 0 20px;
+        }
+
+        .welcome-container {
+            height: 100%;
+            margin-top: 2rem;
+        }
+
+        .signature-container {
+            margin-top: 0rem;
+        }
+
+        .signature-text {
+            width: 95%;
+            height: 30%;
+            row-gap: 30px;
+            padding: 0 10px;
+        }
+
+        .image-carousel-container {
+            padding: 2rem;
+        }
+
+        .our-services-content {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .testimonials-container {
+            height: 100vh;
+        }
+
+        .testimonials-cards-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #card-1 {
+            display: none;
+        }
+
+        #card-2 {
+            display: none;
+        }
+
+        .form-container {
+            flex-direction: column;
+        }
+
+        .form-img {
+            height: 30%;
+            width: 100%;
+        }
+
+        .form-content {
+            width: 100%;
+            height: 70%;
+            padding: 120px 40px 60px 40px;
+            row-gap: 30px;
+        }
+
+        footer {
+            height: 100%;
+        }
+
+        .footer-content {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-text {
+            width: 100%;
+            height: 40%;
+        }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+        .theme-posts {
+            width: 100%;
+            height: 45%;
+        }
+
+        .post-content {
+            padding: 0 140px 0 10px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .home-container {
+            height: 100%;
+        }
+
+        .destaks-container {
+            display: none;
+        }
+
+        .welcome-container {
+            margin: 2rem 0rem;
+            clear: both;
+            height: 100%;
+        }
+
+        .signature-text p {
+            font-size: 2rem;
+        }
+
+        .content {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+            .content i {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+        .destaks-paragraph {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .signature-container {
+            height: 100vh;
+        }
+
+        .image-carousel-container {
+            padding: 2rem 2rem 2rem 2rem;
+        }
+
+        .carousel-and-info {
+            width: 100rem;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-images {
+            width: 100%;
+            height: 50%;
+        }
+
+        .carousel-buttons {
+            margin-top: 13rem;
+        }
+
+        .carousel {
+            margin: 5rem;
+            width: 80%;
+            height: 50%;
+        }
+
+        .info {
+            padding-top: 0rem;
+        }
+
+        .form-container {
+            height: 50%;
+        }
+
+        .form-title {
+            height: 10rem;
+        }
+
+        .form-inputs {
+            row-gap: 2rem;
+            justify-content: left;
+        }
+
+        .input-container {
+            width: 100%;
+            align-items: flex-start;
+        }
+
+            .input-container label {
+                font-family: "MontSerrat", sans-serif;
+                font-size: 1.2rem;
+            }
+
+        #user-message-input {
+            width: 100%;
+            height: 5rem;
+            margin-bottom: 2rem;
+        }
+
+        #user-message {
+            border-radius: 0.5rem;
+        }
+
+        .user-input {
+            border-radius: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .form-container {
+            display: block;
+        }
+
+        .results-container {
+            flex-direction: column;
+            row-gap: 20px;
+            padding: 2rem;
+        }
+
+        .metrics-container {
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            height: 150vh;
+            display: block;
+            padding-top: 60px;
+        }
+
+        .about-text {
+            row-gap: 10px;
+        }
+
+            .about-text h2 {
+                letter-spacing: 0.2rem;
+                font-size: 2rem;
+            }
+
+            .about-text p {
+                margin-bottom: 0rem;
+            }
+
+        .theme-posts h2 {
+            letter-spacing: 0.2rem;
+            font-size: 1.5rem;
+        }
+
+        .social-media {
+            margin-bottom: 2rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .presentation-container h1 {
+            text-align: center;
+        }
+
+        .presentation-container p {
+            text-align: center;
+        }
+
+        .presentation-container h3 {
+            text-align: center;
+        }
+
+        .welcome-container {
+            display: block;
+            position: relative;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .destaks-container {
+            position: absolute;
+        }
+
+        .destaks-content {
+            display: none;
+            background-color: #fff;
+        }
+
+        .signature-container {
+            flex-direction: column;
+            justify-content: end;
+        }
+
+        .signature-content {
+            width: 100%;
+            height: 50%;
+            justify-content: end;
+        }
+
+        .signature-button-container {
+            display: block;
+        }
+
+        .astronaut-container {
+            width: 95%;
+            height: 0%;
+            background-color: #fff;
+            justify-content: center;
+        }
+
+        .results-title h1 {
+            font-size: 2.5rem;
+        }
+
+        .results-title h2 {
+            font-size: 1rem;
+        }
+
+        .metric h3 {
+            font-size: 1.5rem;
+        }
+
+        .carousel {
+            margin: 2.5rem;
+        }
+
+        footer {
+            height: 100%;
+        }
+
+        .quote {
+            width: 100%;
+        }
+
+        .post-img {
+            height: 100px;
+            width: 100px;
+        }
+
+        .post-content p {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 415px) {
+        header {
+            padding: 0 10px;
+        }
+
+        .logo {
+            display: none;
+        }
+
+        .presentation-container h1 {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .presentation-container {
+            width: 100%;
+            height: 100vh;
+        }
+
+            .presentation-container img {
+                width: 15rem;
+            }
+
+            .presentation-container p {
+                text-align: center;
+                font-size: 1.3rem;
+            }
+
+            .presentation-container h3 {
+                text-align: center;
+                font-size: 2rem;
+            }
+
+        .home-container {
+            background-position: 50% 50%;
+            display: block;
+            justify-content: center;
+        }
+
+        .destaks-container {
+            position: absolute;
+        }
+
+        .destaks-content {
+            display: none;
+            background-color: #fff;
+        }
+
+        .welcome-container {
+            display: block;
+            position: relative;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .signature-content {
+            height: 80vh;
+            width: 100%;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .signature-text {
+            width: 100%;
+            height: 30rem;
+            margin: 1rem;
+            margin-top: 20rem;
+            padding: 0rem;
+        }
+
+        .signature-title h5 {
+            font-size: 1rem;
+        }
+
+        .signature-title h1 {
+            font-size: 3rem;
+        }
+
+        .signature-text p {
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .signature-button-container {
+            display: block;
+        }
+
+        .astronaut-container {
+            display: none;
+        }
+
+        .image-carousel-container {
+            padding: 1rem;
+        }
+
+        .carousel-and-info {
+            width: 100rem;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-images {
+            width: 100%;
+            height: 10%;
+        }
+
+        .carousel-button {
+            margin-top: 100px;
+        }
+
+        .carousel {
+            padding-top: 5rem;
+            margin: 2.5rem 0rem 2rem 2rem;
+            width: 80%;
+        }
+
+        .carousel-buttons {
+            margin-top: 10rem;
+        }
+
+        #info-description {
+            text-align: center;
+        }
+
+        .info {
+            padding-top: 0rem;
+        }
+
+        .form-container {
+            height: 100%;
+            display: block;
+        }
+
+        .form-title {
+            padding: 2rem 1rem 0rem 1rem;
+        }
+
+            .form-title h2 {
+                text-align: center;
+                font-size: 5rem;
+            }
+
+            .form-title h1 {
+                text-align: center;
+            }
+
+        .form-content {
+            height: 150%;
+            display: block;
+            padding: 0.5rem 1rem 6rem 1rem;
+        }
+
+            .form-content h2 {
+                letter-spacing: 3px;
+                font-size: 0.5rem;
+            }
+
+        .form-description {
+            padding: 0.4rem 0rem;
+            text-align: left;
+            margin: 0rem;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        .form-inputs {
+            padding-top: 0.5rem;
+            row-gap: 2rem;
+            justify-content: end;
+        }
+
+        .input-container {
+            height: 4rem;
+            width: 100%;
+            row-gap: 0.3rem;
+        }
+
+            .input-container label {
+                font-family: "DM Sans", sans-serif;
+                font-size: 0.9rem;
+            }
+
+        #user-message-input {
+            width: 100%;
+            height: 5rem;
+            margin-bottom: 2rem;
+        }
+
+        #user-message {
+            border-radius: 0.5rem;
+        }
+
+        .user-input {
+            border-radius: 0.2rem;
+            font-size: 1.2rem;
+            height: 3rem;
+        }
+
+
+        .results-container {
+            flex-direction: column;
+            row-gap: 20px;
+            padding: 2rem;
+        }
+
+        .metrics-container {
+            margin-bottom: 1rem;
+        }
+
+        .testimonials-title {
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .quote {
+            font-size: 0.7rem;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .results-title h1 {
+            font-size: 2rem;
+        }
+
+        .metric h3 {
+            font-size: 1.2rem;
+        }
+
+        footer {
+            height: 100%;
+            display: block;
+            padding-top: 60px;
+        }
+
+        .about-text {
+            row-gap: 10px;
+        }
+
+            .about-text h2 {
+                letter-spacing: 0.2rem;
+                font-size: 2rem;
+            }
+
+            .about-text p {
+                margin-bottom: 0rem;
+            }
+
+        .theme-posts h2 {
+            letter-spacing: 0.2rem;
+            font-size: 1.5rem;
+        }
+
+        .social-media {
+            margin-bottom: 2rem;
+        }
+
+        .form-title h2 {
+            font-size: 1rem;
+        }
+
+        .form-title h1 {
+            font-size: 2rem;
+        }
+
+        .about-text {
+            width: 100%;
+            height: 40%;
+            row-gap: 20px;
+        }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+
+        .theme-posts {
+            width: 100%;
+            height: 45%;
+        }
+
+            .theme-posts h2 {
+                letter-spacing: 0.3rem;
+            }
+
+        .post-img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .post-content {
+            padding: 0 10px;
+        }
+
+            .post-content p {
+                font-size: 1rem;
+            }
+    }
+}

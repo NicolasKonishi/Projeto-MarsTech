@@ -1,0 +1,138 @@
+﻿document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".carousel-button");
+    const carouselImages = document.querySelector(".carousel-images");
+    const totalItems = document.querySelectorAll(".carousel-item1").length;
+    const infoTitle = document.getElementById("info-title");
+    const infoDescription = document.getElementById("info-description");
+
+    const infoData = [
+        {
+            title: "Vida em Marte",
+            description:
+                "Oferece uma visão artística da possibilidade de vida no planeta vermelho. A obra apresenta uma interpretação imaginativa dos tipos de organismos que poderiam existir nas condições extremas de Marte, explorando conceitos de biologia astrobiológica e adaptações a ambientes inóspitos.",
+            backgroundImage: "./css/images/obra1-bg.png",
+        },
+        {
+            title: "A Primeira Colônia",
+            description:
+                "Retrata a instalação pioneira dos primeiros colonizadores humanos em Marte. A arte explora a arquitetura futurística e o design das habitações e instalações que permitiriam a sobrevivência e o desenvolvimento de uma comunidade em um ambiente alienígena.",
+            backgroundImage: "./css/images/obra2-bg.png",
+        },
+        {
+            title: "O Enigma Vermelho",
+            description: "Esta obra explora a cor marcante de Marte, causada pela oxidação do ferro em sua superfície, criando um vasto deserto de poeira vermelha. O Enigma Vermelho simboliza mistério e a busca por compreender o desconhecido.",
+            backgroundImage: "./css/images/obra3-bg.png",
+        },
+        {
+            title: "Sobrevivência Extrema",
+            description: "Esta obra retrata os desafios de viver em Marte, um ambiente árido e inóspito. Com temperaturas extremas e uma atmosfera imprópria para a vida humana, a obra nos faz refletir sobre a viabilidade de sobreviver em Marte e a necessidade de inovação para superar esses obstáculos.",
+            backgroundImage: "./css/images/obra4-bg.png",
+        },
+    ];
+    let currentIndex = 0;
+
+    function showImage(index) {
+        if (index >= totalItems) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = totalItems - 1;
+        } else {
+            currentIndex = index;
+        }
+        carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateButtons();
+        updateInfo();
+    }
+
+    function updateButtons() {
+        buttons.forEach((button, index) => {
+            if (index === currentIndex) {
+                button.classList.add("selected");
+            } else {
+                button.classList.remove("selected");
+            }
+        });
+    }
+
+    function updateInfo() {
+        const { title, description, backgroundImage } = infoData[currentIndex];
+        infoTitle.textContent = title;
+        infoDescription.textContent = description;
+        document.querySelector(
+            ".image-carousel-container"
+        ).style.backgroundImage = `url(${backgroundImage})`;
+    }
+
+    buttons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            showImage(index);
+        });
+    });
+
+    showImage(currentIndex);
+});
+const metrics = {
+    overallSatisfaction: 75,
+    serviceRating: 90,
+    testimonials: [
+        {
+            text: "O museu é incrível! Adorei a exposição sobre a primeira viagem à Lua.",
+            author: "João Silva",
+        },
+        {
+            text: "A experiência foi fantástica, aprendi muito sobre a história da exploração espacial.",
+            author: "Maria Oliveira",
+        },
+    ],
+};
+
+// métricas
+function updateMetrics() {
+    document.querySelector(".metric .percentage").textContent =
+        metrics.overallSatisfaction + "%";
+    document.querySelectorAll(".metric .percentage")[1].textContent =
+        metrics.serviceRating + "%";
+
+    const testimonialsContainer = document.querySelector(".testimonials-quotes");
+    testimonialsContainer.innerHTML = "";
+
+    metrics.testimonials.forEach((testimonial) => {
+        const quoteElement = document.createElement("div");
+        quoteElement.className = "quote";
+        quoteElement.innerHTML = `
+            <p>"${testimonial.text}"</p>
+            <span class="quote-author">- ${testimonial.author}</span>
+        `;
+        testimonialsContainer.appendChild(quoteElement);
+    });
+}
+
+updateMetrics();
+
+document.getElementById("submit-form").addEventListener("click", async function () {
+    const visitante = {
+        satisfacaoGeral: document.getElementById("satisfaction-1").value,
+        qualidadeExposicao: document.getElementById("satisfaction-2").value,
+        comentario: document.getElementById("user-message").value,
+        email: document.getElementById("user-email-input").value
+    };
+
+    try {
+        const response = await fetch("https://localhost:7195/api/Questionario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(visitante)
+        });
+
+        if (response.ok) {
+            alert("Obrigado por enviar sua opinião!");
+        } else {
+            alert("Erro ao enviar sua opinião.");
+        }
+    } catch (error) {
+        alert("Erro ao enviar sua opinião.");
+        console.error("Erro:", error);
+    }
+});

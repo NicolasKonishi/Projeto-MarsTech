@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["MarsTech"] MarsTech - Museu de Exploração de Marte</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Teste1.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <header>
+        <a >
+            <div class="logo">
+                <img class="logo-img" src="./css/images/logo.png" alt="logo-img" />
+                <span class="logo-text"></span>
+            </div>
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#questionario">Questionário</a></li>
+                <li><a href="#resultados">Resultados</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="modal"></div>
+
+    <div class="home-container">
+        <div class="presentation-container">
+            <h1>Bem-vindo ao <img src="./css/images/LogoLaranja.png"></h1>
+            <h3>O Museu sobre Exploração de Marte</h3>
+            <p>
+                Mergulhe em uma jornada interativa pela história, ciência e futuro da exploração espacial. Explore as
+                maravilhas de Marte e imagine as possibilidades de vida em outro planeta.
+            </p>
+        </div>
+    </div>
+    <div class="destaks-container">
+        <div class="destaks-content">
+            <div id="square-1" class="content">
+                <span class="destaks-span"> Missão</span>
+                <div class="divider"></div>
+                <p class="destaks-paragraph">
+                    Inspirar e educar o público sobre a exploração espacial,
+                    a ciência planetária e as possibilidades de vida em
+                    Marte.
+                </p>
+            </div>
+
+            <div class="content" id="square-2">
+                <span class="destaks-span" id="destaks-span-gold">Visão</span>
+                <div class="divider" id="divider-white"></div>
+                <p class="destaks-paragraph">
+                    Tornar-se um centro de referência para a exploração espacial e um local de aprendizado e descoberta para todas
+                    as idades.
+                </p>
+            </div>
+
+            <div class="content" id="square-3">
+                <span class="destaks-span">Valores</span>
+                <div class="divider"></div>
+                <p class="destaks-paragraph">
+                    Inovação, pesquisa, acessibilidade, interatividade e
+                    paixão pela exploração espacial.
+                </p>
+            </div>
+        </div>
+    </div>
+    <section id="sobre" class="welcome-container">
+
+        <div class="signature-container">
+            <div class="signature-content">
+                <div class="signature-text">
+
+                    <div class="signature-title">
+                        <h5>Bem-Vindo ao</h5>
+                        <h1>MarsTech</h1>
+                    </div>
+                    <p>
+                        Uma experiência envolvente que combina tecnologia de ponta, exposições imersivas e inovação para
+                        transportá-lo a Marte como nunca antes. Com exposições que vão desde a história da exploração espacial até
+                        as últimas descobertas sobre o planeta vermelho, cada seção do museu foi projetada para despertar sua
+                        curiosidade e fascínio.
+                    </p>
+
+                    <div class="signature-button-container">
+                    </div>
+                </div>
+            </div>
+
+            <div class="astronaut-container">
+                <img class="astronaut-img" alt="astronaut-img" src="./css/images/astronaut.png" />
+            </div>
+
+        </div>
+    </section>
+
+    <section class="image-carousel-container">
+        <div class="carousel-and-info">
+            <div class="carousel">
+                <div class="carousel-images">
+                    <div class="carousel-item1">
+                        <img src="./css/images/obra1.png" alt="Image 1">
+                    </div>
+                    <div class="carousel-item1">
+                        <img src="./css/images/obra2.png" alt="Image 2">
+                    </div>
+                    <div class="carousel-item1">
+                        <img src="./css/images/obra3.png" alt="Image 3">
+                    </div>
+                    <div class="carousel-item1">
+                        <img src="./css/images/obra4.png" alt="Image 2">
+                    </div>
+
+                </div>
+                <div class="carousel-buttons">
+                    <button class="carousel-button"></button>
+                    <button class="carousel-button"></button>
+                    <button class="carousel-button"></button>
+                    <button class="carousel-button"></button>
+                </div>
+            </div>
+            <div class="info">
+                <h1 id="info-title">Vida em Marte</h1>
+                <p id="info-description">
+                    Oferece uma visão artística da possibilidade de vida no planeta vermelho. A obra apresenta uma interpretação
+                    imaginativa dos tipos de organismos que poderiam existir nas condições extremas de Marte, explorando conceitos
+                    de biologia astrobiológica e adaptações a ambientes inóspitos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="questionario" class="form-container">
+        <div class="form-img"></div>
+        <div class="form-content">
+            <form id="questionario-form" action="https://localhost:7195">
+                <div class="form-title">
+                    <h2>Sua opinião é importante!</h2>
+                    <h1>Questionário de Satisfação</h1>
+                    <div class="divider" id="form-divider"></div>
+                </div>
+
+                <p class="form-description">
+                    Para nos ajudar a melhorar a sua experiência e a de outros visitantes, gostaríamos de saber a sua opinião sobre a nossa exposição. Por favor, responda às seguintes perguntas:
+                </p>
+
+                <div class="form-inputs">
+                    <div class="input-container">
+                        <label for="satisfaction-1">Como você avaliaria a sua experiência geral em nosso museu?</label>
+                        <select name="satisfaction-1" id="satisfaction-1" class="user-input">
+                            <option value="excelente">Excelente</option>
+                            <option value="muito-bom">Muito Boa</option>
+                            <option value="boa">Boa</option>
+                            <option value="regular">Regular</option>
+                            <option value="ruim">Ruim</option>
+                        </select>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="satisfaction-2">
+                            Como você avaliaria a qualidade das exposições e das informações fornecidas?
+                        </label>
+                        <select name="satisfaction-2" id="satisfaction-2" class="user-input">
+                            <option value="excelente">Excelente</option>
+                            <option value="muito-bom">Muito Boa</option>
+                            <option value="boa">Boa</option>
+                            <option value="regular">Regular</option>
+                            <option value="ruim">Ruim</option>
+                        </select>
+                    </div>
+
+                    <div class="input-container" id="user-message-input">
+                        <label for="user-message">Você tem algum comentário adicional ou sugestão? (Opcional)</label>
+                        <textarea name="user-message" id="user-message" cols="30" rows="10" placeholder="Deixe sua mensagem aqui" maxlength="350"></textarea>
+                    </div>
+
+                    <div class="input-container" id="user-email-container">
+                        <label for="user-email">
+                            Se você deseja receber uma resposta sobre o seu comentário, por favor, forneça seu e-mail:
+                        </label>
+                        <input type="email" name="user-email" id="user-email-input" class="user-input" placeholder="Email" />
+                    </div>
+
+                    <button type="button" class="submit-button" id="submit-form">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="resultados" class="results-container">
+        <div class="results-title">
+            <h2>RESULTADOS</h2>
+            <h1>Métricas de Satisfação</h1>
+        </div>
+
+        <div class="metrics-container">
+            <div class="metric">
+                <h3>Média de Satisfação Geral</h3>
+                <div class="percentage-circle">
+                    <span class="percentage"></span>
+                </div>
+            </div>
+            <div class="metric">
+                <h3>Média de Avaliação dos Serviços</h3>
+                <div class="percentage-circle">
+                    <span class="percentage"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials-results-container">
+            <div class="testimonials-title">
+                <h2>O que os Visitantes Dizem</h2>
+            </div>
+            <div class="testimonials-quotes">
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="about-text">
+                <h2>MARSTECH</h2>
+                <P>
+                    Explore os mistérios de Marte e além na Marstech, onde tecnologia e história se unem para trazer o universo para a ponta dos seus dedos. Fique ligado enquanto continuamos a expandir com novos temas e exibições.
+                </P>
+                <div class="social-media">
+                    <i class="fa-brands fa-linkedin-in" id="linkedin-icon"></i>
+                    <i class="fa-brands fa-instagram" id="instagram-icon"></i>
+                </div>
+            </div>
+            <div class="theme-posts">
+                <h2>Últimas notícias</h2>
+                <div class="posts" id="post-1">
+                    <img src="./css/images/news1.png" alt="mars-news-img" class="post-img">
+                    <div class="post-content">
+                        <p>
+                            Descobertas recentes na composição do solo marciano
+                        </p>
+                        <div class="post-date">
+                            <i class="fa-regular fa-clock" id="clock-icon"></i>
+                            <span>10 de agosto, 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="posts" id="post-2">
+                    <img src="./css/images/news2.png" alt="mars-news-img" class="post-img">
+                    <div class="post-content">
+                        <p>
+                            O planeta Vermelho que não é vermelho: Marte.
+                        </p>
+                        <div class="post-date">
+                            <i class="fa-regular fa-clock" id="clock-icon"></i>
+                            <span>29 de julho, 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="posts" id="post-3">
+                    <img src="./css/images/news3.png" alt="mars-news-img" class="post-img">
+                    <div class="post-content">
+                        <p>
+                            Estamos prontos para morar em Marte?
+                        </p>
+                        <div class="post-date">
+                            <i class="fa-regular fa-clock" id="clock-icon"></i>
+                            <span>15 de julho, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="copyright">
+        <span>&copy; MARSTECH 2024</span>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
