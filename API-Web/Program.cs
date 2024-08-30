@@ -23,6 +23,7 @@ builder.Services.AddCors(options =>
                      .AllowAnyMethod();
           });
 });
+builder.Services.AddLogging();
 
 var app = builder.Build();
 

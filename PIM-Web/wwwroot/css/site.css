@@ -534,8 +534,7 @@ textarea.user-input {
     .submit-button1:hover {
         background-color: #e03a00;
     }
- /**/
-/**/
+
 .alert {
     position: fixed;
     top: 20px;
@@ -548,8 +547,9 @@ textarea.user-input {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
     max-width: 90%;
-    width: auto; 
+    width: auto;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .hidden {
@@ -565,8 +565,6 @@ textarea.user-input {
     transition: opacity 0.5s ease-in-out;
 }
 
-/**/
-/**/
 
 
 .results-container {

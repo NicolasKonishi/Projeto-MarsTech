@@ -88,7 +88,7 @@ const metrics = {
 };
 
 // métricas
-function updateMetrics() {
+/*function updateMetrics() {
     document.querySelector(".metric .percentage").textContent =
         metrics.overallSatisfaction + "%";
     document.querySelectorAll(".metric .percentage")[1].textContent =
@@ -108,7 +108,65 @@ function updateMetrics() {
     });
 }
 updateMetrics();
+*/
 
+async function fetchRandomComments() {
+    try {
+        const responses = await Promise.all([
+            fetch("https://localhost:7195/api/questionario/random-comment"),
+            fetch("https://localhost:7195/api/questionario/random-comment")
+        ]);
+
+        const data = await Promise.all(responses.map(response => response.json()));
+
+        console.log('Dados retornados da API:', data);
+
+        const commentSection = document.querySelector(".testimonials-quotes");
+        commentSection.innerHTML = "";
+
+        data.forEach(commentData => {
+            if (commentData && commentData.comentario && commentData.email) {
+                const quoteElement = document.createElement("div");
+                quoteElement.className = "quote";
+                quoteElement.innerHTML = `
+                    <p>"${commentData.comentario}"</p>
+                    <span class="quote-author">- ${commentData.email}</span>
+                `;
+                commentSection.appendChild(quoteElement);
+            } else {
+                console.error('Dados de comentário inválidos:', commentData);
+            }
+        });
+    } catch (error) {
+        console.error('Error fetching random comments:', error);
+    }
+}
+
+fetchRandomComments();
+
+/////
+document.addEventListener('DOMContentLoaded', function () {
+    fetchAverageExhibitions();
+});
+
+async function fetchAverageExhibitions() {
+    try {
+        const response = await fetch('https://localhost:7195/api/questionario/average-exhibitions');
+        if (!response.ok) {
+            throw new Error('Erro ao buscar a média de exposições.');
+        }
+
+        const averageExhibitions = await response.json();
+
+        document.querySelector('.metrics-container .metric:nth-child(2) .percentage').textContent = averageExhibitions.toFixed(2) || '0.00';
+
+    } catch (error) {
+        console.error('Erro:', error);
+        document.querySelector('.metrics-container .metric:nth-child(2) .percentage').textContent = 'Erro ao buscar dados';
+    }
+}
+
+///////////
 document.getElementById("submit-form").addEventListener("click", async function () {
     const visitante = {
         satisfacaoGeral: document.getElementById("satisfaction-1").value,
