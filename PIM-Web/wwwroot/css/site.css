@@ -534,6 +534,40 @@ textarea.user-input {
     .submit-button1:hover {
         background-color: #e03a00;
     }
+ /**/
+/**/
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff4500;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    max-width: 90%;
+    width: auto; 
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/**/
+/**/
+
 
 .results-container {
     width: 100%;
@@ -1097,6 +1131,12 @@ footer {
         .carousel {
             padding: 2rem 0rem;
         }
+        .alert {
+            font-size: 1rem;
+            padding: 12px; 
+            top: 15px; 
+            right: 15px;
+        }
 
         .info {
             padding: 5rem 0rem;
@@ -1468,6 +1508,12 @@ footer {
             height: 0%;
             background-color: #fff;
             justify-content: center;
+        }
+        .alert {
+            font-size: 0.9rem;
+            padding: 10px; 
+            top: 10px; 
+            right: 10px; 
         }
 
         .results-title h1 {

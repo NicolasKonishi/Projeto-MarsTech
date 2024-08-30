@@ -117,6 +117,9 @@ document.getElementById("submit-form").addEventListener("click", async function 
         email: document.getElementById("user-email-input").value
     };
 
+    const alertMessage = document.getElementById("alert-message");
+    const alertBox = document.getElementById("custom-alert");
+
     try {
         const response = await fetch("https://localhost:7195/api/Questionario", {
             method: "POST",
@@ -127,12 +130,27 @@ document.getElementById("submit-form").addEventListener("click", async function 
         });
 
         if (response.ok) {
-            alert("Obrigado por enviar sua opinião!");
+            alertMessage.textContent = "Obrigado por enviar sua opinião!";
         } else {
-            alert("Erro ao enviar sua opinião.");
+            alertMessage.textContent = "Erro ao enviar sua opinião.";
         }
     } catch (error) {
-        alert("Erro ao enviar sua opinião.");
+        alertMessage.textContent = "Erro ao enviar sua opinião.";
         console.error("Erro:", error);
     }
+
+    showAlert();
 });
+
+function showAlert() {
+    const alertBox = document.getElementById("custom-alert");
+
+    alertBox.classList.remove("show", "fade-out");
+    void alertBox.offsetWidth; 
+    alertBox.classList.add("show");
+
+    setTimeout(() => {
+        alertBox.classList.add("fade-out");
+        setTimeout(() => alertBox.classList.add("hidden"), 500);
+    }, 3000);
+}
