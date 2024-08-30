@@ -227,3 +227,9 @@ function showAlert() {
         setTimeout(() => alertBox.classList.add("hidden"), 500);
     }, 3000);
 }
+document.getElementById('user-email-input').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        console.log('Enter pressionado, mas não permitido.');
+    }
+});
