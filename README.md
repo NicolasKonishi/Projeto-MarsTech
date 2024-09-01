@@ -67,9 +67,12 @@ A API desenvolvida serve como um intermediário para a comunicação entre o ban
 
 ## Captura de Tela
 
-Abaixo está uma captura de tela da página HTML do sistema Web:
+Abaixo está uma captura de tela da página HTML do sistema Web e os endpoints da API:
 
-![Print da Página HTML]<img src="Imagens/captura-web.png">
+<img src="Imagens/captura-web.png">
+<img src="Imagens/captura-api.png">
+
+
 
 ## Conclusão
 
