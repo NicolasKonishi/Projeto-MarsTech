@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIM-Web", "PIM-Web\PIM-Web.csproj", "{C37FFA65-11CF-4AF5-A830-BCF12156183C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PIM-Web", "PIM-Web\PIM-Web.csproj", "{C37FFA65-11CF-4AF5-A830-BCF12156183C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API-Web", "API-Web\API-Web.csproj", "{94FAC401-6D9B-4BA6-95B9-E2F0E917FE0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API-Web", "API-Web\API-Web.csproj", "{94FAC401-6D9B-4BA6-95B9-E2F0E917FE0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIM-WPF", "PIM-WPF\PIM-WPF.csproj", "{0DE0F7AC-0306-41C9-A357-215A6AC44B4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{94FAC401-6D9B-4BA6-95B9-E2F0E917FE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94FAC401-6D9B-4BA6-95B9-E2F0E917FE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94FAC401-6D9B-4BA6-95B9-E2F0E917FE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DE0F7AC-0306-41C9-A357-215A6AC44B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE0F7AC-0306-41C9-A357-215A6AC44B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE0F7AC-0306-41C9-A357-215A6AC44B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE0F7AC-0306-41C9-A357-215A6AC44B4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
