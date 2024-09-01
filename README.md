@@ -1,8 +1,8 @@
-# Museu Multitemático: A Possível Viagem do Homem a Marte
+# Museu Marstech: A Possível Viagem do Homem a Marte 🟠
 
 ## Descrição do Projeto
 
-Este projeto visa o desenvolvimento de um sistema para um museu multitemático com o tema da possível viagem do homem a Marte. O sistema permitirá que visitantes consultem informações sobre as obras expostas e um breve histórico de cada uma através de um totem ou dispositivos móveis, como smartphones. Além disso, os visitantes serão incentivados a responder um questionário de múltipla escolha sobre sua satisfação com a exposição.
+Este projeto visa o desenvolvimento de um sistema para o **Museu Marstech**, um museu multitemático focado na possível viagem do homem a Marte. O sistema permitirá que visitantes consultem informações sobre as obras expostas e um breve histórico de cada uma através de um totem ou dispositivos móveis, como smartphones. Além disso, os visitantes serão incentivados a responder um questionário de múltipla escolha sobre sua satisfação com a exposição.
 
 ### Funcionalidades Principais
 - **Consulta de Obras:** Visitantes poderão acessar detalhes sobre as obras expostas através de um totem ou dispositivos móveis.
@@ -10,6 +10,7 @@ Este projeto visa o desenvolvimento de um sistema para um museu multitemático c
 - **Campos Opcionais:** E-mail para futuros convites e um campo para sugestões diversas.
 - **Relatórios:** O sistema gerará relatórios para auxiliar na tomada de decisão sobre melhorias ou encerramento da temporada de exibição.
 - **Conformidade com a LGPD:** Coleta de dados não sensíveis, garantindo a privacidade dos visitantes.
+- **API para Comunicação:** Desenvolvi uma API que facilita a comunicação com o banco de dados, enviando e capturando dados necessários para o serviço web e para o serviço do WPF.
 
 ### Tecnologias Utilizadas
 - **Back-end:** .NET com C#.
@@ -23,6 +24,7 @@ Este projeto visa o desenvolvimento de um sistema para um museu multitemático c
 2. **Desenvolvimento:**
    - **Totem:** Desenvolvido em .NET com C# e WPF.
    - **Web:** Desenvolvido em HTML, CSS, e C# .NET.
+   - **API:** Desenvolvimento de uma API para comunicação com o banco de dados, garantindo a troca eficiente de dados entre o banco, o serviço Web e o serviço WPF.
 3. **Diagramas:**
    - Diagrama de Classes
    - Diagrama de Sequência
@@ -42,6 +44,9 @@ Este projeto visa o desenvolvimento de um sistema para um museu multitemático c
 
 O sistema será projetado para ser utilizado em monitores sensíveis ao toque. Um teclado personalizado será desenvolvido dentro da aplicação, evitando o uso do teclado visual do sistema operacional. O sistema deverá suportar a coleta de dados em um servidor, hospedando tanto a parte Web quanto o banco de dados, com as mesmas funcionalidades disponíveis nos totens.
 
+### API de Comunicação
+A API desenvolvida serve como um intermediário para a comunicação entre o banco de dados e as aplicações front-end (Web e Totem), permitindo que as informações sejam enviadas e recebidas de forma eficiente e segura.
+
 ## Requisitos
 - **Desenvolvimento do Totem:** Plataforma .NET com C# e WPF.
 - **Desenvolvimento Web:** HTML, CSS e C# .NET.
@@ -60,8 +65,12 @@ O sistema será projetado para ser utilizado em monitores sensíveis ao toque. U
 - **Testes Automatizados:** Implementação de testes unitários e de integração.
 - **CI/CD:** Estudo teórico sobre a integração contínua e entrega contínua no projeto.
 
+## Captura de Tela
+
+Abaixo está uma captura de tela da página HTML do sistema Web:
+
+![Print da Página HTML]("Imagens/captura-api.png")
+
 ## Conclusão
 
-Este projeto visa proporcionar uma experiência interativa e educativa para os visitantes do museu, incentivando a participação ativa através de questionários e garantindo a qualidade do sistema com o uso de boas práticas de desenvolvimento e controle de qualidade.
-
-
+O **Museu Marstech** proporciona uma experiência interativa e educativa para os visitantes, incentivando a participação ativa através de questionários e garantindo a qualidade do sistema com o uso de boas práticas de desenvolvimento e controle de qualidade.
