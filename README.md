@@ -69,7 +69,7 @@ A API desenvolvida serve como um intermediário para a comunicação entre o ban
 
 Abaixo está uma captura de tela da página HTML do sistema Web:
 
-![Print da Página HTML](src: "Imagens/captura-web.png")
+![Print da Página HTML]<img src="Imagens/captura-api.png">
 
 ## Conclusão
 
