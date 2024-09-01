@@ -12,6 +12,6 @@
         ResizeMode="NoResize"
         KeyDown="Window_KeyDown">    
     <Grid>
-
+        <Button>OLA</Button>
     </Grid>
 </Window>
