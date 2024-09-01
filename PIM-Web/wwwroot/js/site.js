@@ -225,7 +225,7 @@ function showAlert() {
     setTimeout(() => {
         alertBox.classList.add("fade-out");
         setTimeout(() => alertBox.classList.add("hidden"), 500);
-    }, 3000);
+    }, 1000);
 }
 document.getElementById('user-email-input').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {

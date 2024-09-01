@@ -537,20 +537,29 @@ textarea.user-input {
 
 .alert {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #ff4500;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #982c04e5;
     color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 4rem;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-    max-width: 90%;
-    width: auto;
-    box-sizing: border-box;
-    text-align: center;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    z-index: 1000;
 }
+
+    .alert h3 {
+        font-family: "Dela Gothic One", sans-serif;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .alert p {
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.6rem;
+        text-align: center;
+    }
 
 .hidden {
     display: none;
@@ -558,6 +567,46 @@ textarea.user-input {
 
 .show {
     display: block;
+}
+
+@keyframes imageSwap {
+    0% {
+        background-image: url('images/000.png');
+    }
+
+    16.67% {
+        background-image: url('images/001.png');
+    }
+
+    33.33% {
+        background-image: url('images/002.png');
+    }
+
+    50% {
+        background-image: url('images/003.png');
+    }
+
+    66.67% {
+        background-image: url('images/004.png');
+    }
+
+    83.33% {
+        background-image: url('images/005.png');
+    }
+}
+
+.image-sequence {
+    width: 20rem;
+    height: 20rem;
+    background-size: cover;
+    animation: imageSwap 1s infinite;
+}
+
+.alert-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .fade-out {
@@ -1063,6 +1112,7 @@ footer {
         font-size: 1.2rem;
     }
 
+
     .metrics-container {
         width: 100%;
         flex-direction: column;
@@ -1171,6 +1221,23 @@ footer {
         .form-description {
             width: 90%;
         }
+
+        .alert {
+            top: 50%;
+            left: 50%;
+                    }
+
+            .alert h3 {
+                font-family: "Dela Gothic One", sans-serif;
+                font-size: 1.5rem;
+            }
+
+            .alert p {
+                font-family: "DM Sans", sans-serif;
+                font-size: 1.6rem;
+                text-align: center;
+            }
+
 
         .form-content {
             padding: 5rem 5rem;
