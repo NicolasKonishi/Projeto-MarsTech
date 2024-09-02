@@ -12,6 +12,29 @@
         ResizeMode="NoResize"
         KeyDown="Window_KeyDown">    
     <Grid>
-        <Button>OLA</Button>
+        <Border Background="#491400"/>
+        
+        <Grid>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="228"/>
+                <ColumnDefinition Width="622"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid 
+                HorizontalAlignment="Left"
+                  Width="228"/>
+            <Border Background="Black" 
+                    CornerRadius="0,10,10,0"/>
+
+            <StackPanel Height="400"
+                        Width="228">
+
+                <!--<menu><menu>-->
+                
+
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Window>
