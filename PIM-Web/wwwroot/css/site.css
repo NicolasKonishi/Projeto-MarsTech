@@ -716,7 +716,7 @@ textarea.user-input {
 
 .quote-author {
     margin-top: 10rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #ff8255;
 }
 
@@ -1796,7 +1796,7 @@ footer {
 
         .form-inputs {
             padding-top: 0.5rem;
-            row-gap: 2rem;
+            row-gap: 3rem;
             justify-content: end;
         }
         .alert {
@@ -1804,9 +1804,8 @@ footer {
         }
 
         .input-container {
-            height: 4rem;
+            height: 6rem;
             width: 100%;
-            row-gap: 0.3rem;
         }
 
             .input-container label {
@@ -1915,8 +1914,8 @@ footer {
             }
 
         .post-img {
-            width: 100px;
-            height: 100px;
+            width: 5rem;
+            height: 5rem;
         }
 
         .post-content {
@@ -1924,7 +1923,10 @@ footer {
         }
 
             .post-content p {
-                font-size: 1rem;
+                font-size: 0.7rem;
             }
+        .post-date span {
+            font-size: 0.5rem;
+        }
     }
 }
