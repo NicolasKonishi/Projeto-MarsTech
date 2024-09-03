@@ -23,22 +23,21 @@ builder.Services.AddCors(options =>
                      .AllowAnyMethod();
           });
 });
+
+
 builder.Services.AddLogging();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
 app.UseHttpsRedirection();
 
-app.UseCors("AllowAll");
+app.UseCors("wasm");
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.Run();
