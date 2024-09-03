@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PIM_WPF"
         mc:Ignorable="d"
+        Style="{StaticResource MaterialDesignWindow}"
         Title="MarsTech - Museu de Exploração de Marte" Height="450" Width="800"
         WindowState="Maximized"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        KeyDown="Window_KeyDown">    
+        KeyDown="Window_KeyDown">
     <Grid>
         <Border Background="#491400"/>
-        
+
         <Grid>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="228"/>
                 <ColumnDefinition Width="622"/>
@@ -23,17 +24,16 @@
 
             <Grid 
                 HorizontalAlignment="Left"
-                  Width="228"/>
+                  Width="228">
+            </Grid>
+
             <Border Background="Black" 
-                    CornerRadius="0,10,10,0"/>
+                    CornerRadius="0,10,10,0">
+            </Border>
 
-            <StackPanel Height="400"
-                        Width="228">
-
-                <!--<menu><menu>-->
-                
-
-            </StackPanel>
+            <StackPanel
+                Width="228" 
+                Margin="0,76,0,10"/>
 
         </Grid>
     </Grid>
