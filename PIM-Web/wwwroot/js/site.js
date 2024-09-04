@@ -196,3 +196,61 @@ document.getElementById('user-email-input').addEventListener('keydown', function
         console.log('Enter pressionado, mas não permitido.');
     }
 });
+
+
+const carouselImages = document.querySelector('.carousel-images');
+const carouselButtons = document.querySelectorAll('.carousel-button');
+const totalImages = document.querySelectorAll('.carousel-item1').length;
+let currentIndex = 0;
+
+function updateCarousel() {
+    carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+    document.querySelector('.carousel-button.selected').classList.remove('selected');
+    carouselButtons[currentIndex].classList.add('selected');
+}
+
+carouselButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+    });
+});
+
+let isDragging = false;
+let startPos = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+
+carouselImages.addEventListener('touchstart', touchStart);
+carouselImages.addEventListener('touchmove', touchMove);
+carouselImages.addEventListener('touchend', touchEnd);
+
+function touchStart(event) {
+    isDragging = true;
+    startPos = event.touches[0].clientX;
+}
+
+function touchMove(event) {
+    if (isDragging) {
+        const currentPosition = event.touches[0].clientX;
+        currentTranslate = prevTranslate + currentPosition - startPos;
+        carouselImages.style.transform = `translateX(${currentTranslate}px)`;
+    }
+}
+
+function touchEnd() {
+    isDragging = false;
+    const movedBy = currentTranslate - prevTranslate;
+
+    if (movedBy < -50 && currentIndex < totalImages - 1) {
+        currentIndex += 1;
+    }
+    if (movedBy > 50 && currentIndex > 0) {
+        currentIndex -= 1;
+    }
+
+    updateCarousel();
+    prevTranslate = currentIndex * -carouselImages.clientWidth;
+}
+
+carouselButtons[0].classList.add('selected');
