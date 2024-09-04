@@ -72,21 +72,6 @@
     showImage(currentIndex);
 });
 
-const metrics = {
-    overallSatisfaction: 75,
-    serviceRating: 90,
-    testimonials: [
-        {
-            text: "O museu é incrível! Adorei a exposição sobre a primeira viagem à Lua.",
-            author: "João Silva",
-        },
-        {
-            text: "A experiência foi fantástica, aprendi muito sobre a história da exploração espacial.",
-            author: "Maria Oliveira",
-        },
-    ],
-};
-
 
 async function fetchRandomComments() {
     try {

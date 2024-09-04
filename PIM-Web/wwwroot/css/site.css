@@ -1268,7 +1268,7 @@ footer {
 
         .presentation-container {
             width: 90%;
-            margin-top: 0;
+            margin-top: 5rem;
         }
 
         .destaks-container {
@@ -1800,9 +1800,14 @@ footer {
             justify-content: end;
         }
         .alert {
-            width: 15rem;
+            width: 90%;
+            }
+        .alert h3{
+            font-size: 1.4rem;
         }
-
+        .alert p {
+            font-size: 1rem;
+        }
         .input-container {
             height: 6rem;
             width: 100%;
