@@ -967,7 +967,7 @@ footer {
 
     .home-container {
         height: 100vh;
-        padding-top: 2rem;
+        padding-top: 25rem;
     }
 
     .presentation-container {
@@ -1026,18 +1026,20 @@ footer {
 
     .welcome-container {
         display: block;
-        height: 80%;
+        height: 70vh;
         margin-top: 1rem;
     }
-
+    .astronaut-container{
+        display: none;
+    }
     .signature-container {
         display: block;
         height: 100%;
         margin-top: 2rem;
     }
 
-    .signature-content {
-        height: 50%;
+    .signature-content{
+        justify-content: center;
     }
 
     .signature-text {
@@ -1137,6 +1139,11 @@ footer {
 
     footer {
         padding: 5rem;
+    }
+
+    .post-img{
+        width: 5rem;
+        height: 5rem;
     }
 
     @media (max-width: 1024px) {
@@ -1263,7 +1270,7 @@ footer {
         }
 
         .home-container {
-            align-items: center;
+            height: 100vh;
         }
 
         .presentation-container {
@@ -1376,7 +1383,7 @@ footer {
 
     @media (max-width: 768px) {
         .home-container {
-            height: 100%;
+           
         }
 
         .destaks-container {
@@ -1427,17 +1434,16 @@ footer {
 
         .carousel-images {
             width: 100%;
-            height: 50%;
         }
 
         .carousel-buttons {
-            margin-top: 13rem;
+            margin-top: 1rem;
         }
 
         .carousel {
             margin: 5rem;
             width: 80%;
-            height: 30%;
+            height: 100%;
         }
 
         .info {
@@ -1497,7 +1503,7 @@ footer {
         }
 
         footer {
-            height: 150vh;
+            height: 150%;
             display: block;
             padding-top: 60px;
         }
@@ -1526,6 +1532,10 @@ footer {
     }
 
     @media (max-width: 600px) {
+
+        .home-container{
+            padding-top: 1rem;
+        }
         .presentation-container h1 {
             text-align: center;
         }
@@ -1618,7 +1628,9 @@ footer {
             height: 100px;
             width: 100px;
         }
-
+        .post-content{
+            padding: 0rem 0rem 0rem 1rem;
+        }
         .post-content p {
             font-size: 1.2rem;
         }
@@ -1668,6 +1680,7 @@ footer {
             background-position: 50% 50%;
             display: block;
             justify-content: center;
+            padding-top: 5rem;
         }
 
         .destaks-container {
