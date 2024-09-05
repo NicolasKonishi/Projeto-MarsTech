@@ -1,4 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+﻿
+document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".carousel-button");
     const carouselImages = document.querySelector(".carousel-images");
     const totalItems = document.querySelectorAll(".carousel-item1").length;
@@ -20,16 +21,24 @@
         },
         {
             title: "O Enigma Vermelho",
-            description: "Esta obra explora a cor marcante de Marte, causada pela oxidação do ferro em sua superfície, criando um vasto deserto de poeira vermelha. O Enigma Vermelho simboliza mistério e a busca por compreender o desconhecido.",
+            description:
+                "Esta obra explora a cor marcante de Marte, causada pela oxidação do ferro em sua superfície, criando um vasto deserto de poeira vermelha. O Enigma Vermelho simboliza mistério e a busca por compreender o desconhecido.",
             backgroundImage: "./css/images/obra3-bg.png",
         },
         {
             title: "Sobrevivência Extrema",
-            description: "Esta obra retrata os desafios de viver em Marte, um ambiente árido e inóspito. Com temperaturas extremas e uma atmosfera imprópria para a vida humana, a obra nos faz refletir sobre a viabilidade de sobreviver em Marte e a necessidade de inovação para superar esses obstáculos.",
+            description:
+                "Esta obra retrata os desafios de viver em Marte, um ambiente árido e inóspito. Com temperaturas extremas e uma atmosfera imprópria para a vida humana, a obra nos faz refletir sobre a viabilidade de sobreviver em Marte e a necessidade de inovação para superar esses obstáculos.",
             backgroundImage: "./css/images/obra4-bg.png",
         },
     ];
+
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
     let currentIndex = 0;
+    const threshold = 50; 
 
     function showImage(index) {
         if (index >= totalItems) {
@@ -39,6 +48,7 @@
         } else {
             currentIndex = index;
         }
+        carouselImages.style.transition = 'transform 0.5s ease';
         carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
         updateButtons();
         updateInfo();
@@ -70,6 +80,41 @@
     });
 
     showImage(currentIndex);
+
+    const carouselWidth = carouselImages.clientWidth; 
+
+    carouselImages.addEventListener('touchstart', touchStart);
+    carouselImages.addEventListener('touchmove', touchMove);
+    carouselImages.addEventListener('touchend', touchEnd);
+
+    function touchStart(event) {
+        isDragging = true;
+        startPos = event.touches[0].clientX;
+        carouselImages.style.transition = 'none'; 
+        prevTranslate = -currentIndex * carouselWidth; 
+    }
+
+    function touchMove(event) {
+        if (isDragging) {
+            const currentPosition = event.touches[0].clientX;
+            currentTranslate = prevTranslate + currentPosition - startPos; 
+            carouselImages.style.transform = `translateX(${currentTranslate}px)`; 
+        }
+    }
+
+    function touchEnd() {
+        isDragging = false;
+
+        const movedBy = currentTranslate - prevTranslate; 
+
+        if (movedBy < -threshold && currentIndex < totalItems - 1) {
+            currentIndex += 1; 
+        } else if (movedBy > threshold && currentIndex > 0) {
+            currentIndex -= 1; 
+        }
+
+        showImage(currentIndex);
+    }
 });
 
 
@@ -194,79 +239,9 @@ function showAlert() {
     }, 2000);
 }
 
-
 document.getElementById('user-email-input').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault();
         console.log('Enter pressionado, mas não permitido.');
     }
 });
-
-const carouselImages = document.querySelector('.carousel-images');
-const carouselButtons = document.querySelectorAll('.carousel-button');
-const totalImages = document.querySelectorAll('.carousel-item1').length;
-let currentIndex = 0;
-
-function updateCarousel() {
-    carouselImages.style.transition = 'transform 0.4s ease'; 
-    carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-    document.querySelector('.carousel-button.selected').classList.remove('selected');
-    carouselButtons[currentIndex].classList.add('selected');
-}
-
-carouselButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
-    });
-});
-
-let isDragging = false;
-let startPos = 0;
-let currentTranslate = 0;
-let prevTranslate = 0;
-let animationID;
-
-carouselImages.addEventListener('touchstart', touchStart);
-carouselImages.addEventListener('touchmove', touchMove);
-carouselImages.addEventListener('touchend', touchEnd);
-
-function touchStart(event) {
-    isDragging = true;
-    startPos = event.touches[0].clientX;
-    carouselImages.style.transition = 'none';
-    animationID = requestAnimationFrame(animation);
-}
-
-function touchMove(event) {
-    if (isDragging) {
-        const currentPosition = event.touches[0].clientX;
-        currentTranslate = prevTranslate + currentPosition - startPos;
-    }
-}
-
-function touchEnd() {
-    isDragging = false;
-    cancelAnimationFrame(animationID);
-
-    const movedBy = currentTranslate - prevTranslate;
-
-    if (movedBy < -50 && currentIndex < totalImages - 1) {
-        currentIndex += 1;
-    }
-    if (movedBy > 50 && currentIndex > 0) {
-        currentIndex -= 1;
-    }
-
-    updateCarousel();
-    prevTranslate = currentIndex * -carouselImages.clientWidth;
-}
-
-function animation() {
-    if (isDragging) {
-        carouselImages.style.transform = `translateX(${currentTranslate}px)`;
-        requestAnimationFrame(animation);
-    }
-}
-
-carouselButtons[0].classList.add('selected');

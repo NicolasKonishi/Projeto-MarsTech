@@ -175,6 +175,7 @@ li {
     justify-content: space-between;
     padding: 5rem 10rem;
     transition: background-image 0.5s ease-in-out;
+  
 }
 
 .carousel-and-info {
@@ -190,8 +191,10 @@ li {
 }
 
 .carousel-images {
+    touch-action: pan-y;
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .carousel-item1 {
