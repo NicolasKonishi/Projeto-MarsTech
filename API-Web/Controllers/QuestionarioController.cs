@@ -16,7 +16,7 @@ namespace API_Web.Controllers
 
         public QuestionarioController(QuestionarioContext context, ILogger<QuestionarioController> logger)
         {
-            _context = context;
+            _context = context; 
             _logger = logger;
         }
         [HttpPost]
