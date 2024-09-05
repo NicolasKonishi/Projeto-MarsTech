@@ -1150,7 +1150,13 @@ footer {
         header {
             display: none;
         }
+        .home-container{
+            padding-top: 10rem;
+        }
 
+        .welcome-container{
+            height: 90vh;
+        }
         .presentation-container {
             width: 90%;
             row-gap: 0.5rem;

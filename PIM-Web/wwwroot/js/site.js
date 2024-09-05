@@ -202,14 +202,13 @@ document.getElementById('user-email-input').addEventListener('keydown', function
     }
 });
 
-
-
 const carouselImages = document.querySelector('.carousel-images');
 const carouselButtons = document.querySelectorAll('.carousel-button');
 const totalImages = document.querySelectorAll('.carousel-item1').length;
 let currentIndex = 0;
 
 function updateCarousel() {
+    carouselImages.style.transition = 'transform 0.4s ease'; 
     carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
     document.querySelector('.carousel-button.selected').classList.remove('selected');
     carouselButtons[currentIndex].classList.add('selected');
@@ -226,6 +225,7 @@ let isDragging = false;
 let startPos = 0;
 let currentTranslate = 0;
 let prevTranslate = 0;
+let animationID;
 
 carouselImages.addEventListener('touchstart', touchStart);
 carouselImages.addEventListener('touchmove', touchMove);
@@ -234,18 +234,21 @@ carouselImages.addEventListener('touchend', touchEnd);
 function touchStart(event) {
     isDragging = true;
     startPos = event.touches[0].clientX;
+    carouselImages.style.transition = 'none';
+    animationID = requestAnimationFrame(animation);
 }
 
 function touchMove(event) {
     if (isDragging) {
         const currentPosition = event.touches[0].clientX;
         currentTranslate = prevTranslate + currentPosition - startPos;
-        carouselImages.style.transform = `translateX(${currentTranslate}px)`;
     }
 }
 
 function touchEnd() {
     isDragging = false;
+    cancelAnimationFrame(animationID);
+
     const movedBy = currentTranslate - prevTranslate;
 
     if (movedBy < -50 && currentIndex < totalImages - 1) {
@@ -257,6 +260,13 @@ function touchEnd() {
 
     updateCarousel();
     prevTranslate = currentIndex * -carouselImages.clientWidth;
+}
+
+function animation() {
+    if (isDragging) {
+        carouselImages.style.transform = `translateX(${currentTranslate}px)`;
+        requestAnimationFrame(animation);
+    }
 }
 
 carouselButtons[0].classList.add('selected');
