@@ -167,6 +167,9 @@ document.getElementById("submit-form").addEventListener("click", async function 
 
         if (response.ok) {
             alertMessage.textContent = "Obrigado por enviar sua opinião!";
+
+            document.getElementById("user-message").value = '';
+            document.getElementById("user-email-input").value = '';
         } else {
             alertMessage.textContent = "Erro ao enviar sua opinião.";
         }
@@ -182,7 +185,7 @@ function showAlert() {
     const alertBox = document.getElementById("custom-alert");
 
     alertBox.classList.remove("show", "fade-out");
-    void alertBox.offsetWidth; 
+    void alertBox.offsetWidth;
     alertBox.classList.add("show");
 
     setTimeout(() => {
@@ -190,12 +193,15 @@ function showAlert() {
         setTimeout(() => alertBox.classList.add("hidden"), 500);
     }, 2000);
 }
+
+
 document.getElementById('user-email-input').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault();
         console.log('Enter pressionado, mas não permitido.');
     }
 });
+
 
 
 const carouselImages = document.querySelector('.carousel-images');
