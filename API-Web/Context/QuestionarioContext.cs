@@ -8,7 +8,6 @@ namespace API_Web.Context
         public QuestionarioContext(DbContextOptions<QuestionarioContext> options) : base(options) { }
 
         public DbSet<QuestionarioResposta> QuestionarioRespostas { get; set; }
-        public DbSet<Visitante> Visitantes { get; set; }
 
     }
 }
