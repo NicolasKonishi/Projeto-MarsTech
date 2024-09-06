@@ -14,7 +14,7 @@
 
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"
-                    ImageSource="C:\Users\Pichau\OneDrive\Desktop\PIM\Projeto-MarsTech\PIM-WPF\Images\over2.png"/>
+                    ImageSource="pack://application:,,,/Images/over2.png"/>
 
         <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
 
@@ -101,8 +101,8 @@
                                       Style="{StaticResource tb_style}">
 
                             <ToggleButton.Background>
-                                
-                                <ImageBrush ImageSource="C:\Users\Pichau\OneDrive\Desktop\PIM\Projeto-MarsTech\PIM-WPF\Images\qd.png"
+
+                                <ImageBrush ImageSource="pack://application:,,,/Images/qd.png"
                                             Stretch="None"/>
                                 
                             </ToggleButton.Background>
