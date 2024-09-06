@@ -19,7 +19,6 @@ namespace PIM_WPF
         public MainWindow()
         {
             InitializeComponent();
-            InitializeComponent();
             WindowState = WindowState.Maximized;
             WindowStyle = WindowStyle.None;
             ResizeMode = ResizeMode.NoResize;
@@ -31,11 +30,6 @@ namespace PIM_WPF
             {
                 this.Close();
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
