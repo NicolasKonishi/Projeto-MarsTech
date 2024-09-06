@@ -15,6 +15,18 @@
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"
                     ImageSource="pack://application:,,,/Images/over2.png"/>
+        
+        
+        <Style x:Key="font_style" TargetType="TextBlock">
+
+            <Setter Property="FontFamily" Value="fonts/DelaGothicOne-Regular.ttf"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+
+        </Style>
+
 
         <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
 
@@ -77,7 +89,8 @@
                                    FontSize="22"
                                    Background="Transparent"
                                    HorizontalAlignment="Left"
-                                   VerticalAlignment="Center">
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource font_style}">
 
                             <TextBlock.Effect>
 
@@ -154,6 +167,40 @@
                         </ToggleButton>
                         
                     </Grid>
+
+                    <ListView x:Name="LV"
+                              Background="Transparent"
+                              BorderBrush="Transparent"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="pack://application:,,,/Images/Home.png"
+                                       Stretch="None"
+                                       Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_home"
+                                         Content="home"/>
+
+                            </ListViewItem.ToolTip>
+                            
+                        </ListViewItem>
+                        
+                        
+                    </ListView>
                     
                 </StackPanel>
                 
