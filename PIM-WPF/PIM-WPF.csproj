@@ -10,22 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Home.png" />
+    <None Remove="Images\Introducao.png" />
+    <None Remove="Images\over2.png" />
+    <None Remove="Images\qd.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="DataSet1.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="DataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
 
 </Project>

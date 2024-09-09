@@ -5,36 +5,210 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PIM_WPF"
         mc:Ignorable="d"
-        Style="{StaticResource MaterialDesignWindow}"
         Title="MarsTech - Museu de Exploração de Marte" Height="450" Width="800"
         WindowState="Maximized"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         KeyDown="Window_KeyDown">
+
+    <Window.Resources>
+        <ImageBrush x:Key="tb_mouse_over"
+                    ImageSource="pack://application:,,,/Images/over2.png"/>
+        
+        
+        <Style x:Key="font_style" TargetType="TextBlock">
+
+            <Setter Property="FontFamily" Value="fonts/DelaGothicOne-Regular.ttf"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+
+        </Style>
+
+
+        <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
+
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+
+                        <Border x:Name="Border"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="True">
+
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsMouseOver" Value="True">
+
+                                <Setter Property="Background"
+                                TargetName="Border"
+                                Value="{StaticResource tb_mouse_over}"/>
+
+                                <Setter Property="BorderBrush"
+                                TargetName="Border"
+                                Value="{StaticResource tb_mouse_over}"/>
+
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+            
+        </Style>
+
+    </Window.Resources>
+    
     <Grid>
-        <Border Background="#491400"/>
+        <Grid Background="#491400">
+            
+            <Grid x:Name="nav_pn1"
+                  HorizontalAlignment="Left"
+                  Width="65"
+                  Background="Black">
+                
+                <StackPanel x:Name="st_pn1">
 
-        <Grid>
+                    <Grid Height="90">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="228"/>
-                <ColumnDefinition Width="622"/>
-            </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="1"
+                                   Grid.Column="0"
+                                   Margin="73,-20,0,0"
+                                   Text="M E N U"
+                                   Foreground="White"
+                                   FontSize="22"
+                                   Background="Transparent"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource font_style}">
 
-            <Grid 
-                HorizontalAlignment="Left"
-                  Width="228">
+                            <TextBlock.Effect>
+
+                                <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Direction="-90"
+                                                  Color="White"/>
+
+                            </TextBlock.Effect>
+                            
+                        </TextBlock>
+                        
+                        <ToggleButton x:Name="tg_btn"
+                                      Grid.Column="0"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Left"
+                                      Margin="18,-20,0,0"
+                                      Height="30"
+                                      Width="30"
+                                      BorderThickness="0"
+                                      Style="{StaticResource tb_style}">
+
+                            <ToggleButton.Background>
+
+                                <ImageBrush ImageSource="pack://application:,,,/Images/qd.png"
+                                            Stretch="None"/>
+                                
+                            </ToggleButton.Background>
+
+                            <ToggleButton.Triggers>
+                                
+                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                    
+                                    <BeginStoryboard>
+                                        
+                                        <Storyboard x:Name="HideStackPanel">
+
+                                            <DoubleAnimation 
+                                                Storyboard.TargetName="nav_pn1"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="230" To="65"
+                                                Duration="0:0:0.2">
+                                                
+                                            </DoubleAnimation>
+                                            
+                                        </Storyboard>
+                                        
+                                    </BeginStoryboard>
+                                    
+                                </EventTrigger>
+
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+
+                                    <BeginStoryboard>
+                                        
+                                        <Storyboard x:Name="ShowStackPanel">
+
+                                            <DoubleAnimation Storyboard.TargetName="nav_pn1"
+                                                             Storyboard.TargetProperty="Width"
+                                                             BeginTime="0:0:0"
+                                                             From="65" To="230"
+                                                             Duration="0:0:0.3">
+                                            </DoubleAnimation>
+                                            
+                                        </Storyboard>
+                                        
+                                    </BeginStoryboard>
+                                    
+                                </EventTrigger>
+                                
+                            </ToggleButton.Triggers>
+
+                        </ToggleButton>
+                        
+                    </Grid>
+
+                    <ListView x:Name="LV"
+                              Background="Transparent"
+                              BorderBrush="Transparent"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="pack://application:,,,/Images/Home.png"
+                                       Stretch="None"
+                                       Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Home"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_home"
+                                         Content="home"/>
+
+                            </ListViewItem.ToolTip>
+                            
+                        </ListViewItem>
+                        
+                        
+                    </ListView>
+                    
+                </StackPanel>
+                
             </Grid>
-
-            <Border Background="Black" 
-                    CornerRadius="0,10,10,0">
-            </Border>
-
-            <StackPanel
-                Width="228" 
-                Margin="0,76,0,10"/>
-
+            
         </Grid>
+        
     </Grid>
+        
+     
 </Window>
