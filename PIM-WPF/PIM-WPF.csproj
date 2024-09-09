@@ -20,11 +20,4 @@
     <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Images\Home.png" />
-    <Resource Include="Images\Introducao.png" />
-    <Resource Include="Images\over2.png" />
-    <Resource Include="Images\qd.png" />
-  </ItemGroup>
-
 </Project>
