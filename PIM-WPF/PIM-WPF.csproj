@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="Images\Home.png" />
     <None Remove="Images\Introducao.png" />
+    <None Remove="Images\Mais.png" />
     <None Remove="Images\over2.png" />
     <None Remove="Images\qd.png" />
   </ItemGroup>
