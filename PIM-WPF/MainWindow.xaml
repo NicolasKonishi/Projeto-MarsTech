@@ -28,6 +28,28 @@
         </Style>
 
 
+        <Style TargetType="ToolTip" x:Key="tt_style">
+
+            <Setter Property="Placement" Value="Right"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+            <Setter Property="Background" Value="#4A5668"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="fonts/DelaGothicOne-Regular.ttf"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="PlacementRectangle" Value="60,0,0,0"/>
+            <Setter Property="HorizontalOffset" Value="15"/>
+            <Setter Property="VerticalOffset" Value="6"/>
+            <Setter Property="HasDropShadow" Value="True"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+
+
+
+        </Style>
+
+
         <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
 
             <Setter Property="Template">
@@ -173,6 +195,8 @@
                               BorderBrush="Transparent"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
+                        <!--HOME-->
+                        
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15">
 
@@ -193,12 +217,42 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_home"
-                                         Content="home"/>
+                                         Content="home"
+                                         Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
                             
                         </ListViewItem>
                         
+                        <!--INTRODUÇÃO-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="pack://application:,,,/Images/Mais.png"
+                                       Stretch="None"
+                                       Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Introdução"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Introducao"
+                                         Content="Introdução"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
+                        <!--obras....continuar-->
                         
                     </ListView>
                     
