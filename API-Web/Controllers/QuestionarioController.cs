@@ -16,7 +16,7 @@ namespace API_Web.Controllers
 
         public QuestionarioController(QuestionarioContext context, ILogger<QuestionarioController> logger)
         {
-            _context = context; 
+            _context = context;
             _logger = logger;
         }
         [HttpPost]
@@ -159,62 +159,6 @@ namespace API_Web.Controllers
                 "ruim" => 1,
                 _ => null
             };
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateQuestionario(int id, [FromBody] QuestionarioResposta updatedQuestionario)
-        {
-            if (updatedQuestionario == null || id != updatedQuestionario.Id)
-            {
-                return BadRequest("Dados inválidos para a atualização.");
-            }
-
-            var existingQuestionario = await _context.QuestionarioRespostas.FindAsync(id);
-
-            if (existingQuestionario == null)
-            {
-                return NotFound(new { message = "Questionário não encontrado." });
-            }
-
-            existingQuestionario.Comentario = updatedQuestionario.Comentario;
-            existingQuestionario.Email = updatedQuestionario.Email;
-            existingQuestionario.QualidadeExposicao = updatedQuestionario.QualidadeExposicao;
-            existingQuestionario.SatisfacaoGeral = updatedQuestionario.SatisfacaoGeral;
-
-            try
-            {
-                _context.QuestionarioRespostas.Update(existingQuestionario);
-                await _context.SaveChangesAsync();
-                return Ok(existingQuestionario);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Erro ao atualizar o questionário.");
-                return StatusCode(500, "Erro interno do servidor.");
-            }
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteQuestionario(int id)
-        {
-            var questionario = await _context.QuestionarioRespostas.FindAsync(id);
-
-            if (questionario == null)
-            {
-                return NotFound(new { message = "Questionário não encontrado." });
-            }
-
-            try
-            {
-                _context.QuestionarioRespostas.Remove(questionario);
-                await _context.SaveChangesAsync();
-                return Ok(new { message = "Questionário excluído com sucesso." });
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Erro ao excluir o questionário.");
-                return StatusCode(500, "Erro interno do servidor.");
-            }
         }
 
 

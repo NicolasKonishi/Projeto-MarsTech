@@ -69,8 +69,8 @@ A API desenvolvida serve como um intermediário para a comunicação entre o ban
 
 Abaixo está uma captura de tela da página HTML do sistema Web e os endpoints da API:
 
-<img height="350" width="700"  src="Imagens/captura-web.png">
-<img height="350" width="700" src="Imagens/captura-api.png">
+<img height="380" width="700"  src="Imagens/captura-web.png">
+<img height="380" width="700" src="Imagens/captura-api.png">
 
 
 ## Conclusão
