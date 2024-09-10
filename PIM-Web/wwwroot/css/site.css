@@ -175,6 +175,7 @@ li {
     justify-content: space-between;
     padding: 5rem 10rem;
     transition: background-image 0.5s ease-in-out;
+  
 }
 
 .carousel-and-info {
@@ -190,8 +191,10 @@ li {
 }
 
 .carousel-images {
+    touch-action: pan-y;
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .carousel-item1 {
@@ -716,7 +719,7 @@ textarea.user-input {
 
 .quote-author {
     margin-top: 10rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #ff8255;
 }
 
@@ -967,7 +970,7 @@ footer {
 
     .home-container {
         height: 100vh;
-        padding-top: 2rem;
+        padding-top: 25rem;
     }
 
     .presentation-container {
@@ -1026,18 +1029,20 @@ footer {
 
     .welcome-container {
         display: block;
-        height: 80%;
+        height: 70vh;
         margin-top: 1rem;
     }
-
+    .astronaut-container{
+        display: none;
+    }
     .signature-container {
         display: block;
         height: 100%;
         margin-top: 2rem;
     }
 
-    .signature-content {
-        height: 50%;
+    .signature-content{
+        justify-content: center;
     }
 
     .signature-text {
@@ -1139,11 +1144,22 @@ footer {
         padding: 5rem;
     }
 
+    .post-img{
+        width: 5rem;
+        height: 5rem;
+    }
+
     @media (max-width: 1024px) {
         header {
             display: none;
         }
+        .home-container{
+            padding-top: 10rem;
+        }
 
+        .welcome-container{
+            height: 90vh;
+        }
         .presentation-container {
             width: 90%;
             row-gap: 0.5rem;
@@ -1179,10 +1195,11 @@ footer {
         .carousel {
             padding: 2rem 0rem;
         }
+
         .alert {
             font-size: 1rem;
-            padding: 12px; 
-            top: 15px; 
+            padding: 12px;
+            top: 15px;
             right: 15px;
         }
 
@@ -1225,7 +1242,7 @@ footer {
         .alert {
             top: 50%;
             left: 50%;
-                    }
+        }
 
             .alert h3 {
                 font-family: "Dela Gothic One", sans-serif;
@@ -1262,12 +1279,12 @@ footer {
         }
 
         .home-container {
-            align-items: center;
+            height: 100vh;
         }
 
         .presentation-container {
             width: 90%;
-            margin-top: 0;
+            margin-top: 5rem;
         }
 
         .destaks-container {
@@ -1375,7 +1392,7 @@ footer {
 
     @media (max-width: 768px) {
         .home-container {
-            height: 100%;
+           
         }
 
         .destaks-container {
@@ -1426,17 +1443,16 @@ footer {
 
         .carousel-images {
             width: 100%;
-            height: 50%;
         }
 
         .carousel-buttons {
-            margin-top: 13rem;
+            margin-top: 1rem;
         }
 
         .carousel {
             margin: 5rem;
             width: 80%;
-            height: 50%;
+            height: 100%;
         }
 
         .info {
@@ -1452,7 +1468,7 @@ footer {
         }
 
         .form-inputs {
-            row-gap: 2rem;
+            row-gap: 1rem;
             justify-content: left;
         }
 
@@ -1496,7 +1512,7 @@ footer {
         }
 
         footer {
-            height: 150vh;
+            height: 150%;
             display: block;
             padding-top: 60px;
         }
@@ -1525,6 +1541,10 @@ footer {
     }
 
     @media (max-width: 600px) {
+
+        .home-container{
+            padding-top: 1rem;
+        }
         .presentation-container h1 {
             text-align: center;
         }
@@ -1554,6 +1574,8 @@ footer {
         }
 
         .signature-container {
+            height: 105%;
+            background-color: #fff;
             flex-direction: column;
             justify-content: end;
         }
@@ -1562,6 +1584,18 @@ footer {
             width: 100%;
             height: 50%;
             justify-content: end;
+        }
+
+        .signature-title h5 {
+            font-size: 1rem;
+        }
+
+        .signature-title h1 {
+            font-size: 4rem;
+        }
+
+        .signature-text p {
+            font-size: 1.5rem;
         }
 
         .signature-button-container {
@@ -1573,12 +1607,6 @@ footer {
             height: 0%;
             background-color: #fff;
             justify-content: center;
-        }
-        .alert {
-            font-size: 0.9rem;
-            padding: 10px; 
-            top: 10px; 
-            right: 10px; 
         }
 
         .results-title h1 {
@@ -1609,11 +1637,18 @@ footer {
             height: 100px;
             width: 100px;
         }
-
+        .post-content{
+            padding: 0rem 0rem 0rem 1rem;
+        }
         .post-content p {
             font-size: 1.2rem;
         }
+        .alert {
+            width: 20rem;
+        }
+
     }
+
 
     @media (max-width: 415px) {
         header {
@@ -1631,6 +1666,7 @@ footer {
 
         .presentation-container {
             width: 100%;
+            align-items: center;
             height: 100vh;
         }
 
@@ -1645,13 +1681,15 @@ footer {
 
             .presentation-container h3 {
                 text-align: center;
-                font-size: 2rem;
+                font-size: 1.2rem;
+                width: 80%;
             }
 
         .home-container {
             background-position: 50% 50%;
             display: block;
             justify-content: center;
+            padding-top: 5rem;
         }
 
         .destaks-container {
@@ -1722,17 +1760,16 @@ footer {
         }
 
         .carousel-button {
-            margin-top: 100px;
+            margin-top: 2rem;
         }
 
         .carousel {
-            padding-top: 5rem;
-            margin: 2.5rem 0rem 2rem 2rem;
-            width: 80%;
+            margin-left: 2.5rem;
+            height: 20rem
         }
 
         .carousel-buttons {
-            margin-top: 10rem;
+            margin-top: 12rem;
         }
 
         #info-description {
@@ -1782,14 +1819,21 @@ footer {
 
         .form-inputs {
             padding-top: 0.5rem;
-            row-gap: 2rem;
+            row-gap: 3rem;
             justify-content: end;
         }
-
+        .alert {
+            width: 90%;
+            }
+        .alert h3{
+            font-size: 1.4rem;
+        }
+        .alert p {
+            font-size: 1rem;
+        }
         .input-container {
-            height: 4rem;
+            height: 6rem;
             width: 100%;
-            row-gap: 0.3rem;
         }
 
             .input-container label {
@@ -1812,7 +1856,6 @@ footer {
             font-size: 1.2rem;
             height: 3rem;
         }
-
 
         .results-container {
             flex-direction: column;
@@ -1899,8 +1942,8 @@ footer {
             }
 
         .post-img {
-            width: 100px;
-            height: 100px;
+            width: 5rem;
+            height: 5rem;
         }
 
         .post-content {
@@ -1908,7 +1951,10 @@ footer {
         }
 
             .post-content p {
-                font-size: 1rem;
+                font-size: 0.7rem;
             }
+        .post-date span {
+            font-size: 0.5rem;
+        }
     }
 }

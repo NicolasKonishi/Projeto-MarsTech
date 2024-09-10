@@ -5,7 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddTransient<VisitanteAPI>();
 builder.Services.AddHttpClient("API", client =>
 {
     client.BaseAddress = new Uri("APIServer:Url");
