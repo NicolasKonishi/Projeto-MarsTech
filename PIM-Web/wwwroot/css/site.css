@@ -1154,11 +1154,11 @@ footer {
             display: none;
         }
         .home-container{
-            padding-top: 10rem;
+            padding-top: 1rem;
         }
 
         .welcome-container{
-            height: 90vh;
+            height: 100%;
         }
         .presentation-container {
             width: 90%;
