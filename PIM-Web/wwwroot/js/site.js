@@ -1,5 +1,4 @@
-﻿
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".carousel-button");
     const carouselImages = document.querySelector(".carousel-images");
     const totalItems = document.querySelectorAll(".carousel-item1").length;
@@ -21,24 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             title: "O Enigma Vermelho",
-            description:
-                "Esta obra explora a cor marcante de Marte, causada pela oxidação do ferro em sua superfície, criando um vasto deserto de poeira vermelha. O Enigma Vermelho simboliza mistério e a busca por compreender o desconhecido.",
+            description: "Esta obra explora a cor marcante de Marte, causada pela oxidação do ferro em sua superfície, criando um vasto deserto de poeira vermelha. O Enigma Vermelho simboliza mistério e a busca por compreender o desconhecido.",
             backgroundImage: "./css/images/obra3-bg.png",
         },
         {
             title: "Sobrevivência Extrema",
-            description:
-                "Esta obra retrata os desafios de viver em Marte, um ambiente árido e inóspito. Com temperaturas extremas e uma atmosfera imprópria para a vida humana, a obra nos faz refletir sobre a viabilidade de sobreviver em Marte e a necessidade de inovação para superar esses obstáculos.",
+            description: "Esta obra retrata os desafios de viver em Marte, um ambiente árido e inóspito. Com temperaturas extremas e uma atmosfera imprópria para a vida humana, a obra nos faz refletir sobre a viabilidade de sobreviver em Marte e a necessidade de inovação para superar esses obstáculos.",
             backgroundImage: "./css/images/obra4-bg.png",
         },
     ];
-
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
     let currentIndex = 0;
-    const threshold = 50; 
 
     function showImage(index) {
         if (index >= totalItems) {
@@ -48,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             currentIndex = index;
         }
-        carouselImages.style.transition = 'transform 0.5s ease';
         carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
         updateButtons();
         updateInfo();
@@ -80,100 +70,75 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     showImage(currentIndex);
-
-    const carouselWidth = carouselImages.clientWidth; 
-
-    carouselImages.addEventListener('touchstart', touchStart);
-    carouselImages.addEventListener('touchmove', touchMove);
-    carouselImages.addEventListener('touchend', touchEnd);
-
-    function touchStart(event) {
-        isDragging = true;
-        startPos = event.touches[0].clientX;
-        carouselImages.style.transition = 'none'; 
-        prevTranslate = -currentIndex * carouselWidth; 
-    }
-
-    function touchMove(event) {
-        if (isDragging) {
-            const currentPosition = event.touches[0].clientX;
-            currentTranslate = prevTranslate + currentPosition - startPos; 
-            carouselImages.style.transform = `translateX(${currentTranslate}px)`; 
-        }
-    }
-
-    function touchEnd() {
-        isDragging = false;
-
-        const movedBy = currentTranslate - prevTranslate; 
-
-        if (movedBy < -threshold && currentIndex < totalItems - 1) {
-            currentIndex += 1; 
-        } else if (movedBy > threshold && currentIndex > 0) {
-            currentIndex -= 1; 
-        }
-
-        showImage(currentIndex);
-    }
 });
 
-async function fetchValidComment(displayedComments) {
-    try {
-        let validComment = null;
+const metrics = {
+    overallSatisfaction: 75,
+    serviceRating: 90,
+    testimonials: [
+        {
+            text: "O museu é incrível! Adorei a exposição sobre a primeira viagem à Lua.",
+            author: "João Silva",
+        },
+        {
+            text: "A experiência foi fantástica, aprendi muito sobre a história da exploração espacial.",
+            author: "Maria Oliveira",
+        },
+    ],
+};
 
-        while (!validComment) {
-            const response = await fetch("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/random-comment");
-            const commentData = await response.json();
+// métricas
+/*function updateMetrics() {
+    document.querySelector(".metric .percentage").textContent =
+        metrics.overallSatisfaction + "%";
+    document.querySelectorAll(".metric .percentage")[1].textContent =
+        metrics.serviceRating + "%";
 
-            if (commentData && commentData.email && commentData.email.includes('@')) {
-                const email = commentData.email;
+    const testimonialsContainer = document.querySelector(".testimonials-quotes");
+    testimonialsContainer.innerHTML = "";
 
-                if (!displayedComments.has(email)) {
-                    validComment = commentData; 
-                } else {
-                    console.log('Comentário repetido, buscando outro...');
-                }
-            } else {
-                console.log('Email inválido ou ausente, buscando outro comentário...');
-            }
-        }
-
-        return validComment;
-    } catch (error) {
-        console.error('Erro ao buscar comentário válido:', error);
-        return null;
-    }
+    metrics.testimonials.forEach((testimonial) => {
+        const quoteElement = document.createElement("div");
+        quoteElement.className = "quote";
+        quoteElement.innerHTML = `
+            <p>"${testimonial.text}"</p>
+            <span class="quote-author">- ${testimonial.author}</span>
+        `;
+        testimonialsContainer.appendChild(quoteElement);
+    });
 }
+updateMetrics();
+*/
 
 async function fetchRandomComments() {
     try {
-        const displayedComments = new Set();
+        const responses = await Promise.all([
+            fetch("https://localhost:7195/api/questionario/random-comment"),
+            fetch("https://localhost:7195/api/questionario/random-comment")
+        ]);
+
+        const data = await Promise.all(responses.map(response => response.json()));
+
+        console.log('Dados retornados da API:', data);
 
         const commentSection = document.querySelector(".testimonials-quotes");
         commentSection.innerHTML = "";
 
-        for (let i = 0; i < 2; i++) {
-            const commentData = await fetchValidComment(displayedComments);
-
+        data.forEach(commentData => {
             if (commentData && commentData.comentario && commentData.email) {
-                const email = commentData.email;
-                let displayEmail = email.split('@')[0] + '@****'; 
-
-                displayedComments.add(email);
-
                 const quoteElement = document.createElement("div");
                 quoteElement.className = "quote";
                 quoteElement.innerHTML = `
                     <p>"${commentData.comentario}"</p>
-                    <span class="quote-author">- ${displayEmail}</span>
+                    <span class="quote-author">- ${commentData.email}</span>
                 `;
                 commentSection.appendChild(quoteElement);
             } else {
                 console.error('Dados de comentário inválidos:', commentData);
             }
-        }
+        });
     } catch (error) {
-        console.error('Erro ao buscar comentários:', error);
+        console.error('Error fetching random comments:', error);
     }
 }
 
@@ -187,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 async function fetchAverageExhibitions() {
     try {
-        const response = await fetch('https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/average-exhibitions');
+        const response = await fetch('https://localhost:7195/api/questionario/average-exhibitions');
         if (!response.ok) {
             throw new Error('Erro ao buscar a média de exposições.');
         }
@@ -203,7 +168,7 @@ async function fetchAverageExhibitions() {
 
 async function fetchAverageSatisfaction() {
     try {
-        const response = await fetch('https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/Questionario/average-satisfaction');
+        const response = await fetch('https://localhost:7195/api/Questionario/average-satisfaction');
         if (!response.ok) {
             throw new Error('Erro ao buscar a média de satisfação.');
         }
@@ -229,7 +194,7 @@ document.getElementById("submit-form").addEventListener("click", async function 
     const alertBox = document.getElementById("custom-alert");
 
     try {
-        const response = await fetch("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/Questionario", {
+        const response = await fetch("https://localhost:7195/api/Questionario", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -239,9 +204,6 @@ document.getElementById("submit-form").addEventListener("click", async function 
 
         if (response.ok) {
             alertMessage.textContent = "Obrigado por enviar sua opinião!";
-
-            document.getElementById("user-message").value = '';
-            document.getElementById("user-email-input").value = '';
         } else {
             alertMessage.textContent = "Erro ao enviar sua opinião.";
         }
@@ -257,15 +219,14 @@ function showAlert() {
     const alertBox = document.getElementById("custom-alert");
 
     alertBox.classList.remove("show", "fade-out");
-    void alertBox.offsetWidth;
+    void alertBox.offsetWidth; 
     alertBox.classList.add("show");
 
     setTimeout(() => {
         alertBox.classList.add("fade-out");
         setTimeout(() => alertBox.classList.add("hidden"), 500);
-    }, 2000);
+    }, 1000);
 }
-
 document.getElementById('user-email-input').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault();

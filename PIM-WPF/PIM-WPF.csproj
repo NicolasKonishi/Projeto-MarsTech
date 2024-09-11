@@ -12,12 +12,21 @@
   <ItemGroup>
     <None Remove="Images\Home.png" />
     <None Remove="Images\Introducao.png" />
+    <None Remove="Images\Mais.png" />
     <None Remove="Images\over2.png" />
     <None Remove="Images\qd.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Home.png" />
+    <Resource Include="Images\Introducao.png" />
+    <Resource Include="Images\Mais.png" />
+    <Resource Include="Images\over2.png" />
+    <Resource Include="Images\qd.png" />
   </ItemGroup>
 
 </Project>
