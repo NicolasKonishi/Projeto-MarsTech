@@ -1144,6 +1144,13 @@ footer {
             display: none;
         }
 
+        .home-container{
+            padding-top: 1rem;
+        }
+
+        .welcome-container{
+            height: 100%;
+        }
         .presentation-container {
             width: 90%;
             row-gap: 0.5rem;
