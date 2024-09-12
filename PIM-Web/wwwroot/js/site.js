@@ -87,29 +87,6 @@ const metrics = {
     ],
 };
 
-// métricas
-/*function updateMetrics() {
-    document.querySelector(".metric .percentage").textContent =
-        metrics.overallSatisfaction + "%";
-    document.querySelectorAll(".metric .percentage")[1].textContent =
-        metrics.serviceRating + "%";
-
-    const testimonialsContainer = document.querySelector(".testimonials-quotes");
-    testimonialsContainer.innerHTML = "";
-
-    metrics.testimonials.forEach((testimonial) => {
-        const quoteElement = document.createElement("div");
-        quoteElement.className = "quote";
-        quoteElement.innerHTML = `
-            <p>"${testimonial.text}"</p>
-            <span class="quote-author">- ${testimonial.author}</span>
-        `;
-        testimonialsContainer.appendChild(quoteElement);
-    });
-}
-updateMetrics();
-*/
-
 async function fetchRandomComments() {
     try {
         const responses = await Promise.all([
@@ -232,4 +209,19 @@ document.getElementById('user-email-input').addEventListener('keydown', function
         event.preventDefault();
         console.log('Enter pressionado, mas não permitido.');
     }
+});
+
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var errorMessage = document.getElementById("error-message");
+
+    if (username === "" || password === "") {
+        errorMessage.textContent = "Preencha todos os campos.";
+        return;
+    }
+
 });
