@@ -394,7 +394,7 @@
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
 
                                             <Border x:Name="Bd"
-                                                    Height="50"
+                                                    Height="100"
                                                     BorderBrush="{TemplateBinding BorderBrush}"
                                                     BorderThickness="{TemplateBinding BorderThickness}"
                                                     Padding="{TemplateBinding Padding}"
