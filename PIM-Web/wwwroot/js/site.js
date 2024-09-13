@@ -90,8 +90,8 @@ const metrics = {
 async function fetchRandomComments() {
     try {
         const responses = await Promise.all([
-            fetch("https://localhost:7195/api/questionario/random-comment"),
-            fetch("https://localhost:7195/api/questionario/random-comment")
+            fetch("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/random-comment"),
+            fetch("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/random-comment")
         ]);
 
         const data = await Promise.all(responses.map(response => response.json()));
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 async function fetchAverageExhibitions() {
     try {
-        const response = await fetch('https://localhost:7195/api/questionario/average-exhibitions');
+        const response = await fetch('https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/average-exhibitions');
         if (!response.ok) {
             throw new Error('Erro ao buscar a média de exposições.');
         }
@@ -145,7 +145,7 @@ async function fetchAverageExhibitions() {
 
 async function fetchAverageSatisfaction() {
     try {
-        const response = await fetch('https://localhost:7195/api/Questionario/average-satisfaction');
+        const response = await fetch('https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/Questionario/average-satisfaction');
         if (!response.ok) {
             throw new Error('Erro ao buscar a média de satisfação.');
         }
@@ -171,7 +171,7 @@ document.getElementById("submit-form").addEventListener("click", async function 
     const alertBox = document.getElementById("custom-alert");
 
     try {
-        const response = await fetch("https://localhost:7195/api/Questionario", {
+        const response = await fetch("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/Questionario", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
