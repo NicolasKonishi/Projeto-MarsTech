@@ -32,7 +32,7 @@
 
             <Setter Property="Placement" Value="Right"/>
             <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="100"/>
+            <Setter Property="Width" Value="110"/>
             <Setter Property="Margin" Value="20,0,0,0"/>
             <Setter Property="Background" Value="#4A5668"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
@@ -92,7 +92,20 @@
     </Window.Resources>
     
     <Grid>
-        <Grid Background="#491400">
+        
+        <Grid Background="Black">
+
+            <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
+
+                <Grid.Background>
+
+                    <ImageBrush x:Name="img_bg"
+                                ImageSource="C:\Users\Pichau\OneDrive\Desktop\-\Tec\PIM\Projeto-MarsTech\PIM-WPF\Images\marte2.png"
+                                Stretch="Fill"/>
+
+                </Grid.Background>
+                
+            </Grid>
             
             <Grid x:Name="nav_pn1"
                   HorizontalAlignment="Left"
@@ -133,7 +146,7 @@
                                       Height="30"
                                       Width="30"
                                       BorderThickness="0"
-                                      Style="{StaticResource tb_style}">
+                                      Style="{StaticResource tb_style}" Unchecked="tg_btn_Unchecked" Checked="tg_btn_Checked">
 
                             <ToggleButton.Background>
 
@@ -198,7 +211,8 @@
                         <!--HOME-->
                         
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
@@ -227,7 +241,8 @@
                         <!--INTRODUÇÃO-->
 
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15">
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
@@ -252,8 +267,179 @@
 
                         </ListViewItem>
 
-                        <!--obras....continuar-->
+                        <!--obras-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="pack://application:,,,/Images/obras.png"
+                                       Stretch="None"
+                                       Margin="10,0,0,0"/>
+
+                                <TextBlock Text="obras"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Obras"
+                                         Content="Obras"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
                         
+                        <!--Questionario-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="pack://application:,,,/Images/questionario.png"
+                                       Stretch="None"
+                                       Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Questionário"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Questionario"
+                                         Content="Questionário"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+                        
+                        <!--resultados-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="pack://application:,,,/Images/resultados.png"
+                                       Stretch="None"
+                                       Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Resultados"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Resultados"
+                                         Content="Resultados"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+                        
+                        <!--Mais-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="pack://application:,,,/Images/Mais.png"
+                                       Stretch="None"
+                                       Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Mais"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Mais"
+                                         Content="Mais"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
+                        <ListView.ItemContainerStyle>
+
+                            <Style TargetType="ListViewItem">
+
+                                <Setter Property="Template">
+
+                                    <Setter.Value>
+
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+
+                                            <Border x:Name="Bd"
+                                                    Height="50"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    Padding="{TemplateBinding Padding}"
+                                                    Background="{TemplateBinding Background}"
+                                                    SnapsToDevicePixels="True">
+
+                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                                </ContentPresenter>
+
+                                            </Border>
+
+                                            <ControlTemplate.Triggers>
+
+                                                <MultiTrigger>
+
+                                                    <MultiTrigger.Conditions>
+
+                                                        <Condition Property="IsMouseOver" Value="True"/>
+
+                                                    </MultiTrigger.Conditions>
+
+                                                    <Setter Property="Background"
+                                                            TargetName="Bd"
+                                                            Value="#404D5B"/>
+
+                                                    <Setter Property="BorderBrush"
+                                                            TargetName="Bd"
+                                                            Value="#404D5B"/>
+
+                                                </MultiTrigger>
+                                                
+                                            </ControlTemplate.Triggers>
+                                            
+                                        </ControlTemplate>
+                                        
+                                    </Setter.Value>
+                                    
+                                </Setter>
+
+                            </Style>
+                            
+                        </ListView.ItemContainerStyle>
+
                     </ListView>
                     
                 </StackPanel>
