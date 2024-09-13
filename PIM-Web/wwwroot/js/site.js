@@ -72,53 +72,66 @@
     showImage(currentIndex);
 });
 
-const metrics = {
-    overallSatisfaction: 75,
-    serviceRating: 90,
-    testimonials: [
-        {
-            text: "O museu é incrível! Adorei a exposição sobre a primeira viagem à Lua.",
-            author: "João Silva",
-        },
-        {
-            text: "A experiência foi fantástica, aprendi muito sobre a história da exploração espacial.",
-            author: "Maria Oliveira",
-        },
-    ],
-};
+
+async function fetchValidComment(displayedComments) {
+    try {
+        let validComment = null;
+
+        while (!validComment) {
+            const response = await fetch("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/random-comment");
+            const commentData = await response.json();
+
+            if (commentData && commentData.email && commentData.email.includes('@')) {
+                const email = commentData.email;
+
+                if (!displayedComments.has(email)) {
+                    validComment = commentData;
+                } else {
+                    console.log('Comentário repetido, buscando outro...');
+                }
+            } else {
+                console.log('Email inválido ou ausente, buscando outro comentário...');
+            }
+        }
+
+        return validComment;
+    } catch (error) {
+        console.error('Erro ao buscar comentário válido:', error);
+        return null;
+    }
+}
 
 async function fetchRandomComments() {
     try {
-        const responses = await Promise.all([
-            fetch("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/random-comment"),
-            fetch("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/random-comment")
-        ]);
-
-        const data = await Promise.all(responses.map(response => response.json()));
-
-        console.log('Dados retornados da API:', data);
+        const displayedComments = new Set();
 
         const commentSection = document.querySelector(".testimonials-quotes");
         commentSection.innerHTML = "";
 
-        data.forEach(commentData => {
+        for (let i = 0; i < 2; i++) {
+            const commentData = await fetchValidComment(displayedComments);
+
             if (commentData && commentData.comentario && commentData.email) {
+                const email = commentData.email;
+                let displayEmail = email.split('@')[0] + '@****';
+
+                displayedComments.add(email);
+
                 const quoteElement = document.createElement("div");
                 quoteElement.className = "quote";
                 quoteElement.innerHTML = `
                     <p>"${commentData.comentario}"</p>
-                    <span class="quote-author">- ${commentData.email}</span>
+                    <span class="quote-author">- ${displayEmail}</span>
                 `;
                 commentSection.appendChild(quoteElement);
             } else {
                 console.error('Dados de comentário inválidos:', commentData);
             }
-        });
+        }
     } catch (error) {
-        console.error('Error fetching random comments:', error);
+        console.error('Erro ao buscar comentários:', error);
     }
 }
-
 fetchRandomComments();
 
 
