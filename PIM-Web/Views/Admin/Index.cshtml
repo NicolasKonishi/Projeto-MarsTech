@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador</title>
+    <link rel="stylesheet" href="~/css/admin.css">
+</head>
+<body>
+    <header>
+        <h1>Painel do Administrador</h1>
+        <nav>
+            <ul>
+                <li><a href="#adicionar-usuario">Adicionar Usuário</a></li>
+                <li><a href="#editar-usuario">Editar Usuário</a></li>
+                <li><a href="#excluir-usuario">Excluir Usuário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="adicionar-usuario">
+            <h2>Adicionar Usuário</h2>
+            <form onsubmit="event.preventDefault(); adicionarUsuario();">
+                <label for="nome-adicionar">Nome:</label>
+                <input type="text" id="nome-adicionar" required>
+
+                <label for="email-adicionar">E-mail:</label>
+                <input type="email" id="email-adicionar" required>
+
+                <button type="submit">Adicionar Usuário</button>
+            </form>
+        </section>
+
+        <section id="editar-usuario">
+            <h2>Editar Usuário</h2>
+            <form onsubmit="event.preventDefault(); editarUsuario();">
+                <label for="id-editar">ID do Usuário:</label>
+                <input type="text" id="id-editar" required>
+
+                <label for="nome-editar">Nome:</label>
+                <input type="text" id="nome-editar" required>
+
+                <label for="email-editar">E-mail:</label>
+                <input type="email" id="email-editar" required>
+
+                <button type="submit">Editar Usuário</button>
+            </form>
+        </section>
+
+        
+        <section id="excluir-usuario">
+            <h2>Excluir Usuário</h2>
+            <form onsubmit="event.preventDefault(); excluirUsuario();">
+                <label for="id-excluir">ID do Usuário:</label>
+                <input type="text" id="id-excluir" required>
+
+                <button type="submit">Excluir Usuário</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="~/js/admin.js"></script>
+</body>
+</html>
