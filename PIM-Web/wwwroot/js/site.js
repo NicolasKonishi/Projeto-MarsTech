@@ -212,16 +212,21 @@ document.getElementById('user-email-input').addEventListener('keydown', function
 });
 
 
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); 
+document.getElementById("loginForm").addEventListener("submit", function (event) {
+    event.preventDefault();
 
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var errorMessage = document.getElementById("error-message");
 
-    if (username === "" || password === "") {
-        errorMessage.textContent = "Preencha todos os campos.";
-        return;
-    }
+    var correctUsername = "adm123";
+    var correctPassword = "Mars123";
 
+    if (username === correctUsername && password === correctPassword) {
+        errorMessage.textContent = ""; 
+        alert("Login bem-sucedido! Bem-vindo, administrador.");
+        window.location.href = "/Admin"; 
+    } else {
+        errorMessage.textContent = "Usuário ou senha inválidos.";
+    }
 });

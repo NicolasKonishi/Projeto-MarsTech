@@ -1,0 +1,48 @@
+﻿!<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["adm"] Painel de Administração</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+    <body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        <section class="admin-section">
+            <h1 class="admin-title">Painel de Administração</h1>
+
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="user-list">
+                    <!-- Lista de usuários será gerada aqui -->
+                </tbody>
+            </table>
+
+            <div class="email-section">
+                <h2>Enviar E-mail para o Usuário</h2>
+                <form id="emailForm">
+                    <label for="email">Email do usuário:</label>
+                    <input type="email" id="email" name="email" class="email-input" required>
+                    <label for="subject">Assunto:</label>
+                    <input type="text" id="subject" name="subject" class="email-input" required>
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" class="email-textarea" required></textarea>
+                    <button type="submit" class="send-email-button">Enviar E-mail</button>
+                </form>
+                <p id="email-message" class="email-message"></p>
+            </div>
+        </section>
+
+        <script src="~/js/adm.js"></script>
+    </div>
+    </body>
+    </html>
