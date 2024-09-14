@@ -8,6 +8,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -43,6 +46,7 @@ nav ul {
 
 main {
     padding: 2rem;
+    flex: 1;
 }
 
 section {
@@ -71,7 +75,8 @@ form {
     }
 
     form input[type="text"],
-    form input[type="email"] {
+    form input[type="email"],
+    form select {
         border: 1px solid #ddd;
         border-radius: 4px;
         padding: 0.5rem;
@@ -91,6 +96,33 @@ form {
         form button:hover {
             background-color: #e03a00;
         }
+
+.alert {
+    display: none;
+    background-color: #ff4500;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    table th,
+    table td {
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #ff4500;
+        color: #fff;
+    }
 
 footer {
     background-color: #ff4500;
