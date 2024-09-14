@@ -237,7 +237,6 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
     if (username === correctUsername && password === correctPassword) {
         errorMessage.textContent = ""; 
-        alert("Login bem-sucedido! Bem-vindo, administrador.");
         window.location.href = "/Admin"; 
     } else {
         errorMessage.textContent = "Usuário ou senha inválidos.";
