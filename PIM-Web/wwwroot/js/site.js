@@ -20,16 +20,24 @@
         },
         {
             title: "O Enigma Vermelho",
-            description: "Esta obra explora a cor marcante de Marte, causada pela oxidação do ferro em sua superfície, criando um vasto deserto de poeira vermelha. O Enigma Vermelho simboliza mistério e a busca por compreender o desconhecido.",
+            description:
+                "Esta obra explora a cor marcante de Marte, causada pela oxidação do ferro em sua superfície, criando um vasto deserto de poeira vermelha. O Enigma Vermelho simboliza mistério e a busca por compreender o desconhecido.",
             backgroundImage: "./css/images/obra3-bg.png",
         },
         {
             title: "Sobrevivência Extrema",
-            description: "Esta obra retrata os desafios de viver em Marte, um ambiente árido e inóspito. Com temperaturas extremas e uma atmosfera imprópria para a vida humana, a obra nos faz refletir sobre a viabilidade de sobreviver em Marte e a necessidade de inovação para superar esses obstáculos.",
+            description:
+                "Esta obra retrata os desafios de viver em Marte, um ambiente árido e inóspito. Com temperaturas extremas e uma atmosfera imprópria para a vida humana, a obra nos faz refletir sobre a viabilidade de sobreviver em Marte e a necessidade de inovação para superar esses obstáculos.",
             backgroundImage: "./css/images/obra4-bg.png",
         },
     ];
+
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
     let currentIndex = 0;
+    const threshold = 50;
 
     function showImage(index) {
         if (index >= totalItems) {
@@ -39,6 +47,7 @@
         } else {
             currentIndex = index;
         }
+        carouselImages.style.transition = 'transform 0.5s ease';
         carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
         updateButtons();
         updateInfo();
@@ -70,8 +79,42 @@
     });
 
     showImage(currentIndex);
-});
 
+    const carouselWidth = carouselImages.clientWidth;
+
+    carouselImages.addEventListener('touchstart', touchStart);
+    carouselImages.addEventListener('touchmove', touchMove);
+    carouselImages.addEventListener('touchend', touchEnd);
+
+    function touchStart(event) {
+        isDragging = true;
+        startPos = event.touches[0].clientX;
+        carouselImages.style.transition = 'none';
+        prevTranslate = -currentIndex * carouselWidth;
+    }
+
+    function touchMove(event) {
+        if (isDragging) {
+            const currentPosition = event.touches[0].clientX;
+            currentTranslate = prevTranslate + currentPosition - startPos;
+            carouselImages.style.transform = `translateX(${currentTranslate}px)`;
+        }
+    }
+
+    function touchEnd() {
+        isDragging = false;
+
+        const movedBy = currentTranslate - prevTranslate;
+
+        if (movedBy < -threshold && currentIndex < totalItems - 1) {
+            currentIndex += 1;
+        } else if (movedBy > threshold && currentIndex > 0) {
+            currentIndex -= 1;
+        }
+
+        showImage(currentIndex);
+    }
+});
 
 async function fetchValidComment(displayedComments) {
     try {
