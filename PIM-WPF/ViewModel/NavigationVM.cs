@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PIM_WPF.Utilities;
-using PIM_WPF.Controle;
 using PIM_WPF.ViewModel;
 using System.Windows.Input;
 using PIM_WPF.View;
 using System.Transactions;
 
 
-namespace PIM_WPF.Controle
+namespace PIM_WPF.ViewModel
 {
     internal class NavigationVM : ViewModelBase
     {
