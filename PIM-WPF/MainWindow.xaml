@@ -16,6 +16,11 @@
         ResizeMode="NoResize"
         KeyDown="Window_KeyDown">
 
+    <Window.DataContext>
+
+        <vm:NavigationVM/>
+
+    </Window.DataContext>
 
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"
