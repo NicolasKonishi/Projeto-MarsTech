@@ -7,9 +7,11 @@
         xmlns:vm="clr-namespace:PIM_WPF.ViewModel"
         xmlns:Menu="clr-namespace:PIM_WPF.Utilities" 
         mc:Ignorable="d"
-        Title="MarsTech - Museu de Exploração de Marte" 
-        Height="800" 
-        Width="800"
+
+        Title="MarsTech - Museu de Exploração de Marte" Height="800" Width="800"
+
+       
+
         WindowState="Maximized"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -114,7 +116,7 @@
                 <Grid.Background>
 
                     <ImageBrush x:Name="img_bg"
-                                ImageSource="C:\Users\Pichau\OneDrive\Desktop\-\Tec\PIM\Projeto-MarsTech\PIM-WPF\Images\marte2.png"
+                                ImageSource="pack://application:,,,/Images/marte2.png"
                                 Stretch="Fill"/>
 
                 </Grid.Background>
