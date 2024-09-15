@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PIM_WPF"
         xmlns:vm="clr-namespace:PIM_WPF.ViewModel"
-        xmlns:Menu="clr-namespace:PIM_WPF.Utilities"
+        xmlns:Menu="clr-namespace:PIM_WPF.Utilities" 
         mc:Ignorable="d"
-        Title="MarsTech - Museu de Exploração de Marte" Height="450" Width="800"
+        Title="MarsTech - Museu de Exploração de Marte" 
+        Height="450" 
+        Width="800"
         WindowState="Maximized"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         KeyDown="Window_KeyDown">
+
 
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"

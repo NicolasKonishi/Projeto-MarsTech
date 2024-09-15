@@ -13,7 +13,7 @@ using System.Transactions;
 
 namespace PIM_WPF.Controle
 {
-    class NavigationVM : ViewModelBase
+    internal class NavigationVM : ViewModelBase
     {
         private object _currentView;
         public object CurrentView
