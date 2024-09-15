@@ -19,6 +19,7 @@
     <None Remove="Images\qd.png" />
     <None Remove="Images\questionario.png" />
     <None Remove="Images\resultados.png" />
+    <None Remove="Images\sobre.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +36,7 @@
     <Resource Include="Images\qd.png" />
     <Resource Include="Images\questionario.png" />
     <Resource Include="Images\resultados.png" />
+    <Resource Include="Images\sobre.png" />
   </ItemGroup>
 
 </Project>
