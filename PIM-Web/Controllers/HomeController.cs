@@ -17,7 +17,10 @@ namespace PIM_Web.Controllers
         {
             return View();
         }
-
+        public IActionResult Adm()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

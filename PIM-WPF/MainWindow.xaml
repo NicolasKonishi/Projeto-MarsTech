@@ -4,19 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PIM_WPF"
+        xmlns:vm="clr-namespace:PIM_WPF.ViewModel"
+        xmlns:Menu="clr-namespace:PIM_WPF.Utilities" 
         mc:Ignorable="d"
+
         Title="MarsTech - Museu de Exploração de Marte" Height="800" Width="800"
+
+       
+
         WindowState="Maximized"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        KeyDown="Window_KeyDown">
+        KeyDown="Window_KeyDown"
+        >
+
+
+    <Window.DataContext>
+
+        <vm:NavigationVM/>
+
+    </Window.DataContext>
 
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"
                     ImageSource="pack://application:,,,/Images/over2.png"/>
-        
-        
+
+
         <Style x:Key="font_style" TargetType="TextBlock">
 
             <Setter Property="FontFamily" Value="fonts/DelaGothicOne-Regular.ttf"/>
@@ -86,13 +100,15 @@
                 </Setter.Value>
 
             </Setter>
-            
+
         </Style>
 
     </Window.Resources>
-    
+
+
     <Grid>
-        
+
+
         <Grid Background="Black">
 
             <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
@@ -104,14 +120,14 @@
                                 Stretch="Fill"/>
 
                 </Grid.Background>
-                
+
             </Grid>
-            
+
             <Grid x:Name="nav_pn1"
                   HorizontalAlignment="Left"
                   Width="65"
                   Background="Black">
-                
+
                 <StackPanel x:Name="st_pn1">
 
                     <Grid Height="90">
@@ -135,9 +151,9 @@
                                                   Color="White"/>
 
                             </TextBlock.Effect>
-                            
+
                         </TextBlock>
-                        
+
                         <ToggleButton x:Name="tg_btn"
                                       Grid.Column="0"
                                       VerticalAlignment="Center"
@@ -146,21 +162,24 @@
                                       Height="30"
                                       Width="30"
                                       BorderThickness="0"
-                                      Style="{StaticResource tb_style}" Unchecked="tg_btn_Unchecked" Checked="tg_btn_Checked">
+                                      Style="{StaticResource tb_style}" 
+                                      Unchecked="tg_btn_Unchecked" 
+                                      Checked="tg_btn_Checked"
+                                       >
 
                             <ToggleButton.Background>
 
                                 <ImageBrush ImageSource="pack://application:,,,/Images/qd.png"
                                             Stretch="None"/>
-                                
+
                             </ToggleButton.Background>
 
                             <ToggleButton.Triggers>
-                                
+
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                    
+
                                     <BeginStoryboard>
-                                        
+
                                         <Storyboard x:Name="HideStackPanel">
 
                                             <DoubleAnimation 
@@ -169,19 +188,19 @@
                                                 BeginTime="0:0:0"
                                                 From="230" To="65"
                                                 Duration="0:0:0.2">
-                                                
+
                                             </DoubleAnimation>
-                                            
+
                                         </Storyboard>
-                                        
+
                                     </BeginStoryboard>
-                                    
+
                                 </EventTrigger>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Checked">
 
                                     <BeginStoryboard>
-                                        
+
                                         <Storyboard x:Name="ShowStackPanel">
 
                                             <DoubleAnimation Storyboard.TargetName="nav_pn1"
@@ -190,18 +209,20 @@
                                                              From="65" To="230"
                                                              Duration="0:0:0.3">
                                             </DoubleAnimation>
-                                            
+
                                         </Storyboard>
-                                        
+
                                     </BeginStoryboard>
-                                    
+
                                 </EventTrigger>
-                                
+
                             </ToggleButton.Triggers>
 
                         </ToggleButton>
-                        
+
                     </Grid>
+
+                    <Grid/>
 
                     <ListView x:Name="LV"
                               Background="Transparent"
@@ -209,21 +230,49 @@
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
                         <!--HOME-->
-                        
+
                         <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      Margin="0,0,0,15" 
+                                      MouseEnter="ListViewItem_MouseEnter"
                                       >
 
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="pack://application:,,,/Images/Home.png"
+
+                                <Button Margin="0,0,0,0"
+                                         HorizontalContentAlignment="Center"
+                                         VerticalContentAlignment="Center"
+                                         Background="Transparent"
+                                         BorderBrush="Transparent"
+                                         Command="{Binding HomeCommand}">
+
+                                    <Button.Template>
+
+                                        <ControlTemplate TargetType="Button">
+
+                                            <Border Background="Transparent">
+
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                            </Border>
+
+                                        </ControlTemplate>
+
+                                    </Button.Template>
+
+                                    <Image Source="pack://application:,,,/Images/Home.png"
                                        Stretch="None"
-                                       Margin="10,0,0,0"/>
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+                                </Button>
 
                                 <TextBlock Text="Home"
                                            Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
+                                           Style="{StaticResource font_style}"
+                                           />
 
 
                             </StackPanel>
@@ -235,9 +284,9 @@
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
-                            
+
                         </ListViewItem>
-                        
+
                         <!--INTRODUÇÃO-->
 
                         <ListViewItem HorizontalAlignment="Left"
@@ -247,9 +296,34 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="pack://application:,,,/Images/Mais.png"
+                                <Button Margin="0,0,0,0"
+                                         HorizontalContentAlignment="Center"
+                                         VerticalContentAlignment="Center"
+                                         Background="Transparent"
+                                         BorderBrush="Transparent"
+                                         Command="{Binding IntroducaoCommand}">
+
+                                    <Button.Template>
+
+                                        <ControlTemplate TargetType="Button">
+
+                                            <Border Background="Transparent">
+
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                            </Border>
+
+                                        </ControlTemplate>
+
+                                    </Button.Template>
+
+                                    <Image Source="pack://application:,,,/Images/Introducao.png"
                                        Stretch="None"
-                                       Margin="10,0,0,0"/>
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+                                </Button>
 
                                 <TextBlock Text="Introdução"
                                            Margin="25,0,0,0"
@@ -267,6 +341,64 @@
 
                         </ListViewItem>
 
+                        <!--Sobre-->
+
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
+                            
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Button Margin="0,0,0,0"
+                                         HorizontalContentAlignment="Center"
+                                         VerticalContentAlignment="Center"
+                                         Background="Transparent"
+                                         BorderBrush="Transparent"
+                                         Command="{Binding SobreCommand}">
+                                    
+                                    <Button.Template>
+                                        
+                                        <ControlTemplate TargetType="Button">
+                                            
+                                            <Border Background="Transparent">
+                                                
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                
+                                            </Border>
+                                            
+                                        </ControlTemplate>
+                                        
+                                    </Button.Template>
+                                    
+                                    <Image Source="pack://application:,,,/Images/sobre.png"
+                                       Stretch="None"
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+                                
+                                </Button>
+
+                                <TextBlock Text="Sobre"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_sobre"
+                                         Content="Sobre"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
+
                         <!--obras-->
 
                         <ListViewItem HorizontalAlignment="Left"
@@ -276,9 +408,34 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="pack://application:,,,/Images/obras.png"
+                                <Button Margin="0,0,0,0"
+                                         HorizontalContentAlignment="Center"
+                                         VerticalContentAlignment="Center"
+                                         Background="Transparent"
+                                         BorderBrush="Transparent"
+                                         Command="{Binding ObrasCommand}">
+
+                                    <Button.Template>
+
+                                        <ControlTemplate TargetType="Button">
+
+                                            <Border Background="Transparent">
+
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                            </Border>
+
+                                        </ControlTemplate>
+
+                                    </Button.Template>
+
+                                    <Image Source="pack://application:,,,/Images/obras.png"
                                        Stretch="None"
-                                       Margin="10,0,0,0"/>
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+                                </Button>
 
                                 <TextBlock Text="obras"
                                            Margin="25,0,0,0"
@@ -295,7 +452,7 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-                        
+
                         <!--Questionario-->
 
                         <ListViewItem HorizontalAlignment="Left"
@@ -305,9 +462,34 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="pack://application:,,,/Images/questionario.png"
+                                <Button Margin="0,0,0,0"
+                                         HorizontalContentAlignment="Center"
+                                         VerticalContentAlignment="Center"
+                                         Background="Transparent"
+                                         BorderBrush="Transparent"
+                                         Command="{Binding QuestionarioCommand}">
+
+                                    <Button.Template>
+
+                                        <ControlTemplate TargetType="Button">
+
+                                            <Border Background="Transparent">
+
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                            </Border>
+
+                                        </ControlTemplate>
+
+                                    </Button.Template>
+
+                                    <Image Source="pack://application:,,,/Images/questionario.png"
                                        Stretch="None"
-                                       Margin="10,0,0,0"/>
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+                                </Button>
 
                                 <TextBlock Text="Questionário"
                                            Margin="25,0,0,0"
@@ -324,7 +506,7 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-                        
+
                         <!--resultados-->
 
                         <ListViewItem HorizontalAlignment="Left"
@@ -334,9 +516,34 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="pack://application:,,,/Images/resultados.png"
+                                <Button Margin="0,0,0,0"
+                                         HorizontalContentAlignment="Center"
+                                         VerticalContentAlignment="Center"
+                                         Background="Transparent"
+                                         BorderBrush="Transparent"
+                                         Command="{Binding ResultadosCommand}">
+
+                                    <Button.Template>
+
+                                        <ControlTemplate TargetType="Button">
+
+                                            <Border Background="Transparent">
+
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                            </Border>
+
+                                        </ControlTemplate>
+
+                                    </Button.Template>
+
+                                    <Image Source="pack://application:,,,/Images/resultados.png"
                                        Stretch="None"
-                                       Margin="10,0,0,0"/>
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+                                </Button>
 
                                 <TextBlock Text="Resultados"
                                            Margin="25,0,0,0"
@@ -353,7 +560,7 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-                        
+
                         <!--Mais-->
 
                         <ListViewItem HorizontalAlignment="Left"
@@ -363,9 +570,34 @@
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
 
-                                <Image Source="pack://application:,,,/Images/Mais.png"
+                                <Button Margin="0,0,0,0"
+                                         HorizontalContentAlignment="Center"
+                                         VerticalContentAlignment="Center"
+                                         Background="Transparent"
+                                         BorderBrush="Transparent"
+                                         Command="{Binding MaisCommand}">
+
+                                    <Button.Template>
+
+                                        <ControlTemplate TargetType="Button">
+
+                                            <Border Background="Transparent">
+
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                            </Border>
+
+                                        </ControlTemplate>
+
+                                    </Button.Template>
+
+                                    <Image Source="pack://application:,,,/Images/Mais.png"
                                        Stretch="None"
-                                       Margin="10,0,0,0"/>
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+                                </Button>
 
                                 <TextBlock Text="Mais"
                                            Margin="25,0,0,0"
@@ -394,7 +626,7 @@
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
 
                                             <Border x:Name="Bd"
-                                                    Height="100"
+                                                    Height="80"
                                                     BorderBrush="{TemplateBinding BorderBrush}"
                                                     BorderThickness="{TemplateBinding BorderThickness}"
                                                     Padding="{TemplateBinding Padding}"
@@ -427,28 +659,32 @@
                                                             Value="#404D5B"/>
 
                                                 </MultiTrigger>
-                                                
+
                                             </ControlTemplate.Triggers>
-                                            
+
                                         </ControlTemplate>
-                                        
+
                                     </Setter.Value>
-                                    
+
                                 </Setter>
 
                             </Style>
-                            
+
                         </ListView.ItemContainerStyle>
 
                     </ListView>
-                    
+
                 </StackPanel>
-                
+
+                <!--AQUI-->
+
+                <!--AQUI-->
+
             </Grid>
-            
+
         </Grid>
-        
+
     </Grid>
-        
-     
+
+
 </Window>

@@ -76,5 +76,10 @@ namespace PIM_WPF
         {
             tg_btn.IsChecked = false;
         }
+
+        private void StackPanel_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -190,8 +190,10 @@ li {
 }
 
 .carousel-images {
+    touch-action: pan-y;
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    -webkit-transition: transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .carousel-item1 {
@@ -719,6 +721,57 @@ textarea.user-input {
     font-size: 1.5rem;
     color: #ff8255;
 }
+/*ADM*/
+.login-section-adm {
+    width: 70%;
+    height: 100%;
+    margin-left: 1rem;
+}
+.login-title-adm {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color:#fff;
+}
+
+.form-group-adm {
+    color:#fff;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.label-adm {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.input-adm {
+    width: 50%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    
+}
+
+#button-adm {
+    width: 50%;
+    padding: 10px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.error-message-adm {
+    color: #740b0b;
+    text-align: center;
+    margin-top: 1rem;
+}
+/*ADM*/
 
 footer {
     width: 100%;
@@ -767,68 +820,6 @@ footer {
         .social-media i:hover {
             color: #ff6f00;
         }
-
-.theme-posts {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-}
-
-    .theme-posts h2 {
-        color: #ff6f00;
-        font-size: 1.2rem;
-        letter-spacing: 4px;
-        font-weight: 700;
-        margin-bottom: 2rem;
-    }
-
-.posts {
-    display: flex;
-    margin-bottom: 1rem;
-}
-
-.post-img {
-    width: 20%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.post-content {
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-left: 1rem;
-}
-
-    .post-content p {
-        font-family: "DM Sans", sans-serif;
-        color: #d4d4d4;
-        font-weight: 500;
-        font-size: 1.5rem;
-    }
-
-        .post-content p:hover {
-            color: #ff6f00;
-            cursor: pointer;
-        }
-
-.post-date {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-#clock-icon {
-    color: #ff6f00;
-}
-
-.post-date span {
-    font-family: "DM Sans", sans-serif;
-    color: #d4d4d4;
-    font-weight: 400;
-    font-size: 1rem;
-}
 
 .copyright {
     background-color: rgb(43, 21, 0);
@@ -958,9 +949,6 @@ footer {
         padding: 0 100px;
     }
 
-    .post-content {
-        padding: 0 55px 0 10px;
-    }
 }
 
 @media (max-width: 1280px) {
@@ -1047,6 +1035,7 @@ footer {
         align-self: center;
         text-align: center;
         padding: 0px 40px;
+        margin-top: 5rem;
     }
 
     .signature-title h5 {
@@ -1054,7 +1043,7 @@ footer {
     }
 
     .signature-title h1 {
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     .signature-text p {
@@ -1144,10 +1133,17 @@ footer {
             display: none;
         }
 
+        .home-container{
+            padding-top: 1rem;
+        }
+
+        .welcome-container{
+            height: 100%;
+        }
         .presentation-container {
             width: 90%;
             row-gap: 0.5rem;
-            margin-top: 5rem;
+            margin-top: 10rem;
         }
 
             .presentation-container h1 {
@@ -1246,14 +1242,7 @@ footer {
         .quote {
             width: 100%;
         }
-
-        .theme-posts {
-            width: 45%;
-        }
-
-        .post-content {
-            padding: 0 0 0 10px;
-        }
+        
     }
 
     @media (max-width: 835px) {
@@ -1353,7 +1342,18 @@ footer {
             flex-direction: column;
             justify-content: center;
         }
+        .login-section-adm{
+            width: 90%;
+            margin: 0;
+        }
+        .input-adm {
+            width: 90%;
+            font-size: 0.7rem;
+        }
 
+        #button-adm{
+            width: 90%;
+        }
         .about-text {
             width: 100%;
             height: 40%;
@@ -1363,14 +1363,6 @@ footer {
                 font-size: 2rem;
             }
 
-        .theme-posts {
-            width: 100%;
-            height: 45%;
-        }
-
-        .post-content {
-            padding: 0 140px 0 10px;
-        }
     }
 
     @media (max-width: 768px) {
@@ -1389,7 +1381,7 @@ footer {
         }
 
         .signature-text p {
-            font-size: 2rem;
+            font-size: 1.2rem;
         }
 
         .content {
@@ -1430,7 +1422,7 @@ footer {
         }
 
         .carousel-buttons {
-            margin-top: 13rem;
+            margin-top: 5rem;
         }
 
         .carousel {
@@ -1560,8 +1552,8 @@ footer {
 
         .signature-content {
             width: 100%;
-            height: 50%;
-            justify-content: end;
+            height: 85%;
+            justify-content: center;
         }
 
         .signature-button-container {
@@ -1594,7 +1586,22 @@ footer {
         }
 
         .carousel {
-            margin: 2.5rem;
+            margin: 0rem 2.5rem;
+        }
+
+        .form-title h1{
+            font-size: 3rem;
+        }
+
+        .form-description {
+            font-size: 1rem;
+        }
+        .input-container label{
+            font-size: 1rem;
+        }
+
+        .input-container{
+            height: 8rem;
         }
 
         footer {
@@ -1605,14 +1612,7 @@ footer {
             width: 100%;
         }
 
-        .post-img {
-            height: 100px;
-            width: 100px;
-        }
-
-        .post-content p {
-            font-size: 1.2rem;
-        }
+        
     }
 
     @media (max-width: 415px) {
@@ -1889,26 +1889,4 @@ footer {
                 font-size: 1rem;
             }
 
-        .theme-posts {
-            width: 100%;
-            height: 45%;
-        }
-
-            .theme-posts h2 {
-                letter-spacing: 0.3rem;
-            }
-
-        .post-img {
-            width: 100px;
-            height: 100px;
-        }
-
-        .post-content {
-            padding: 0 10px;
-        }
-
-            .post-content p {
-                font-size: 1rem;
-            }
-    }
 }
