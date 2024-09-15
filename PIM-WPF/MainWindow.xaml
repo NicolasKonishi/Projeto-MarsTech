@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PIM_WPF"
+        xmlns:vm="clr-namespace:PIM_WPF.ViewModel"
+        xmlns:Menu="clr-namespace:PIM_WPF.Utilities"
         mc:Ignorable="d"
         Title="MarsTech - Museu de Exploração de Marte" Height="450" Width="800"
         WindowState="Maximized"
@@ -266,6 +268,38 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
+                        
+                        <!--Sobre-->
+
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      >
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+                                <Image Source="pack://application:,,,/Images/sobre.png"
+                                       Stretch="None"
+                                       Margin="10,0,0,0"/>
+
+                                <TextBlock Text="Sobre"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_sobre"
+                                         Content="Sobre"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
 
                         <!--obras-->
 
@@ -394,7 +428,7 @@
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
 
                                             <Border x:Name="Bd"
-                                                    Height="100"
+                                                    Height="80"
                                                     BorderBrush="{TemplateBinding BorderBrush}"
                                                     BorderThickness="{TemplateBinding BorderThickness}"
                                                     Padding="{TemplateBinding Padding}"
