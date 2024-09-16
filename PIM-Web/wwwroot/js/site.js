@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+﻿    document.addEventListener("DOMContentLoaded", () => {
     const buttons = document.querySelectorAll(".carousel-button");
     const carouselImages = document.querySelector(".carousel-images");
     const totalItems = document.querySelectorAll(".carousel-item1").length;
@@ -248,18 +248,27 @@ document.getElementById("submit-form").addEventListener("click", async function 
     showAlert();
 });
 
+
 function showAlert() {
     const alertBox = document.getElementById("custom-alert");
 
-    alertBox.classList.remove("show", "fade-out");
-    void alertBox.offsetWidth; 
+    alertBox.classList.remove("show", "fade-out", "hidden");
+
+    void alertBox.offsetWidth;
+
     alertBox.classList.add("show");
 
     setTimeout(() => {
         alertBox.classList.add("fade-out");
-        setTimeout(() => alertBox.classList.add("hidden"), 500);
+
+        setTimeout(() => {
+            alertBox.classList.add("hidden");
+            alertBox.classList.remove("show", "fade-out");
+        }, 500);
     }, 1000);
 }
+
+
 document.getElementById('user-email-input').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault();
