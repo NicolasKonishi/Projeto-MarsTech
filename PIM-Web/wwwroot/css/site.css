@@ -536,7 +536,7 @@ textarea.user-input {
     .submit-button1:hover {
         background-color: #e03a00;
     }
-
+/*alert*/
 .alert {
     position: fixed;
     top: 50%;
@@ -552,6 +552,19 @@ textarea.user-input {
     z-index: 1000;
 }
 
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
     .alert h3 {
         font-family: "Dela Gothic One", sans-serif;
         font-size: 1.5rem;
@@ -563,13 +576,6 @@ textarea.user-input {
         text-align: center;
     }
 
-.hidden {
-    display: none;
-}
-
-.show {
-    display: block;
-}
 
 @keyframes imageSwap {
     0% {
@@ -611,10 +617,6 @@ textarea.user-input {
     align-items: center
 }
 
-.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
 
 
 
