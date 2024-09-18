@@ -9,19 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do Administrador</title>
     <link rel="stylesheet" href="~/css/admin.css">
+
 </head>
 <body>
+
     <header>
-        <h1>Painel do Administrador</h1>
-        <nav>
-            <ul>
-                <li><a href="#adicionar-usuario">Adicionar Usuário</a></li>
-                <li><a href="#editar-usuario">Editar Usuário</a></li>
-                <li><a href="#excluir-usuario">Excluir Usuário</a></li>
-                <li><a href="#listar-avaliacoes">Listar Avaliações</a></li>
-            </ul>
-        </nav>
+        <a href="#home" class="active">MarsTech</a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            &#9776; Menu
+        </a>
     </header>
+
+    <div id="myLinks">
+        <a href="#adicionar-usuario">Adicionar Usuário</a>
+        <a href="#editar-usuario">Editar Usuário</a>
+        <a href="#excluir-usuario">Excluir Usuário</a>
+        <a href="#listar-avaliacoes">Listar Avaliações</a>
+    </div>
 
     <main>
         <section id="adicionar-usuario">
@@ -93,6 +97,7 @@
                 <p id="alert-message-editar"></p>
             </div>
         </section>
+
         <section id="excluir-usuario">
             <h2>Excluir Usuário</h2>
             <form id="excluir-usuario-form">

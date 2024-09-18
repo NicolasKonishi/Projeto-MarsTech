@@ -1,4 +1,9 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+﻿function toggleMenu() {
+    var menu = document.getElementById("myLinks");
+    menu.classList.toggle("active");
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('adicionar-usuario-form').addEventListener('submit', async function (event) {
         event.preventDefault();
 
@@ -110,6 +115,7 @@
         }, 3000);
     }
 
+   
     async function loadAvaliacoes() {
         const tableBody = document.querySelector('#tabela-avaliacoes tbody');
 
@@ -136,4 +142,10 @@
     }
 
     loadAvaliacoes();
-});
+
+ 
+
+
+}
+)
+;
