@@ -4,15 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PIM_WPF.View"
-             xmlns:vm="clr-namespace:PIM_WPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <UserControl.DataContext>
-        <vm:ResultadosVM />
-    </UserControl.DataContext>
-
+  
     <Grid>
-            
+        <Grid Background="White">
+            <TextBlock Text="Bem-vindo à tela Resultados!" 
+             HorizontalAlignment="Center" 
+             VerticalAlignment="Center"
+                 FontSize="40"/>
+        </Grid>
     </Grid>
 </UserControl>
