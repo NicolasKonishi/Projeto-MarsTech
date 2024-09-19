@@ -4,8 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PIM_WPF"
-        xmlns:vm="clr-namespace:PIM_WPF.ViewModel"
-        xmlns:Menu="clr-namespace:PIM_WPF.Utilities" 
         mc:Ignorable="d"
 
         Title="MarsTech - Museu de Exploração de Marte" Height="800" Width="800"
@@ -19,12 +17,6 @@
         KeyDown="Window_KeyDown"
         >
 
-
-    <Window.DataContext>
-
-        <vm:NavigationVM/>
-
-    </Window.DataContext>
 
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"
@@ -122,6 +114,9 @@
                 </Grid.Background>
 
             </Grid>
+            <Frame x:Name="FramePrincipal" NavigationUIVisibility="Hidden" Margin="70,0,0,0"/>
+            <Grid x:Name="OverlayGrid" Background="#80000000" Visibility="Collapsed"/>
+
 
             <Grid x:Name="nav_pn1"
                   HorizontalAlignment="Left"
@@ -187,9 +182,7 @@
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
                                                 From="230" To="65"
-                                                Duration="0:0:0.2">
-
-                                            </DoubleAnimation>
+                                                Duration="0:0:0.2"/>
 
                                         </Storyboard>
 
@@ -207,8 +200,7 @@
                                                              Storyboard.TargetProperty="Width"
                                                              BeginTime="0:0:0"
                                                              From="65" To="230"
-                                                             Duration="0:0:0.3">
-                                            </DoubleAnimation>
+                                                             Duration="0:0:0.3"/>
 
                                         </Storyboard>
 
@@ -227,397 +219,12 @@
                     <ListView x:Name="LV"
                               Background="Transparent"
                               BorderBrush="Transparent"
-                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-
-                        <!--HOME-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" 
-                                      MouseEnter="ListViewItem_MouseEnter"
-                                      >
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-
-                                <Button Margin="0,0,0,0"
-                                         HorizontalContentAlignment="Center"
-                                         VerticalContentAlignment="Center"
-                                         Background="Transparent"
-                                         BorderBrush="Transparent"
-                                         Command="{Binding HomeCommand}">
-
-                                    <Button.Template>
-
-                                        <ControlTemplate TargetType="Button">
-
-                                            <Border Background="Transparent">
-
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                            </Border>
-
-                                        </ControlTemplate>
-
-                                    </Button.Template>
-
-                                    <Image Source="pack://application:,,,/Images/Home.png"
-                                       Stretch="None"
-                                       HorizontalAlignment="Center"
-                                       Margin="10,0,0,0"
-                                       />
-
-                                </Button>
-
-                                <TextBlock Text="Home"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"
-                                           />
-
-
-                            </StackPanel>
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_home"
-                                         Content="home"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--INTRODUÇÃO-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      >
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-                                <Button Margin="0,0,0,0"
-                                         HorizontalContentAlignment="Center"
-                                         VerticalContentAlignment="Center"
-                                         Background="Transparent"
-                                         BorderBrush="Transparent"
-                                         Command="{Binding IntroducaoCommand}">
-
-                                    <Button.Template>
-
-                                        <ControlTemplate TargetType="Button">
-
-                                            <Border Background="Transparent">
-
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                            </Border>
-
-                                        </ControlTemplate>
-
-                                    </Button.Template>
-
-                                    <Image Source="pack://application:,,,/Images/Introducao.png"
-                                       Stretch="None"
-                                       HorizontalAlignment="Center"
-                                       Margin="10,0,0,0"
-                                       />
-
-                                </Button>
-
-                                <TextBlock Text="Introdução"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-
-                            </StackPanel>
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_Introducao"
-                                         Content="Introdução"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--Sobre-->
-
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      >
-                            
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-                                <Button Margin="0,0,0,0"
-                                         HorizontalContentAlignment="Center"
-                                         VerticalContentAlignment="Center"
-                                         Background="Transparent"
-                                         BorderBrush="Transparent"
-                                         Command="{Binding SobreCommand}">
-                                    
-                                    <Button.Template>
-                                        
-                                        <ControlTemplate TargetType="Button">
-                                            
-                                            <Border Background="Transparent">
-                                                
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                                
-                                            </Border>
-                                            
-                                        </ControlTemplate>
-                                        
-                                    </Button.Template>
-                                    
-                                    <Image Source="pack://application:,,,/Images/sobre.png"
-                                       Stretch="None"
-                                       HorizontalAlignment="Center"
-                                       Margin="10,0,0,0"
-                                       />
-                                
-                                </Button>
-
-                                <TextBlock Text="Sobre"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-
-
-                            </StackPanel>
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_sobre"
-                                         Content="Sobre"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-
-                        <!--obras-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      >
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-                                <Button Margin="0,0,0,0"
-                                         HorizontalContentAlignment="Center"
-                                         VerticalContentAlignment="Center"
-                                         Background="Transparent"
-                                         BorderBrush="Transparent"
-                                         Command="{Binding ObrasCommand}">
-
-                                    <Button.Template>
-
-                                        <ControlTemplate TargetType="Button">
-
-                                            <Border Background="Transparent">
-
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                            </Border>
-
-                                        </ControlTemplate>
-
-                                    </Button.Template>
-
-                                    <Image Source="pack://application:,,,/Images/obras.png"
-                                       Stretch="None"
-                                       HorizontalAlignment="Center"
-                                       Margin="10,0,0,0"
-                                       />
-
-                                </Button>
-
-                                <TextBlock Text="obras"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-
-                            </StackPanel>
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_Obras"
-                                         Content="Obras"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--Questionario-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      >
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-                                <Button Margin="0,0,0,0"
-                                         HorizontalContentAlignment="Center"
-                                         VerticalContentAlignment="Center"
-                                         Background="Transparent"
-                                         BorderBrush="Transparent"
-                                         Command="{Binding QuestionarioCommand}">
-
-                                    <Button.Template>
-
-                                        <ControlTemplate TargetType="Button">
-
-                                            <Border Background="Transparent">
-
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                            </Border>
-
-                                        </ControlTemplate>
-
-                                    </Button.Template>
-
-                                    <Image Source="pack://application:,,,/Images/questionario.png"
-                                       Stretch="None"
-                                       HorizontalAlignment="Center"
-                                       Margin="10,0,0,0"
-                                       />
-
-                                </Button>
-
-                                <TextBlock Text="Questionário"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-
-                            </StackPanel>
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_Questionario"
-                                         Content="Questionário"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--resultados-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      >
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-                                <Button Margin="0,0,0,0"
-                                         HorizontalContentAlignment="Center"
-                                         VerticalContentAlignment="Center"
-                                         Background="Transparent"
-                                         BorderBrush="Transparent"
-                                         Command="{Binding ResultadosCommand}">
-
-                                    <Button.Template>
-
-                                        <ControlTemplate TargetType="Button">
-
-                                            <Border Background="Transparent">
-
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                            </Border>
-
-                                        </ControlTemplate>
-
-                                    </Button.Template>
-
-                                    <Image Source="pack://application:,,,/Images/resultados.png"
-                                       Stretch="None"
-                                       HorizontalAlignment="Center"
-                                       Margin="10,0,0,0"
-                                       />
-
-                                </Button>
-
-                                <TextBlock Text="Resultados"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-
-                            </StackPanel>
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_Resultados"
-                                         Content="Resultados"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
-
-                        <!--Mais-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      >
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-                                <Button Margin="0,0,0,0"
-                                         HorizontalContentAlignment="Center"
-                                         VerticalContentAlignment="Center"
-                                         Background="Transparent"
-                                         BorderBrush="Transparent"
-                                         Command="{Binding MaisCommand}">
-
-                                    <Button.Template>
-
-                                        <ControlTemplate TargetType="Button">
-
-                                            <Border Background="Transparent">
-
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                            </Border>
-
-                                        </ControlTemplate>
-
-                                    </Button.Template>
-
-                                    <Image Source="pack://application:,,,/Images/Mais.png"
-                                       Stretch="None"
-                                       HorizontalAlignment="Center"
-                                       Margin="10,0,0,0"
-                                       />
-
-                                </Button>
-
-                                <TextBlock Text="Mais"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-
-                            </StackPanel>
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_Mais"
-                                         Content="Mais"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              >
 
                         <ListView.ItemContainerStyle>
 
-                            <Style TargetType="ListViewItem">
+                            <Style TargetType="{x:Type ListViewItem}">
 
                                 <Setter Property="Template">
 
@@ -635,8 +242,7 @@
 
                                                 <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                                                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                                                  VerticalAlignment="{TemplateBinding VerticalAlignment}">
-                                                </ContentPresenter>
+                                                                  VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
 
                                             </Border>
 
@@ -671,6 +277,277 @@
                             </Style>
 
                         </ListView.ItemContainerStyle>
+
+                        <!--HOME-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" 
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      MouseLeftButtonUp="HomeButton_Click"
+>
+
+
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Home"
+                                         Content="Home"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+
+
+
+                                <Image Source="pack://application:,,,/Images/Home.png"
+                                       Stretch="None"
+                                       Margin="10,0,0,0"
+                                       />
+
+
+
+                                <TextBlock Text="Home"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"
+                                           />
+
+
+                            </StackPanel>
+
+
+
+                        </ListViewItem>
+
+                        <!--INTRODUÇÃO-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" 
+                                      MouseEnter="ListViewItem_MouseEnter" 
+                                      MouseLeftButtonUp="ListViewItem_MouseLeftButtonUp"
+                                      >
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Introducao"
+                                         Content="Introdução"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+
+
+                                <Image Source="pack://application:,,,/Images/Introducao.png"
+                                       Stretch="None"
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+
+
+                                <TextBlock Text="Introdução"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--Sobre-->
+
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" 
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      MouseLeftButtonUp="ListViewItem_MouseLeftButtonUp">
+
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_sobre"
+                                         Content="Sobre"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+
+
+
+                                <Image Source="pack://application:,,,/Images/sobre.png"
+                                       Stretch="None"
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+
+
+                                <TextBlock Text="Sobre"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+
+                        <!--obras-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" 
+                                      MouseEnter="ListViewItem_MouseEnter"
+                                      MouseLeftButtonUp="ListViewItem_MouseLeftButtonUp">
+
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Obras"
+                                         Content="Obras"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+
+
+
+                                <Image Source="pack://application:,,,/Images/Obras.png"
+                                       Stretch="None"
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+
+
+                                <TextBlock Text="Obras"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--Questionario-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      MouseLeftButtonUp="ListViewItem_MouseLeftButtonUp">
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Questionario"
+                                         Content="Questionário"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+
+
+                                <Image Source="pack://application:,,,/Images/questionario.png"
+                                       Stretch="None"
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+
+
+                                <TextBlock Text="Questionário"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--resultados-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      MouseLeftButtonUp="ListViewItem_MouseLeftButtonUp">
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Resultados"
+                                         Content="Resultados"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+
+
+
+
+                                <Image Source="pack://application:,,,/Images/resultados.png"
+                                       Stretch="None"
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+
+
+                                <TextBlock Text="Resultados"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
+
+                        <!--Mais-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
+                                      MouseLeftButtonUp="ListViewItem_MouseLeftButtonUp">
+
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip x:Name="tt_Mais"
+                                         Content="Mais"
+                                         Style="{StaticResource tt_style}"/>
+
+                            </ListViewItem.ToolTip>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+
+
+
+                                <Image Source="pack://application:,,,/Images/Mais.png"
+                                       Stretch="None"
+                                       HorizontalAlignment="Center"
+                                       Margin="10,0,0,0"
+                                       />
+
+
+
+                                <TextBlock Text="Mais"
+                                           Margin="25,0,0,0"
+                                           Style="{StaticResource font_style}"/>
+
+                            </StackPanel>
+
+                        </ListViewItem>
 
                     </ListView>
 
