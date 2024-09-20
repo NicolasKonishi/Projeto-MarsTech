@@ -36,5 +36,18 @@ namespace PIM_WPF.View
                 placeholder.Visibility = Visibility.Visible;
             }
         }
+
+        private void cbClassificacao2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbClassificacao2.SelectedItem != null)
+            {
+                holder.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                holder.Visibility = Visibility.Visible;
+            }
+        }
+        
     }
 }
