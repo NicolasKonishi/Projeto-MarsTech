@@ -24,5 +24,17 @@ namespace PIM_WPF.View
         {
             InitializeComponent();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbClassificacao.SelectedItem != null)
+            {
+                placeholder.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                placeholder.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
