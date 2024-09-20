@@ -5,16 +5,136 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PIM_WPF.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" 
+             d:DesignWidth="1300">
 
-   
+
+
+
 
     <Grid>
-        <Grid Background="White">
-            <TextBlock Text="Bem-vindo à tela Questionario!" 
-             HorizontalAlignment="Center" 
-             VerticalAlignment="Center"
-                 FontSize="40"/>
+        <Grid Background="#491400">
+
+            <TextBlock Text="Questionário de Satisfação" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top"
+                       FontSize="60" 
+                       Margin="0,75,0,0"
+                       Foreground="#FF4500"/>
+
+            <TextBlock Text="S u a  o p i n i ã o  é  i m p o r t a nt e !" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top"
+                       FontSize="30" 
+                       Margin="0,35,0,0"
+                       Foreground="White" 
+                       FontFamily="Dela Gothic One"/>
+
+            <TextBlock Text="Para nos ajudar a melhorar a sua experiência e a de outros visitantes, gostaríamos de saber a sua opinião sobre a nossa exposição. Por favor, responda às seguintes perguntas:" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top"
+                       FontSize="25" 
+                       Margin="0,170,0,0"
+                       Foreground="White"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center" 
+                       Width="1300" 
+                       FontFamily="Dela Gothic One" 
+                       LineHeight="40"/>
+
+            <TextBlock Text="C o m o   v o c ê   a v a l i a r i a   a   s u a   e x p e r i ê n c i a  g e r a l  e m  n o s s o  m u s e u ?" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top"
+                       FontSize="25" 
+                       Margin="0,270,0,0"
+                       Foreground="White"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center" 
+                       Width="1300" 
+                       FontFamily="Dela Gothic One" 
+                       FontWeight="Bold">
+
+                <TextBlock.Effect>
+
+                    <DropShadowEffect BlurRadius="3"
+                                      ShadowDepth="1"
+                                      Direction="-90"
+                                      Color="White"/>
+                </TextBlock.Effect>
+
+            </TextBlock>
+
+            <ComboBox x:Name="cbClassificacao" 
+                      Width="995"
+                      Height="35"
+                      Margin="0,315,0,0"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Center"
+                      FontSize="22"
+                      FontFamily="Dela Gothic One"
+                      SelectionChanged="ComboBox_SelectionChanged"
+                      Cursor="Hand">
+
+                <ComboBox.Style>
+                    
+                    <Style TargetType="ComboBox">
+                        <Setter Property="Foreground" Value="Gray"/>
+                        <!-- Cor do hint padrão -->
+                        <Style.Triggers>
+                            <!-- Quando o usuário seleciona algo, a cor do texto muda para preto -->
+                            <Trigger Property="Text" Value="S e l e c i o n e  u m a  o p ç ã o">
+                                <Setter Property="Foreground" Value="Gray"/>
+                                <!-- Hint em cinza -->
+                            </Trigger>
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <!-- Texto selecionado em preto -->
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    
+                </ComboBox.Style>
+
+                <ComboBoxItem Content="Excelente" 
+                              FontFamily="Dela Gothic One" 
+                              FontSize="20"
+                              Foreground="Black"/>
+
+                <ComboBoxItem Content="Muito boa" 
+                              FontFamily="Dela Gothic One" 
+                              FontSize="20"
+                              Foreground="Black"/>
+
+                <ComboBoxItem Content="boa" 
+                              FontFamily="Dela Gothic One" 
+                              FontSize="20"
+                              Foreground="Black"/>
+
+                <ComboBoxItem Content="Regular" 
+                              FontFamily="Dela Gothic One" 
+                              FontSize="20"
+                              Foreground="Black"/>
+
+                <ComboBoxItem Content="Ruim" 
+                              FontFamily="Dela Gothic One" 
+                              FontSize="20"
+                              Foreground="Black"/>
+
+            </ComboBox>
+            
+            <TextBlock x:Name="placeholder" 
+               Text="S e l e c i o n e  u m a  o p ç ã o" 
+               FontSize="22" 
+               FontFamily="Dela Gothic One" 
+               Foreground="Gray" 
+               VerticalAlignment="Top" 
+               Margin="172,318,-172,0"
+               IsHitTestVisible="False" 
+               Visibility="Visible" />
+            
+            
+
         </Grid>
+        
     </Grid>
 </UserControl>
