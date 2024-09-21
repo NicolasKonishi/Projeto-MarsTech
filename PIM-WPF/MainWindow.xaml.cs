@@ -131,6 +131,20 @@ namespace PIM_WPF
             }
         }
 
+        private void Window_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Verifica se o menu está expandido
+            if (tg_btn.IsChecked == true)
+            {
+                // Verifica se o clique foi fora do nav_pn1
+                if (!nav_pn1.IsMouseOver)
+                {
+                    // Recolhe o menu
+                    tg_btn.IsChecked = false;
+                }
+            }
+        }
+
 
     }
     
