@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static MaterialDesignThemes.Wpf.Theme;
 
 namespace PIM_WPF.View
 {
@@ -48,6 +49,42 @@ namespace PIM_WPF.View
                 holder.Visibility = Visibility.Visible;
             }
         }
-        
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            // Oculta o placeholder quando a caixa de texto ganha foco e está vazia
+            if (string.IsNullOrEmpty(textBoxMultiline.Text))
+            {
+                place.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            // Mostra o placeholder novamente se a caixa de texto estiver vazia quando perder o foco
+            if (string.IsNullOrEmpty(textBoxMultiline.Text))
+            {
+                place.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void TextBox_GotFocus2(object sender, RoutedEventArgs e)
+        {
+            // Oculta o placeholder quando a caixa de texto ganha foco e está vazia
+            if (string.IsNullOrEmpty(textBoxMultiline2.Text))
+            {
+                place2.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void TextBox_LostFocus2(object sender, RoutedEventArgs e)
+        {
+            // Mostra o placeholder novamente se a caixa de texto estiver vazia quando perder o foco
+            if (string.IsNullOrEmpty(textBoxMultiline2.Text))
+            {
+                place2.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
+        

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PIM_WPF.View"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" 
+             d:DesignHeight="1300" 
              d:DesignWidth="1300">
 
 
@@ -13,63 +13,79 @@
 
 
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-            
-        <Grid Background="#491400">
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
 
-            <TextBlock Text="Questionário de Satisfação" 
+            <Grid Background="#491400" Height="auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="51*"/>
+                    <RowDefinition Height="14*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Questionário de Satisfação" 
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Top"
                        FontSize="60" 
-                       Margin="0,75,0,0"
-                       Foreground="#FF4500"/>
+                       Margin="0,59,0,0"
+                       Foreground="#FF4500" Height="80" Width="706"/>
 
-            <TextBlock Text="S u a  o p i n i ã o  é  i m p o r t a nt e !" 
+                <TextBlock Text="S u a  o p i n i ã o  é  i m p o r t a nt e !" 
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Top"
                        FontSize="30" 
-                       Margin="0,35,0,0"
+                       Margin="0,21,0,0"
                        Foreground="White" 
-                       FontFamily="Dela Gothic One"/>
+                       FontFamily="Dela Gothic One" Height="36" Width="508"/>
 
-            <TextBlock Text="Para nos ajudar a melhorar a sua experiência e a de outros visitantes, gostaríamos de saber a sua opinião sobre a nossa exposição. Por favor, responda às seguintes perguntas:" 
+                <TextBlock Text="P a r a  n o s  a j u d a r  a  m e l h o r a r  a  s u a  e x p e r i ê n c i a  e  a  d e  o u t r o s  v i s i t a n t e s ,  g o s t a r í a m o s  d e  s a b e r  a  s u a  o p i n i ã o  s o b r e  a  n o s s a  e x p o s i ç ã o .  P o r  f a v o r ,  r e s p o n d a  à s  s e g u i n t e s  p e r g u n t a s :" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top"
+                           FontSize="20" 
+                           Margin="0,176,0,0"
+                           Foreground="White"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center" 
+                           Width="1280" 
+                           FontFamily="Dela Gothic One" 
+                           FontWeight="Bold"
+                           LineHeight="40" 
+                           Height="80">
+
+                    <TextBlock.Effect>
+
+                        <DropShadowEffect BlurRadius="3"
+                                          ShadowDepth="1"
+                                          Direction="-90"
+                                          Color="White"/>
+                    </TextBlock.Effect>
+
+                </TextBlock>
+
+                <TextBlock Text="C o m o   v o c ê   a v a l i a r i a   a   s u a   e x p e r i ê n c i a  g e r a l  e m  n o s s o  m u s e u ?" 
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Top"
-                       FontSize="25" 
-                       Margin="0,170,0,0"
+                       FontSize="23" 
+                       Margin="0,294,0,0"
                        Foreground="White"
                        TextWrapping="Wrap"
                        TextAlignment="Center" 
                        Width="1300" 
                        FontFamily="Dela Gothic One" 
-                       LineHeight="40"/>
+                       FontWeight="Bold" Height="30">
 
-            <TextBlock Text="C o m o   v o c ê   a v a l i a r i a   a   s u a   e x p e r i ê n c i a  g e r a l  e m  n o s s o  m u s e u ?" 
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Top"
-                       FontSize="25" 
-                       Margin="0,270,0,0"
-                       Foreground="White"
-                       TextWrapping="Wrap"
-                       TextAlignment="Center" 
-                       Width="1300" 
-                       FontFamily="Dela Gothic One" 
-                       FontWeight="Bold">
+                    <TextBlock.Effect>
 
-                <TextBlock.Effect>
-
-                    <DropShadowEffect BlurRadius="3"
+                        <DropShadowEffect BlurRadius="3"
                                       ShadowDepth="1"
                                       Direction="-90"
                                       Color="White"/>
-                </TextBlock.Effect>
+                    </TextBlock.Effect>
 
-            </TextBlock>
+                </TextBlock>
 
-            <ComboBox x:Name="cbClassificacao" 
-                      Width="995"
+                <ComboBox x:Name="cbClassificacao" 
+                      Width="996"
                       Height="35"
-                      Margin="0,315,0,0"
+                      Margin="0,336,0,0"
                       VerticalAlignment="Top"
                       HorizontalAlignment="Center"
                       FontSize="22"
@@ -77,89 +93,89 @@
                       SelectionChanged="ComboBox_SelectionChanged"
                       Cursor="Hand">
 
-                <ComboBox.Style>
-                    
-                    <Style TargetType="ComboBox">
-                        <Setter Property="Foreground" Value="Gray"/>
-                        <!-- Cor do hint padrão -->
-                        <Style.Triggers>
-                            <!-- Quando o usuário seleciona algo, a cor do texto muda para preto -->
-                            <Trigger Property="Text" Value="S e l e c i o n e  u m a  o p ç ã o">
-                                <Setter Property="Foreground" Value="Gray"/>
-                                <!-- Hint em cinza -->
-                            </Trigger>
-                            <Trigger Property="IsDropDownOpen" Value="True">
-                                <Setter Property="Foreground" Value="Black"/>
-                                <!-- Texto selecionado em preto -->
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                    
-                </ComboBox.Style>
+                    <ComboBox.Style>
 
-                <ComboBoxItem Content="Excelente" 
+                        <Style TargetType="ComboBox">
+                            <Setter Property="Foreground" Value="Gray"/>
+                            <!-- Cor do hint padrão -->
+                            <Style.Triggers>
+                                <!-- Quando o usuário seleciona algo, a cor do texto muda para preto -->
+                                <Trigger Property="Text" Value="S e l e c i o n e  u m a  o p ç ã o">
+                                    <Setter Property="Foreground" Value="Gray"/>
+                                    <!-- Hint em cinza -->
+                                </Trigger>
+                                <Trigger Property="IsDropDownOpen" Value="True">
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <!-- Texto selecionado em preto -->
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+
+                    </ComboBox.Style>
+
+                    <ComboBoxItem Content="Excelente" 
                               FontFamily="Dela Gothic One" 
                               FontSize="20"
                               Foreground="Black"/>
 
-                <ComboBoxItem Content="Muito boa" 
+                    <ComboBoxItem Content="Muito boa" 
                               FontFamily="Dela Gothic One" 
                               FontSize="20"
                               Foreground="Black"/>
 
-                <ComboBoxItem Content="boa" 
+                    <ComboBoxItem Content="boa" 
                               FontFamily="Dela Gothic One" 
                               FontSize="20"
                               Foreground="Black"/>
 
-                <ComboBoxItem Content="Regular" 
+                    <ComboBoxItem Content="Regular" 
                               FontFamily="Dela Gothic One" 
                               FontSize="20"
                               Foreground="Black"/>
 
-                <ComboBoxItem Content="Ruim" 
+                    <ComboBoxItem Content="Ruim" 
                               FontFamily="Dela Gothic One" 
                               FontSize="20"
                               Foreground="Black"/>
 
-            </ComboBox>
+                </ComboBox>
 
-            <TextBlock x:Name="placeholder" 
+                <TextBlock x:Name="placeholder" 
                Text="S e l e c i o n e  u m a  o p ç ã o" 
                FontSize="22" 
                FontFamily="Dela Gothic One" 
                Foreground="Gray" 
                VerticalAlignment="Top" 
-               Margin="172,318,-172,0"
+               Margin="154,340,-154,0"
                IsHitTestVisible="False" 
-               Visibility="Visible" />
+               Visibility="Visible" Height="26" />
 
-            <TextBlock Text="C o m o  v o c ê  a v a l i a r i a  a  q u a l i d a d e  d a s  e x p o s i ç õ e s  e  d a s  i n f o r m a ç õ e s  f o r n e c i d a s ? " 
+                <TextBlock Text="C o m o  v o c ê  a v a l i a r i a  a  q u a l i d a d e  d a s  e x p o s i ç õ e s  e  d a s  i n f o r m a ç õ e s  f o r n e c i d a s ? " 
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Top"
-                       FontSize="25" 
-                       Margin="0,380,0,0"
+                       FontSize="23" 
+                       Margin="0,398,0,0"
                        Foreground="White"
                        TextWrapping="Wrap"
                        TextAlignment="Center" 
-                       Width="1167" 
+                       Width="1064" 
                        FontFamily="Dela Gothic One" 
-                       FontWeight="Bold">
+                       FontWeight="Bold" Height="60">
 
-                <TextBlock.Effect>
+                    <TextBlock.Effect>
 
-                    <DropShadowEffect BlurRadius="3"
+                        <DropShadowEffect BlurRadius="3"
                           ShadowDepth="1"
                           Direction="-90"
                           Color="White"/>
-                </TextBlock.Effect>
+                    </TextBlock.Effect>
 
-            </TextBlock>
+                </TextBlock>
 
                 <ComboBox x:Name="cbClassificacao2" 
-                          Width="995"
+                          Width="996"
                           Height="35"
-                          Margin="0,460,0,0"
+                          Margin="0,473,0,0"
                           VerticalAlignment="Top"
                           HorizontalAlignment="Center"
                           FontSize="22"
@@ -220,13 +236,233 @@
                            FontFamily="Dela Gothic One" 
                            Foreground="Gray" 
                            VerticalAlignment="Top" 
-                           Margin="172,464,-172,0"
+                           Margin="155,478,-155,0"
                            IsHitTestVisible="False" 
-                           Visibility="Visible" />
+                           Visibility="Visible" Height="26" />
+
+                <TextBlock Text="V o c ê  t e m  a l g u m  c o m e n t á r i o  a d i c i o n a l  o u  s u g e s t ã o ?  ( O p c i o n a l ) " 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top"
+                           FontSize="23" 
+                           Margin="0,550,0,0"
+                           Foreground="White"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center" 
+                           Width="1168" 
+                           FontFamily="Dela Gothic One" 
+                           FontWeight="Bold" Height="30">
+
+                    <TextBlock.Effect>
+
+                        <DropShadowEffect BlurRadius="3"
+                                          ShadowDepth="1"
+                                          Direction="-90"
+                                          Color="White"/>
+                    </TextBlock.Effect>
+
+                </TextBlock>
+
+
+                <TextBox x:Name="textBoxMultiline"
+                         Width="1064"
+                         Height="244"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Top"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         Margin="0,606,0,0"
+                         FontSize="30"
+                         Foreground="Black"
+                         Background="White"
+                         GotFocus="TextBox_GotFocus"
+                         LostFocus="TextBox_LostFocus"/>
+
+                <TextBlock x:Name="place"
+                           Text="D e i x e  s u a  m e n s a g e m  a q u i"
+                           FontSize="27"
+                           Foreground="Gray"
+                           FontFamily="Dela Gothic One"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"
+                           Margin="118,606,0,0"
+                           IsHitTestVisible="False" 
+                           Visibility="Visible" Height="32" Width="452"/>
+
+                <TextBlock Text="S e  v o c ê  d e s e j a  r e c e b e r  u m a  r e s p o s t a  s o b r e  o  s e u  c o m e n t á r i o ,  p o r   f a v o r ,  f o r n e ç a  s e u  e - m a i l : " 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Top"
+                           FontSize="23" 
+                           Margin="0,899,0,0"
+                           Foreground="White"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center" 
+                           Width="1150" 
+                           FontFamily="Dela Gothic One" 
+                           FontWeight="Bold" Height="60">
+
+                    <TextBlock.Effect>
+
+                        <DropShadowEffect BlurRadius="3"
+                                          ShadowDepth="1"
+                                          Direction="-90"
+                                          Color="White"/>
+                    </TextBlock.Effect>
+
+                </TextBlock>
+
+                <TextBox x:Name="textBoxMultiline2"
+                         Width="1064"
+                         Height="44"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Top"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="True"
+                         Margin="0,976,0,0"
+                         FontSize="30"
+                         Foreground="Black"
+                         Background="White"
+                         GotFocus="TextBox_GotFocus2"
+                         LostFocus="TextBox_LostFocus2" 
+                         FontFamily="Dela Gothic One"/>
+
+                <TextBlock x:Name="place2"
+                           Text="E m a i l"
+                           FontSize="27"
+                           Foreground="Gray"
+                           FontFamily="Dela Gothic One"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Left"
+                           Margin="118,982,0,0"
+                           IsHitTestVisible="False" 
+                           Visibility="Visible" Height="32" Width="93"/>
+
+                <Button x:Name="btnEnviar"
+                        Content="E n v i a r"
+                        Width="1064"
+                        Height="50"
+                        FontSize="25"
+                        VerticalAlignment="Top"
+                        Cursor="Hand"
+                        HorizontalAlignment="Center"
+                        Background="#E03A00"
+                        Foreground="White"
+                        Margin="0,1050,0,0" 
+                        FontFamily="Dela Gothic One" Grid.RowSpan="2">
+
+                    <!-- Definindo o estilo com efeito de chanfrado -->
+
+                    <Button.Template>
+
+                        <ControlTemplate TargetType="Button">
+
+                            <Grid>
+
+                                <!-- Camada de fundo com bordas arredondadas e sombra -->
+
+                                <Border x:Name="border"
+                                        CornerRadius="10"
+                                        BorderThickness="2"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}">
+
+                                    <!-- Efeito chanfrado com sombra -->
+                                    <Border.Effect>
+
+                                        <DropShadowEffect Color="Gray"
+                                          Direction="330"
+                                          ShadowDepth="4"
+                                          BlurRadius="6"
+                                          Opacity="0.6"/>
+
+                                    </Border.Effect>
+
+                                </Border>
+
+                                <!-- Conteúdo do botão (o texto "Enviar") -->
+                                <ContentPresenter HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center"
+                                                  RecognizesAccessKey="True" />
+
+                            </Grid>
+
+                            <!-- Triggers para diferentes estados -->
+
+                            <ControlTemplate.Triggers>
+
+                                <!-- Quando o botão é pressionado -->
+
+                                <Trigger Property="IsPressed" 
+                                         Value="True">
+
+                                    <Setter TargetName="border" 
+                                            Property="Background" 
+                                            Value="#FFB02B00"/>
+
+                                    <Setter TargetName="border" 
+                                            Property="Effect">
+
+                                        <Setter.Value>
+
+                                            <DropShadowEffect Color="Black"
+                                                              Direction="145"
+                                                              ShadowDepth="3"
+                                                              BlurRadius="4"
+                                                              Opacity="0.8"/>
+
+                                        </Setter.Value>
+
+                                    </Setter>
+
+                                </Trigger>
+
+                                <!-- Quando o botão está com o mouse em cima -->
+
+                                <Trigger Property="IsMouseOver" 
+                                         Value="True">
+
+                                    <Setter TargetName="border" 
+                                            Property="Background" 
+                                            Value="#FFEE603A"/>
+
+                                </Trigger>
+
+                            </ControlTemplate.Triggers>
+
+                        </ControlTemplate>
+
+                    </Button.Template>
+
+                </Button>
+                
+                <!-- Espaço vazio para visibilidade -->
+                
+                <TextBlock  
+                           Grid.Row="1" Margin="0,119,0,55"/>
+
+                <TextBlock HorizontalAlignment="Center" 
+                           Margin="0,154,0,0" 
+                           TextWrapping="Wrap" 
+                           Text="" 
+                           VerticalAlignment="Top" 
+                           Height="4" 
+                           Width="500" 
+                           Foreground="Transparent"
+                           Background="White">
+                    
+                    <Border CornerRadius="300" 
+                            Background="Transparent" 
+                            Margin="0,154,0,0"
+                            HorizontalAlignment="Center" 
+                            Width="500" 
+                            Height="Auto"/>
+
+                </TextBlock>
+                
 
             </Grid>
-        
+
         </ScrollViewer>
-       
+
     </Grid>
+
 </UserControl>
