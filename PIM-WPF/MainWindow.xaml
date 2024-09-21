@@ -108,17 +108,35 @@
 
                     <ImageBrush x:Name="img_bg"
                                 ImageSource="pack://application:,,,/Images/marte2.png"
-                                Stretch="Fill"/>
+                                Stretch="Fill" 
+                                Opacity="0.7"/>
 
                 </Grid.Background>
+
+
 
             </Grid>
 
             <Frame x:Name="FramePrincipal" 
                    NavigationUIVisibility="Hidden" 
                    Margin="70,0,0,0" 
+                   Navigated="FramePrincipal_Navigated"
                    />
-            
+
+            <Grid x:Name="TextoPrincipal">
+
+                
+                <Image x:Name="logoMars"
+                       Source="pack://application:,,,/Images/logo2.png"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Height="85"
+                       Width="323"
+                       Margin="80,25,0,0"/>
+
+
+            </Grid>
+
             <Grid x:Name="OverlayGrid" Background="#80000000" Visibility="Collapsed"/>
 
 

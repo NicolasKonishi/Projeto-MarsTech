@@ -12,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PIM_WPF
@@ -29,6 +30,7 @@ namespace PIM_WPF
             WindowStyle = WindowStyle.None;
             ResizeMode = ResizeMode.NoResize;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
         }
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -145,7 +147,9 @@ namespace PIM_WPF
             }
         }
 
+        }
 
     }
+
+
     
-}
