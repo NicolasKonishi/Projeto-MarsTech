@@ -120,7 +120,6 @@
             <Frame x:Name="FramePrincipal" 
                    NavigationUIVisibility="Hidden" 
                    Margin="70,0,0,0" 
-                   Navigated="FramePrincipal_Navigated"
                    />
 
             <Grid x:Name="TextoPrincipal">

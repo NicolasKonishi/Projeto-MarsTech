@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PIM_WPF.Entities;
+using PIM_WPF.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -84,6 +86,30 @@ namespace PIM_WPF.View
             {
                 place2.Visibility = Visibility.Visible;
             }
+        }
+
+        private async void btnEnviar_Click(object sender, RoutedEventArgs e)
+        {
+            var visitante = new QuestionarioResposta
+            {
+                SatisfacaoGeral = cbClassificacao.Text,
+                QualidadeExposicao = cbClassificacao2.Text,
+                Comentario = textBoxMultiline.Text,
+                Email = textBoxMultiline2.Text
+            };
+
+            var apiService = new APIService();
+            bool sucesso = await apiService.EnviarDadosAsync(visitante);
+
+            if (sucesso)
+            {
+                MessageBox.Show("Dados enviados com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Falha ao enviar dados.");
+            }
+
         }
     }
 }
