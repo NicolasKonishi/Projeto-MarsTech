@@ -347,7 +347,7 @@
                         Background="#E03A00"
                         Foreground="White"
                         Margin="0,1050,0,0" 
-                        FontFamily="Dela Gothic One" Grid.RowSpan="2">
+                        FontFamily="Dela Gothic One" Grid.RowSpan="2" Click="btnEnviar_Click">
 
                     <!-- Definindo o estilo com efeito de chanfrado -->
 
@@ -433,9 +433,9 @@
                     </Button.Template>
 
                 </Button>
-                
+
                 <!-- Espaço vazio para visibilidade -->
-                
+
                 <TextBlock  
                            Grid.Row="1" Margin="0,119,0,55"/>
 
@@ -457,7 +457,7 @@
                             Height="Auto"/>
 
                 </TextBlock>
-                
+
 
             </Grid>
 
