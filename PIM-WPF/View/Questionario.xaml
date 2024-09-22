@@ -13,8 +13,14 @@
 
 
     <Grid>
+
+        
+
+
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
 
+            
+            
             <Grid Background="#491400" Height="auto">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="51*"/>

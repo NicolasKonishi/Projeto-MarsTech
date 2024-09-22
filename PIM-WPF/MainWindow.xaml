@@ -120,18 +120,19 @@
             <Frame x:Name="FramePrincipal" 
                    NavigationUIVisibility="Hidden" 
                    Margin="70,0,0,0" 
-                   />
+                  />
 
             <Grid x:Name="TextoPrincipal">
 
                 
-                <Image x:Name="logoMars"
+                <Image x:Name="Logo"
                        Source="pack://application:,,,/Images/logo2.png"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Height="85"
                        Width="323"
-                       Margin="80,25,0,0"/>
+                       Margin="80,25,0,0"
+                       Visibility="Hidden"/>
 
 
             </Grid>

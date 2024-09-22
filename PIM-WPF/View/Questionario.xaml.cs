@@ -99,6 +99,7 @@ namespace PIM_WPF.View
             };
 
             var apiService = new APIService();
+
             bool sucesso = await apiService.EnviarDadosAsync(visitante);
 
             if (sucesso)

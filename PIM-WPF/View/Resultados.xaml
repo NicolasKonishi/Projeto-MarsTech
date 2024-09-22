@@ -9,6 +9,9 @@
 
   
     <Grid>
+
+    
+
         <Grid Background="White">
             <TextBlock Text="Bem-vindo à tela Resultados!" 
              HorizontalAlignment="Center" 
