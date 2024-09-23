@@ -13,6 +13,7 @@
     <None Remove="Images\Home.png" />
     <None Remove="Images\Introducao.png" />
     <None Remove="Images\Logo2.png" />
+    <None Remove="Images\LogoMarsTech.png" />
     <None Remove="Images\logo_MarsTech.png" />
     <None Remove="Images\Mais.png" />
     <None Remove="Images\marte.png" />
@@ -34,6 +35,7 @@
     <Resource Include="Images\Home.png" />
     <Resource Include="Images\Introducao.png" />
     <Resource Include="Images\Logo2.png" />
+    <Resource Include="Images\LogoMarsTech.png" />
     <Resource Include="Images\logo_MarsTech.png" />
     <Resource Include="Images\Mais.png" />
     <Resource Include="Images\marte.png" />
