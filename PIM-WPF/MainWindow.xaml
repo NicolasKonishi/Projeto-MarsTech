@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MarsTech - Museu de Exploração de Marte" 
         Height="800"
-        Width="800"
+        Width="1360"
         PreviewMouseLeftButtonDown="Window_PreviewMouseLeftButtonDown"
         WindowState="Maximized"
         WindowStyle="None"
@@ -107,7 +107,7 @@
                 <Grid.Background>
 
                     <ImageBrush x:Name="img_bg"
-                                ImageSource="pack://application:,,,/Images/marte2.png"
+                                ImageSource="pack://application:,,,/Images/Marte2.png"
                                 Stretch="Fill" 
                                 Opacity="0.7"/>
 
@@ -120,11 +120,11 @@
             <Frame x:Name="FramePrincipal" 
                    NavigationUIVisibility="Hidden" 
                    Margin="70,0,0,0" 
-                  />
+                   Navigated="FramePrincipal_Navigated"/>
 
             <Grid x:Name="TextoPrincipal">
 
-                
+
                 <Image x:Name="Logo"
                        Source="pack://application:,,,/Images/logo2.png"
                        VerticalAlignment="Top"
@@ -132,8 +132,24 @@
                        Height="85"
                        Width="323"
                        Margin="80,25,0,0"
-                       Visibility="Hidden"/>
+                       Visibility="Visible"/>
 
+                <StackPanel Orientation="Horizontal" 
+                            Margin="412,150,0,559"
+                            HorizontalAlignment="Left" Width="578">
+
+                    <TextBlock x:Name="txbBemVindo"
+                               Text="Bem-vindo ao "
+                               Foreground="White"
+                               FontSize="45" 
+                               Width="281" 
+                               TextAlignment="Justify" Height="56"/>
+
+                    <Image Source="pack://application:,,,/Images/logoMarsTech.png" 
+                           Width="259" 
+                           Height="54"/>
+
+                </StackPanel>
 
             </Grid>
 

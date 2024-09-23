@@ -74,6 +74,8 @@ namespace PIM_WPF
         {
             // Navega de volta para a página Home no Frame
             FramePrincipal.Content = null;
+            Logo.Visibility = Visibility.Visible; // Mostra a imagem quando na tela Introdução
+
         }
 
         private void tg_btn_Unchecked(object sender, RoutedEventArgs e)
@@ -153,8 +155,10 @@ namespace PIM_WPF
             }
         }
 
+        private void FramePrincipal_Navigated(object sender, NavigationEventArgs e)
+        {
 
-
+        }
     }
 
 }
