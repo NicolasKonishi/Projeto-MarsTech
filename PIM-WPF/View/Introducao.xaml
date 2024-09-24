@@ -5,21 +5,52 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PIM_WPF.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" 
-             d:DesignWidth="800">
+             d:DesignHeight="800" 
+             d:DesignWidth="1360">
 
-    
+
     <Grid Background="White">
 
-       
+        <Image Source="pack://application:,,,/Images/astronaut.png" 
+               Margin="555,0,0,0"/>
 
-        <TextBlock Text="PAGE 2" 
-           FontFamily="ubuntu" 
-           HorizontalAlignment="Center" 
-           VerticalAlignment="Center" 
-           Foreground="#FFB197FC" 
-           FontSize="60" 
-           FontWeight="Bold"/>
+        <StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Left"
+                    Width="550">
+
+            <TextBlock Text="B e m - V i n d o  a o"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       FontFamily="Dela Gothic One" 
+                       FontSize="35" 
+                       Margin="0,30,0,0"
+                       FontWeight="Thin"/>
+            
+            <TextBlock Text="MarsTech"
+                       Foreground="#FF4500"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       FontFamily="Cooper Black" 
+                       FontSize="70"
+                       FontWeight="Heavy" Margin="0,10,0,0"/>
+
+            <TextBlock Text="Uma experiência envolvente que combina tecnologia de ponta, exposições imersivas e inovação para transportá-lo a Marte como nunca antes. Com exposições que vão desde a história da exploração espacial até as últimas descobertas sobre o planeta vermelho, cada seção do museu foi projetada para despertar sua curiosidade e fascínio."
+                       FontSize="30"
+                       FontWeight="Thin"
+                       FontFamily="Dela Gothic One" 
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center" 
+                       Margin="0,80,0,0" 
+                       Width="436" 
+                       Height="503"
+                       LineHeight="40"
+                       LineStackingStrategy="BlockLineHeight"/>
+
+
+        </StackPanel>
+
+
     </Grid>
-    
+
 </UserControl>

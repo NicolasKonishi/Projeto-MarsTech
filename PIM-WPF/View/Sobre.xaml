@@ -5,19 +5,109 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PIM_WPF.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" 
+             d:DesignWidth="1360">
 
-  
 
-    <Grid>
 
-        
+    <Grid Background="Transparent">
 
-        <Grid Background="White">
-            <TextBlock Text="Bem-vindo à tela Sobre!" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
-                       FontSize="40"/>
-        </Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="454"/>
+            <ColumnDefinition Width="453"/>
+            <ColumnDefinition Width="451"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.Column="0" Fill="#FF4400"/>
+
+        <Rectangle Grid.Column="1" Fill="#740B0B"/>
+
+        <Rectangle Grid.Column="2" Fill="#FF4400"/>
+
+        <!--Bloco 1-->
+
+        <TextBlock Text="Missão" 
+               Grid.Column="0"
+               FontFamily="Dela Gothic One" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Top" 
+               Foreground="White" 
+               FontSize="60" 
+               FontWeight="Bold" Margin="0,20,0,0"/>
+
+        <Rectangle Grid.Column="0" 
+           Fill="White" 
+           Height="4" 
+           HorizontalAlignment="Stretch" 
+           Margin="86,110,81,0" 
+           VerticalAlignment="Top"/>
+
+        <TextBlock Text="Inspirar e educar o público sobre a exploração espacial, a ciência planetária e as possibilidades de vida em Marte."
+               VerticalAlignment="Center"
+               Grid.Column="0"
+               HorizontalAlignment="Center"
+               Foreground="White"
+               TextWrapping="Wrap"
+               FontSize="45" 
+               FontFamily="Dela Gothic One" 
+               TextAlignment="Center" Width="364"/>
+
+        <!--Bloco 2-->
+
+        <TextBlock Text="Visão" 
+          Grid.Column="1"
+          FontFamily="Dela Gothic One" 
+          HorizontalAlignment="Center" 
+          VerticalAlignment="Top" 
+          Foreground="#FF4500" 
+          FontSize="60" 
+          FontWeight="Bold" Margin="0,20,0,0"/>
+
+        <Rectangle Grid.Column="1" 
+           Fill="White" 
+           Height="4" 
+           HorizontalAlignment="Stretch" 
+           Margin="86,110,81,0" 
+           VerticalAlignment="Top"/>
+
+        <TextBlock Text="Tornar-se um centro de referência para a exploração espacial e um local de aprendizado e descoberta para todas as idades."
+          VerticalAlignment="Center"
+          Grid.Column="1"
+          HorizontalAlignment="Center"
+          Foreground="White"
+          TextWrapping="Wrap"
+          FontSize="45" 
+          FontFamily="Dela Gothic One" 
+          TextAlignment="Center" Width="380"/>
+
+        <!--Bloco 3-->
+
+        <TextBlock Text="Valores" 
+        Grid.Column="2"
+        FontFamily="Dela Gothic One" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Top" 
+        Foreground="White" 
+        FontSize="60" 
+        FontWeight="Bold" Margin="111,20,0,0"/>
+
+        <Rectangle Grid.Column="2" 
+           Fill="White" 
+           Height="4" 
+           Margin="75,110,92,0" 
+           VerticalAlignment="Top"/>
+
+        <TextBlock Text="Inovação, pesquisa, acessibilidade, interatividade e paixão pela exploração espacial."
+        VerticalAlignment="Center"
+        Grid.Column="2"
+        HorizontalAlignment="Left"
+        Foreground="White"
+        TextWrapping="Wrap"
+        FontSize="45" 
+        FontFamily="Dela Gothic One" 
+        TextAlignment="Center" Width="376" Margin="25,0,0,0"/>
+
     </Grid>
 </UserControl>

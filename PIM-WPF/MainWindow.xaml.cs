@@ -74,6 +74,7 @@ namespace PIM_WPF
         {
             // Navega de volta para a página Home no Frame
             FramePrincipal.Content = null;
+            TextoPrincipal.Visibility = Visibility.Visible; // Mostra a imagem quando na tela Introdução
             Logo.Visibility = Visibility.Visible; // Mostra a imagem quando na tela Introdução
 
         }
@@ -115,26 +116,32 @@ namespace PIM_WPF
                         case "Introdução":
                             FramePrincipal.Navigate(new Introducao()); // Chama a tela "Introdução"
                             Logo.Visibility = Visibility.Collapsed; // Mostra a imagem quando na tela Introdução
+                            TextoPrincipal.Visibility = Visibility.Collapsed; // Mostra a imagem quando na tela Introdução
                             break;
                         case "Sobre":
                             FramePrincipal.Navigate(new Sobre()); // Chama a tela "Sobre"
                             Logo.Visibility = Visibility.Collapsed; // Oculta a imagem nas outras telas
+                            TextoPrincipal.Visibility = Visibility.Collapsed; // Mostra a imagem quando na tela Introdução
                             break;
                         case "Obras":
                             FramePrincipal.Navigate(new Obras()); // Chama a tela "Obras"
                             Logo.Visibility = Visibility.Collapsed;
+                            TextoPrincipal.Visibility = Visibility.Collapsed; // Mostra a imagem quando na tela Introdução
                             break;
                         case "Questionário":
                             FramePrincipal.Navigate(new Questionario()); // Chama a tela "Questionário"
                             Logo.Visibility = Visibility.Collapsed;
+                            TextoPrincipal.Visibility = Visibility.Collapsed; // Mostra a imagem quando na tela Introdução
                             break;
                         case "Resultados":
                             FramePrincipal.Navigate(new Resultados()); // Chama a tela "Resultados"
                             Logo.Visibility = Visibility.Collapsed;
+                            TextoPrincipal.Visibility = Visibility.Collapsed; // Mostra a imagem quando na tela Introdução
                             break;
                         case "Mais":
                             FramePrincipal.Navigate(new Mais()); // Chama a tela "Mais"
                             Logo.Visibility = Visibility.Collapsed;
+                            TextoPrincipal.Visibility = Visibility.Collapsed; // Mostra a imagem quando na tela Introdução
                             break;
                     }
                 }
