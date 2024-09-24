@@ -19,7 +19,8 @@
 
     <Window.Resources>
         <ImageBrush x:Key="tb_mouse_over"
-                    ImageSource="pack://application:,,,/Images/over2.png"/>
+                    ImageSource="pack://application:,,,/Images/over2.png"
+                    />
 
 
         <Style x:Key="font_style" TargetType="TextBlock">
@@ -109,7 +110,7 @@
                     <ImageBrush x:Name="img_bg"
                                 ImageSource="pack://application:,,,/Images/Marte2.png"
                                 Stretch="Fill" 
-                                Opacity="0.7"/>
+                                Opacity="0.55"/>
 
                 </Grid.Background>
 
@@ -150,6 +151,26 @@
                            Height="54"/>
 
                 </StackPanel>
+
+                <TextBlock Text="O  M u s e u  s o b r e  E x p l o r a ç ã o  d e  M a r t e "
+                           Foreground="White"
+                           FontSize="35" 
+                           TextAlignment="Justify" 
+                           Margin="266,244,254,449" 
+                           FontFamily="Dela Gothic One" Opacity="0.6"/>
+
+                <TextBlock Text="         Mergulhe em uma jornada interativa pela história, ciência e futuro da exploração espacial. Explore as maravilhas de Marte e imagine as possibilidades de vida em outro planeta. "
+                           Foreground="White"
+                           FontSize="35" 
+                           TextAlignment="Justify" 
+                           TextWrapping="Wrap" 
+                           Margin="262,370,258,160" 
+                           LineHeight="55"
+                           LineStackingStrategy="BlockLineHeight"
+                           FontFamily="Dela Gothic One" 
+                           Opacity="0.85" 
+                           />
+
 
             </Grid>
 

@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\astronaut.png" />
     <None Remove="Images\Home.png" />
     <None Remove="Images\Introducao.png" />
     <None Remove="Images\Logo2.png" />
@@ -32,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\astronaut.png" />
     <Resource Include="Images\Home.png" />
     <Resource Include="Images\Introducao.png" />
     <Resource Include="Images\Logo2.png" />
