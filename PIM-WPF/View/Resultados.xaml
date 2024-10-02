@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PIM_WPF.View"
              mc:Ignorable="d" 
-             d:DesignHeight="800" 
-             d:DesignWidth="1360">
+             d:DesignWidth="1360" Height="1413">
 
 
     <Grid Margin="0,0,0,0" >

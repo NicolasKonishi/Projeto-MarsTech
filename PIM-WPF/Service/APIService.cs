@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
+using PIM_WPF.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PIM_WPF.Service
 {
@@ -56,5 +58,18 @@ namespace PIM_WPF.Service
             throw new Exception("Erro ao obter média da exposição.");
         }
 
+        public async Task<ComentarioResponse> ObterComentarioAleatorioAsync()
+        {
+            var response = await _httpClient.GetAsync("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/random-comment"); // Utilize o endpoint correto
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var comentarioResponse = JsonConvert.DeserializeObject<ComentarioResponse>(json);
+                return comentarioResponse;
+            }
+
+            throw new Exception("Erro ao obter comentário.");
+        }
     }
 }

@@ -56,21 +56,37 @@ namespace API_Web.Controllers
         [HttpGet("random-comment")]
         public async Task<ActionResult> GetRandomComment()
         {
+            var comentariosValidos = await _context.QuestionarioRespostas
+                .Where(q => !string.IsNullOrEmpty(q.Comentario)
+                            && !string.IsNullOrEmpty(q.Email)
+                            && q.Email.Contains("@"))
+                .Select(q => new { q.Comentario, q.Email })
+                .ToListAsync();
+
+            
+            if (comentariosValidos.Any())
+            {
+                var random = new Random();
+                var randomComentario = comentariosValidos[random.Next(comentariosValidos.Count)];
+                return Ok(randomComentario);
+            }
+
             var comentarios = await _context.QuestionarioRespostas
-                                            .Where(q => !string.IsNullOrEmpty(q.Comentario) && !string.IsNullOrEmpty(q.Email))
-                                            .Select(q => new { q.Comentario, q.Email })
-                                            .ToListAsync();
+                .Where(q => !string.IsNullOrEmpty(q.Comentario))
+                .Select(q => new { q.Comentario, q.Email })
+                .ToListAsync();
 
             if (!comentarios.Any())
             {
                 return NotFound(new { message = "Nenhum comentário encontrado." });
             }
 
-            var random = new Random();
-            var randomComentario = comentarios[random.Next(comentarios.Count)];
-
-            return Ok(randomComentario);
+            var randomAll = new Random();
+            var randomComentarioAll = comentarios[randomAll.Next(comentarios.Count)];
+            return Ok(randomComentarioAll);
         }
+
+
         [HttpGet("average-exhibitions")]
         public async Task<ActionResult<double>> GetAverageExhibitions()
         {

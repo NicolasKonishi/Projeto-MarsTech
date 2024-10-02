@@ -29,6 +29,7 @@ namespace PIM_WPF.View
             _apiService = new APIService();
             CarregarMediaExposicao();
             ObterMediaQualidadeoAsync();
+            CarregarComentariosAsync();
         }
 
         private async void CarregarMediaExposicao()
@@ -57,5 +58,23 @@ namespace PIM_WPF.View
                 MessageBox.Show($"Erro ao carregar a média da exposição: {ex.Message}");
             }
         }
+
+        private async Task CarregarComentariosAsync()
+        {
+            try
+            {
+                var comentarioResponse = await _apiService.ObterComentarioAleatorioAsync();
+
+                txtComentario.Text = comentarioResponse?.Comentario ?? "Nenhum comentário disponível.";
+
+                txtEmail.Text = comentarioResponse?.Email ?? "Nenhum email disponível.";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar comentários: {ex.Message}");
+            }
+        }
+
+
     }
 }
