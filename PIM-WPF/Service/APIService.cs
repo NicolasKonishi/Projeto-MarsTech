@@ -27,5 +27,34 @@ namespace PIM_WPF.Service
 
             return response.IsSuccessStatusCode;
         }
+
+        public async Task<decimal> ObterMediaExposicaoAsync()
+        {
+            var response = await _httpClient.GetAsync("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/average-exhibitions");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var mediaExposicao = JsonConvert.DeserializeObject<decimal>(json);
+                return mediaExposicao;
+            }
+
+            throw new Exception("Erro ao obter média da exposição.");
+        }
+
+        public async Task<decimal> ObterMediaQualidadeoAsync()
+        {
+            var response = await _httpClient.GetAsync("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/average-satisfaction");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var mediaExposicao = JsonConvert.DeserializeObject<decimal>(json);
+                return mediaExposicao;
+            }
+
+            throw new Exception("Erro ao obter média da exposição.");
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PIM_WPF.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,41 @@ namespace PIM_WPF.View
     /// </summary>
     public partial class Resultados : UserControl
     {
+        private readonly APIService _apiService;
+
         public Resultados()
         {
             InitializeComponent();
+            _apiService = new APIService();
+            CarregarMediaExposicao();
+            ObterMediaQualidadeoAsync();
+        }
+
+        private async void CarregarMediaExposicao()
+        {
+            try
+            {
+                var mediaExposicao = await _apiService.ObterMediaExposicaoAsync();
+
+                txtMediaExposicao.Text = mediaExposicao.ToString("N2"); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar a média da exposição: {ex.Message}");
+            }
+        }
+        private async void ObterMediaQualidadeoAsync()
+        {
+            try
+            {
+                var mediaQualidade= await _apiService.ObterMediaQualidadeoAsync();
+
+                txtMediaServicos.Text = mediaQualidade.ToString("N2");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar a média da exposição: {ex.Message}");
+            }
         }
     }
 }
