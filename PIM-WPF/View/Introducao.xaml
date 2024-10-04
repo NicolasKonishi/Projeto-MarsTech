@@ -41,15 +41,15 @@
                        FontWeight="Heavy" Margin="20,10,0,0"/>
 
             <TextBlock Text="Uma experiência envolvente que combina tecnologia de ponta, exposições imersivas e inovação para transportá-lo a Marte como nunca antes. Com exposições que vão desde a história da exploração espacial até as últimas descobertas sobre o planeta vermelho, cada seção do museu foi projetada para despertar sua curiosidade e fascínio."
-                       FontSize="29"
+                       FontSize="40"
                        FontWeight="Thin"
                        FontFamily="Dela Gothic One" 
                        TextWrapping="Wrap"
                        TextAlignment="Center"
                        HorizontalAlignment="Center" 
                        Margin="20,80,0,0" 
-                       Width="526" 
-                       Height="503"
+                       Width="522" 
+                       Height="553"
                        LineHeight="40"
                        LineStackingStrategy="BlockLineHeight"/>
 
