@@ -49,7 +49,6 @@ namespace PIM_WPF
 
                 tt_Home.Visibility = Visibility.Collapsed;
                 tt_Introducao.Visibility = Visibility.Collapsed;
-                tt_Mais.Visibility = Visibility.Collapsed;
                 tt_Obras.Visibility = Visibility.Collapsed;
                 tt_Questionario.Visibility = Visibility.Collapsed;
                 tt_Resultados.Visibility = Visibility.Collapsed;
@@ -60,7 +59,6 @@ namespace PIM_WPF
 
                 tt_Home.Visibility= Visibility.Visible;
                 tt_Introducao.Visibility = Visibility.Visible;
-                tt_Mais.Visibility = Visibility.Visible;
                 tt_Obras.Visibility = Visibility.Visible;
                 tt_Questionario.Visibility = Visibility.Visible;
                 tt_Resultados.Visibility = Visibility.Visible;
@@ -135,11 +133,6 @@ namespace PIM_WPF
                             break;
                         case "Resultados":
                             FramePrincipal.Navigate(new Resultados()); // Chama a tela "Resultados"
-                            Logo.Visibility = Visibility.Collapsed;
-                            TextoPrincipal.Visibility = Visibility.Collapsed; // Mostra a imagem quando na tela Introdução
-                            break;
-                        case "Mais":
-                            FramePrincipal.Navigate(new Mais()); // Chama a tela "Mais"
                             Logo.Visibility = Visibility.Collapsed;
                             TextoPrincipal.Visibility = Visibility.Collapsed; // Mostra a imagem quando na tela Introdução
                             break;
