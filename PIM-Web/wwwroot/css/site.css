@@ -868,6 +868,7 @@ footer {
 
     .signature-content {
         padding-bottom: 10rem;
+        justify-content:center;
     }
 
     .signature-text {
@@ -890,6 +891,13 @@ footer {
     .signature-text p {
         font-family: "DM Sans", sans-serif;
         font-size: 1.5rem;
+    }
+
+    .info{
+        padding: 0;
+    }
+    #info-description {
+        font-size: 1.2rem;
     }
 
     .form-img {
