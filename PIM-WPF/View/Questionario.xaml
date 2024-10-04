@@ -14,17 +14,18 @@
 
     <Grid>
 
-        
+
 
 
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
 
-            
-            
-            <Grid Background="#491400" Height="auto">
+
+
+            <Grid Background="#491400" >
+
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="51*"/>
-                    <RowDefinition Height="14*"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <TextBlock Text="Questionário de Satisfação" 
@@ -271,7 +272,7 @@
 
                 <TextBox x:Name="textBoxMultiline"
                          Width="1064"
-                         Height="244"
+                         Height="94"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Top"
                          TextWrapping="Wrap"
@@ -298,7 +299,7 @@
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Top"
                            FontSize="23" 
-                           Margin="0,899,0,0"
+                           Margin="0,742,0,0"
                            Foreground="White"
                            TextWrapping="Wrap"
                            TextAlignment="Center" 
@@ -323,7 +324,7 @@
                          VerticalAlignment="Top"
                          TextWrapping="Wrap"
                          AcceptsReturn="True"
-                         Margin="0,976,0,0"
+                         Margin="0,829,0,0"
                          FontSize="30"
                          Foreground="Black"
                          Background="White"
@@ -338,7 +339,7 @@
                            FontFamily="Dela Gothic One"
                            VerticalAlignment="Top"
                            HorizontalAlignment="Left"
-                           Margin="118,982,0,0"
+                           Margin="118,836,0,0"
                            IsHitTestVisible="False" 
                            Visibility="Visible" Height="32" Width="93"/>
 
@@ -351,9 +352,8 @@
                         Cursor="Hand"
                         HorizontalAlignment="Center"
                         Background="#E03A00"
-                        Foreground="White"
-                        Margin="0,1050,0,0" 
-                        FontFamily="Dela Gothic One" Grid.RowSpan="2" Click="btnEnviar_Click">
+                        Foreground="White" 
+                        FontFamily="Dela Gothic One" Click="btnEnviar_Click" Margin="0,900,0,0">
 
                     <!-- Definindo o estilo com efeito de chanfrado -->
 
@@ -442,8 +442,7 @@
 
                 <!-- Espaço vazio para visibilidade -->
 
-                <TextBlock  
-                           Grid.Row="1" Margin="0,119,0,55"/>
+                <TextBlock Margin="0,17,0,85" Grid.Row="1"/>
 
                 <TextBlock HorizontalAlignment="Center" 
                            Margin="0,154,0,0" 

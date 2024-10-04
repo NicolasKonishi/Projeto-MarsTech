@@ -9,7 +9,7 @@
 
     <Grid>
         <!-- Definir ScrollViewer com propriedades para rolagem -->
-        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" 
                       HorizontalScrollBarVisibility="Disabled" 
                       CanContentScroll="True">
             <!-- Remove o Height do Grid para evitar restrições -->
