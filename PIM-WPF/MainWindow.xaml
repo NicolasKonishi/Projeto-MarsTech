@@ -145,10 +145,9 @@
                                FontSize="45" 
                                Width="281" 
                                TextAlignment="Justify" Height="56"/>
-
-                    <Image Source="pack://application:,,,/Images/logoMarsTech.png" 
-                           Width="259" 
-                           Height="54"/>
+                    <Image Source="pack://application:,,,/Images/LogoMars.png" 
+                           Width="270" 
+                           Height="78" Margin="5,5,0,0"/>
 
                 </StackPanel>
 
