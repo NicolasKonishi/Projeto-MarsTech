@@ -12,12 +12,11 @@
     <Grid Background="White">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="36*" />
-            <ColumnDefinition Width="49*" />
+            <ColumnDefinition Width="321*" />
+            <ColumnDefinition Width="359*" />
         </Grid.ColumnDefinitions>
 
-        <Image Source="pack://application:,,,/Images/astronaut.png" 
-               Margin="10,0,0,0"
+        <Image Source="pack://application:,,,/Images/astronaut.png"
                Grid.Column="1"/>
 
         <StackPanel Orientation="Vertical"
@@ -41,14 +40,15 @@
                        FontWeight="Heavy" Margin="20,10,0,0"/>
 
             <TextBlock Text="Uma experiência envolvente que combina tecnologia de ponta, exposições imersivas e inovação para transportá-lo a Marte como nunca antes. Com exposições que vão desde a história da exploração espacial até as últimas descobertas sobre o planeta vermelho, cada seção do museu foi projetada para despertar sua curiosidade e fascínio."
-                       FontSize="40"
+                       FontSize="32"
                        FontWeight="Thin"
+                       
                        FontFamily="Dela Gothic One" 
                        TextWrapping="Wrap"
                        TextAlignment="Center"
                        HorizontalAlignment="Center" 
-                       Margin="20,80,0,0" 
-                       Width="522" 
+                       Margin="5,80,0,0" 
+                       Width="430" 
                        Height="553"
                        LineHeight="40"
                        LineStackingStrategy="BlockLineHeight"/>
