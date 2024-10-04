@@ -20,6 +20,8 @@
     <None Remove="Images\Mais.png" />
     <None Remove="Images\marte.png" />
     <None Remove="Images\marte2.png" />
+    <None Remove="Images\obra1.png" />
+    <None Remove="Images\obra1Blur.png" />
     <None Remove="Images\obras.png" />
     <None Remove="Images\over2.png" />
     <None Remove="Images\qd.png" />
@@ -44,6 +46,8 @@
     <Resource Include="Images\Mais.png" />
     <Resource Include="Images\marte.png" />
     <Resource Include="Images\marte2.png" />
+    <Resource Include="Images\obra1.png" />
+    <Resource Include="Images\obra1Blur.png" />
     <Resource Include="Images\obras.png" />
     <Resource Include="Images\over2.png" />
     <Resource Include="Images\qd.png" />
