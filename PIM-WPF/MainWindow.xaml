@@ -292,7 +292,7 @@
                                         <ControlTemplate TargetType="{x:Type ListViewItem}">
 
                                             <Border x:Name="Bd"
-                                                    Height="80"
+                                                    Height="100"
                                                     BorderBrush="{TemplateBinding BorderBrush}"
                                                     BorderThickness="{TemplateBinding BorderThickness}"
                                                     Padding="{TemplateBinding Padding}"
@@ -566,41 +566,6 @@
 
 
                                 <TextBlock Text="Resultados"
-                                           Margin="25,0,0,0"
-                                           Style="{StaticResource font_style}"/>
-
-                            </StackPanel>
-
-                        </ListViewItem>
-
-                        <!--Mais-->
-
-                        <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter"
-                                      MouseLeftButtonUp="ListViewItem_MouseLeftButtonUp">
-
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip x:Name="tt_Mais"
-                                         Content="Mais"
-                                         Style="{StaticResource tt_style}"/>
-
-                            </ListViewItem.ToolTip>
-
-                            <StackPanel Orientation="Horizontal"
-                                        Width="230">
-
-
-
-                                <Image Source="pack://application:,,,/Images/Mais.png"
-                                       Stretch="None"
-                                       HorizontalAlignment="Center"
-                                       Margin="10,0,0,0"
-                                       />
-
-
-
-                                <TextBlock Text="Mais"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 

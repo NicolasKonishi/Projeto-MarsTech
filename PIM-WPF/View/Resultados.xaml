@@ -5,66 +5,68 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PIM_WPF.View"
              mc:Ignorable="d" 
-             d:DesignWidth="1360" Height="1413">
+             d:DesignWidth="1360" Height="1137">
 
-
-    <Grid Margin="0,0,0,0" >
-
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-
+    <Grid>
+        <!-- Definir ScrollViewer com propriedades para rolagem -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Disabled" 
+                      CanContentScroll="True">
+            <!-- Remove o Height do Grid para evitar restrições -->
             <Grid Background="White">
-                <StackPanel Margin="0,0,0,303">
+                <StackPanel Margin="0,0,0,10">
 
                     <TextBlock Text="R e s u l t a d o s" 
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Center"
-                       FontSize="30" 
-                       Margin="0,40,0,0"
-                       Opacity="0.6" FontFamily="Dela Gothic One"/>
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               FontSize="30" 
+                               Margin="0,40,0,0"
+                               Opacity="0.6" 
+                               FontFamily="Dela Gothic One"/>
 
                     <TextBlock Text="M é t r i c a s  d e  S a t i s f a ç ã o" 
-                           HorizontalAlignment="Center"
-                           FontSize="40" 
-                           Margin="0,25,0,0"
-                           Foreground="#FF4500"
-                           FontWeight="Bold"
-                           FontFamily="Cooper Black"/>
-
+                               HorizontalAlignment="Center"
+                               FontSize="40" 
+                               Margin="0,25,0,0"
+                               Foreground="#FF4500"
+                               FontWeight="Bold"
+                               FontFamily="Cooper Black"/>
                 </StackPanel>
 
-                <Grid Margin="137,152,613,922"
-                  Background="Transparent">
-
-                    <TextBlock
-                               VerticalAlignment="Top"
+                <!-- Ajustar o primeiro Grid -->
+                <Grid Margin="137,152,613,819" Background="Transparent">
+                    <TextBlock VerticalAlignment="Top"
                                HorizontalAlignment="Center"
                                FontSize="28" 
                                Margin="0,61,0,0" 
                                FontFamily="Dela Gothic One"
-                               Opacity="0.8" Width="532"><Run Text="  "/><Run Language="pt-br" Text=" "/><Run Text="Média de Avalialção sobre a Exposição"/></TextBlock>
+                               Opacity="0.8" 
+                               Width="532">
+                        <Run Text="  "/>
+                        <Run Language="pt-br" Text=" "/>
+                        <Run Text="Média de Avaliação sobre a Exposição"/>
+                    </TextBlock>
 
-                    <Ellipse Fill="#FF4500"
-                             Width="300"
+                    <Ellipse Fill="#FF4500" 
+                             Width="300" 
                              Height="300"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Top" Margin="0,123,10,0" />
+                             HorizontalAlignment="Center" 
+                             VerticalAlignment="Top" 
+                             Margin="0,123,10,0" />
 
                     <TextBlock x:Name="txtMediaExposicao"
-                       Text="Média"
-                       VerticalAlignment="Top"
-                       HorizontalAlignment="Center"
-                       FontSize="28" 
-                       FontFamily="Dela Gothic One"
-                       Opacity="0.8"
-                       FontWeight="Bold"
-                       Margin="0,249,10,0"/>
-
-
+                               Text="Média"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Center"
+                               FontSize="28" 
+                               FontFamily="Dela Gothic One"
+                               Opacity="0.8"
+                               FontWeight="Bold"
+                               Margin="0,249,10,0"/>
                 </Grid>
 
-                <Grid Margin="730,152,137,922" 
-                      Background="Transparent">
-
+                <!-- Ajustar o segundo Grid -->
+                <Grid Margin="730,152,137,819" Background="Transparent">
                     <TextBlock Text="Média de Avaliação dos Serviços"
                                VerticalAlignment="Top"
                                HorizontalAlignment="Center"
@@ -73,11 +75,12 @@
                                FontFamily="Dela Gothic One"
                                Opacity="0.8"/>
 
-                    <Ellipse Fill="#FF4500"
-                             Width="300"
+                    <Ellipse Fill="#FF4500" 
+                             Width="300" 
                              Height="300"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Top" Margin="0,123,0,0" />
+                             HorizontalAlignment="Center" 
+                             VerticalAlignment="Top" 
+                             Margin="0,123,0,0" />
 
                     <TextBlock x:Name="txtMediaServicos"
                                Text="Média"
@@ -88,29 +91,24 @@
                                Opacity="0.8"
                                FontWeight="Bold"
                                Margin="0,249,0,0"/>
-
                 </Grid>
 
-                <Grid Margin="0,612,0,0"
-                      Background="Transparent">
-
+                <!-- Ajustar o terceiro Grid com comentários e email -->
+                <Grid Margin="0,599,0,0" Background="Transparent">
                     <TextBlock Text="O  q u e  o s  V i s i t a n t e s  D i z e m :"
                                FontSize="30"
                                FontWeight="Bold"
                                VerticalAlignment="Top"
                                HorizontalAlignment="Center"
-                               FontFamily="Dela Gothic One" Margin="0,70,0,0"/>
+                               FontFamily="Dela Gothic One" 
+                               Margin="0,70,0,0"/>
 
-                    <Rectangle
-                               Stroke="Gray"
-                               StrokeThickness="10" Margin="175,226,175,500">
-
+                    <Rectangle Stroke="Gray" 
+                               StrokeThickness="10" 
+                               Margin="175,226,175,500">
                         <Rectangle.Effect>
-
                             <BlurEffect Radius="75" />
-
                         </Rectangle.Effect>
-
                     </Rectangle>
 
                     <Rectangle Height="200" 
@@ -121,78 +119,32 @@
                                VerticalAlignment="Top" 
                                Margin="180,230,180,499"/>
 
-
-                    <Rectangle
-                               Stroke="Gray"
-                               StrokeThickness="10" 
-                               Margin="175,534,172,194">
-
-                        <Rectangle.Effect>
-
-                            <BlurEffect Radius="75" />
-
-                        </Rectangle.Effect>
-
-                    </Rectangle>
-
-                    <Rectangle Height="200" 
-                               Width="1000"
-                               Stroke="Transparent"
-                               Fill="White"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top" 
-                               Margin="180,539,180,190"/>
-
-
-                    <Grid Margin="440,270,427,543"
-                          x:Name="rectangle1">
-
-
+                    <!-- Grid para o conteúdo dos comentários -->
+                    <Grid Margin="175,230,175,500" x:Name="rectangle1">
                         <TextBlock x:Name="txtComentario"
-                               Text="Comentarios"
-                               FontSize="30"
-                               VerticalAlignment="Top"
-                               HorizontalAlignment="Center" 
-                               FontStyle="Italic" />
+                                   Text="Comentários"
+                                   FontSize="30"
+                                   VerticalAlignment="Top"
+                                   TextWrapping="Wrap"
+                                   HorizontalAlignment="Center" 
+                                   TextAlignment="Center"
+                                   FontStyle="Italic" 
+                                   Width="792" Margin="0,14,0,0" />
 
                         <TextBlock x:Name="txtEmail"
                                    Foreground="#FF8255"
                                    Text="Email"
                                    FontSize="30"
-                                   VerticalAlignment="Bottom"
-                                   HorizontalAlignment="Center" 
-                                   FontStyle="Italic" />
-
-                    </Grid>
-
-                    <Grid Margin="440,574,427,229"
-                          x:Name="rectangle2">
-
-
-                        <TextBlock x:Name="txtComentario2"
-                                   Text="Comentarios 2"
-                                   FontSize="30"
+                                   TextWrapping="Wrap"
                                    VerticalAlignment="Top"
+                                   TextAlignment="Center"
                                    HorizontalAlignment="Center" 
-                                   FontStyle="Italic"/>
-
-                        <TextBlock x:Name="txtEmail2"
-                                   Foreground="#FF8255"
-                                   Text="Email 2"
-                                   FontSize="30"
-                                   VerticalAlignment="Bottom"
-                                   HorizontalAlignment="Center" 
-                                   FontStyle="Italic" />
-
+                                   FontStyle="Italic" 
+                                   Margin="0,142,0,0" 
+                                   Width="792" />
                     </Grid>
-
-
-
                 </Grid>
-
             </Grid>
-
         </ScrollViewer>
-
     </Grid>
 </UserControl>
