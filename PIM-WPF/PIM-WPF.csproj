@@ -22,6 +22,12 @@
     <None Remove="Images\marte2.png" />
     <None Remove="Images\obra1.png" />
     <None Remove="Images\obra1Blur.png" />
+    <None Remove="Images\obra2.png" />
+    <None Remove="Images\obra2Blur.png" />
+    <None Remove="Images\obra3.png" />
+    <None Remove="Images\obra3Blur.png" />
+    <None Remove="Images\obra4.png" />
+    <None Remove="Images\obra4Blur.png" />
     <None Remove="Images\obras.png" />
     <None Remove="Images\over2.png" />
     <None Remove="Images\qd.png" />
@@ -48,6 +54,12 @@
     <Resource Include="Images\marte2.png" />
     <Resource Include="Images\obra1.png" />
     <Resource Include="Images\obra1Blur.png" />
+    <Resource Include="Images\obra2.png" />
+    <Resource Include="Images\obra2Blur.png" />
+    <Resource Include="Images\obra3.png" />
+    <Resource Include="Images\obra3Blur.png" />
+    <Resource Include="Images\obra4.png" />
+    <Resource Include="Images\obra4Blur.png" />
     <Resource Include="Images\obras.png" />
     <Resource Include="Images\over2.png" />
     <Resource Include="Images\qd.png" />
