@@ -8,58 +8,137 @@
              d:DesignHeight="800" 
              d:DesignWidth="1360">
 
-
+    <UserControl.Resources>
+        <Style TargetType="RadioButton">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="#FFA500"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid>
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="20"
+                                    Width="{TemplateBinding Width}"
+                                    Height="{TemplateBinding Height}"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FFA500"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
 
     <Grid Background="Black">
 
-        <Image Source="pack://application:,,,/Images/Obra1Blur.png" 
+        <Image x:Name="BackgroundImage"
+               Source="pack://application:,,,/Images/Obra1Blur.png" 
                Stretch="Fill" 
-               Margin="-73,-46,-56,-36"
-               />
-
-
+               Margin="-73,-46,-56,-36"/>
 
         <Grid>
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="681*"/>
                 <ColumnDefinition Width="679*"/>
             </Grid.ColumnDefinitions>
 
             <Grid>
-
-                <Image Source="pack://application:,,,/Images/Obra1.png"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Top" 
-                   Height="428" 
-                   Width="576" Margin="0,130,0,0"/>
-
+                <Image x:Name="ArtworkImage"
+                       Source="pack://application:,,,/Images/Obra1.png"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top" 
+                       Height="428" 
+                       Width="576" Margin="0,130,0,0"/>
             </Grid>
 
-            <StackPanel Grid.Column="1"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
+            <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Para o título -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Para a descrição -->
+                </Grid.RowDefinitions>
 
-                <TextBlock Text="V i d a  e m  M a r t e"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       TextAlignment="Center"
-                       FontFamily="Cooper Black"
-                       FontSize="47"
-                       Foreground="White" Margin="0,0,0,50"/>
+                <TextBlock x:Name="TitleTextBlock"
+                           Text="V i d a  e m  "
+                           HorizontalAlignment="Left"
+                           TextAlignment="Center"
+                           FontFamily="Cooper Black"
+                           FontSize="47"
+                           Foreground="White" Margin="14,-22,0,72" Width="659"/>
 
-                <TextBlock Text="Oferece uma visão artística da possibilidade de vida no planeta vermelho. A obra apresenta uma interpretação imaginativa dos tipos de organismos que poderiam existir nas condições extremas de Marte, explorando conceitos de biologia astrobiológica e adaptações a ambientes inóspitos."
+                <TextBlock x:Name="TitleTextBlock2"
+                           Text="M a r t e"
                            HorizontalAlignment="Center"
                            TextAlignment="Center"
-                           Margin="15"
+                           FontFamily="Cooper Black"
+                           FontSize="47"
+                           Foreground="White" Margin="0,36,0,14" Width="659"/>
+
+                <TextBlock x:Name="DescriptionTextBlock"
+                           Text="Oferece uma visão artística da possibilidade de vida no planeta vermelho. A obra apresenta uma interpretação imaginativa dos tipos de organismos que poderiam existir nas condições extremas de Marte, explorando conceitos de biologia astrobiológica e adaptações a ambientes inóspitos."
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           Margin="0,15,0,15"
                            FontFamily="Dela Gothic One"
                            FontSize="32"
                            TextWrapping="Wrap"
-                           Foreground="White" Width="454"/>
+                           Foreground="White" Grid.Row="1" Width="463"/>
+            </Grid>
 
+            <StackPanel Margin="0,579,0,146"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center" 
+                        Width="232">
+
+                <RadioButton GroupName="RadioGroup" 
+                             VerticalAlignment="Center"
+                             Content="1"
+                             HorizontalAlignment="Left" 
+                             IsChecked="True" Width="40" Height="40"
+                             Checked="RadioButton_Checked"/>
+
+                <RadioButton GroupName="RadioGroup" 
+                             VerticalAlignment="Center"
+                             Content="2"
+                             HorizontalAlignment="Left"
+                             Margin="20,0,0,0" Width="40" Height="40"
+                             Checked="RadioButton_Checked"/>
+
+                <RadioButton GroupName="RadioGroup" 
+                             VerticalAlignment="Center"
+                             Content="3"
+                             HorizontalAlignment="Left"
+                             Margin="20,0" Width="40" Height="40"
+                             Checked="RadioButton_Checked"/>
+
+                <RadioButton GroupName="RadioGroup" 
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Left"
+                             Content="4"
+                             Margin="0,0,0,0" Width="40" Height="40"
+                             Checked="RadioButton_Checked"/>
             </StackPanel>
-
         </Grid>
-
     </Grid>
 </UserControl>
