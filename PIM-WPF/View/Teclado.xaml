@@ -12,72 +12,106 @@
         ResizeMode="NoResize" 
         AllowsTransparency="True" 
         Background="White"
-        WindowStartupLocation="Manual"
-        Loaded="Window_Loaded">
+        WindowStartupLocation="Manual">
 
-    <Grid Background="#F0F0F0">
+    <Grid>
+        <!-- Grid para o Teclado Alfabético -->
+        <Grid x:Name="TecladoAlfabeto" Visibility="Visible" Background="#F0F0F0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+            <!-- Primeira linha de teclas -->
+            <Button Content="Q" Grid.Row="0" Grid.Column="0" Click="Q_Click" Margin="5"/>
+            <Button Content="W" Grid.Row="0" Grid.Column="1" Click="W_Click" Margin="5"/>
+            <Button Content="E" Grid.Row="0" Grid.Column="2" Click="E_Click" Margin="5"/>
+            <Button Content="R" Grid.Row="0" Grid.Column="3" Click="R_Click" Margin="5"/>
+            <Button Content="T" Grid.Row="0" Grid.Column="4" Click="T_Click" Margin="5"/>
+            <Button Content="Y" Grid.Row="0" Grid.Column="5" Click="Y_Click" Margin="5"/>
+            <Button Content="U" Grid.Row="0" Grid.Column="6" Click="U_Click" Margin="5"/>
+            <Button Content="I" Grid.Row="0" Grid.Column="7" Click="I_Click" Margin="5"/>
+            <Button Content="O" Grid.Row="0" Grid.Column="8" Click="O_Click" Margin="5"/>
+            <Button Content="P" Grid.Row="0" Grid.Column="9" Click="P_Click" Margin="5"/>
 
-        <!-- Primeira linha de teclas -->
-        <Button Content="Q" Grid.Row="0" Grid.Column="0" Click="Letra_Click" Margin="5"/>
-        <Button Content="W" Grid.Row="0" Grid.Column="1" Click="Letra_Click" Margin="5"/>
-        <Button Content="E" Grid.Row="0" Grid.Column="2" Click="Letra_Click" Margin="5"/>
-        <Button Content="R" Grid.Row="0" Grid.Column="3" Click="Letra_Click" Margin="5"/>
-        <Button Content="T" Grid.Row="0" Grid.Column="4" Click="Letra_Click" Margin="5"/>
-        <Button Content="Y" Grid.Row="0" Grid.Column="5" Click="Letra_Click" Margin="5"/>
-        <Button Content="U" Grid.Row="0" Grid.Column="6" Click="Letra_Click" Margin="5"/>
-        <Button Content="I" Grid.Row="0" Grid.Column="7" Click="Letra_Click" Margin="5"/>
-        <Button Content="O" Grid.Row="0" Grid.Column="8" Click="Letra_Click" Margin="5"/>
-        <Button Content="P" Grid.Row="0" Grid.Column="9" Click="Letra_Click" Margin="5"/>
+            <!-- Segunda linha de teclas -->
+            <Button Content="A" Grid.Row="1" Grid.Column="0" Click="A_Click" Margin="5"/>
+            <Button Content="S" Grid.Row="1" Grid.Column="1" Click="S_Click" Margin="5"/>
+            <Button Content="D" Grid.Row="1" Grid.Column="2" Click="D_Click" Margin="5"/>
+            <Button Content="F" Grid.Row="1" Grid.Column="3" Click="F_Click" Margin="5"/>
+            <Button Content="G" Grid.Row="1" Grid.Column="4" Click="G_Click" Margin="5"/>
+            <Button Content="H" Grid.Row="1" Grid.Column="5" Click="H_Click" Margin="5"/>
+            <Button Content="J" Grid.Row="1" Grid.Column="6" Click="J_Click" Margin="5"/>
+            <Button Content="K" Grid.Row="1" Grid.Column="7" Click="K_Click" Margin="5"/>
+            <Button Content="L" Grid.Row="1" Grid.Column="8" Click="L_Click" Margin="5"/>
 
-        <!-- Segunda linha de teclas -->
-        <Button Content="A" Grid.Row="1" Click="Letra_Click" Margin="41,6,49,5" Grid.ColumnSpan="2"/>
-        <Button Content="S" Grid.Row="1" Grid.Column="1" Click="Letra_Click" Margin="41,6,49,5" Grid.ColumnSpan="2"/>
-        <Button Content="D" Grid.Row="1" Grid.Column="2" Click="Letra_Click" Margin="41,6,49,5" Grid.ColumnSpan="2"/>
-        <Button Content="F" Grid.Row="1" Grid.Column="3" Click="Letra_Click" Margin="41,6,49,5" Grid.ColumnSpan="2"/>
-        <Button Content="G" Grid.Row="1" Grid.Column="4" Click="Letra_Click" Margin="41,6,49,5" Grid.ColumnSpan="2"/>
-        <Button Content="H" Grid.Row="1" Grid.Column="5" Click="Letra_Click" Margin="41,6,49,5" Grid.ColumnSpan="2"/>
-        <Button Content="J" Grid.Row="1" Grid.Column="6" Click="Letra_Click" Margin="41,6,49,5" Grid.ColumnSpan="2"/>
-        <Button Content="K" Grid.Row="1" Grid.Column="7" Click="Letra_Click" Margin="41,6,49,5" Grid.ColumnSpan="2"/>
-        <Button Content="L" Grid.Row="1" Grid.Column="8" Click="Letra_Click" Margin="41,6,49,5" Grid.ColumnSpan="2"/>
+            <!-- Terceira linha de teclas -->
+            <Button Content="Shift" Grid.Row="2" Grid.Column="0" Click="Shift_Click" Margin="5"/>
+            <Button Content="Z" Grid.Row="2" Grid.Column="1" Click="Z_Click" Margin="5"/>
+            <Button Content="X" Grid.Row="2" Grid.Column="2" Click="X_Click" Margin="5"/>
+            <Button Content="C" Grid.Row="2" Grid.Column="3" Click="C_Click" Margin="5"/>
+            <Button Content="V" Grid.Row="2" Grid.Column="4" Click="V_Click" Margin="5"/>
+            <Button Content="B" Grid.Row="2" Grid.Column="5" Click="B_Click" Margin="5"/>
+            <Button Content="N" Grid.Row="2" Grid.Column="6" Click="N_Click" Margin="5"/>
+            <Button Content="M" Grid.Row="2" Grid.Column="7" Click="M_Click" Margin="5"/>
+            <Button Content="Backspace" Grid.Row="2" Grid.Column="8" Click="Backspace_Click" Grid.ColumnSpan="2" Margin="5,0,0,5"/>
 
-        <!-- Terceira linha de teclas -->
-        <Button Content="Shift" Grid.Row="2" Grid.Column="0" Click="Shift_Click" Margin="5"/>
-        <Button Content="Z" Grid.Row="2" Grid.Column="1" Click="Letra_Click" Margin="5"/>
-        <Button Content="X" Grid.Row="2" Grid.Column="2" Click="Letra_Click" Margin="5"/>
-        <Button Content="C" Grid.Row="2" Grid.Column="3" Click="Letra_Click" Margin="5"/>
-        <Button Content="V" Grid.Row="2" Grid.Column="4" Click="Letra_Click" Margin="5"/>
-        <Button Content="B" Grid.Row="2" Grid.Column="5" Click="Letra_Click" Margin="5"/>
-        <Button Content="N" Grid.Row="2" Grid.Column="6" Click="Letra_Click" Margin="5"/>
-        <Button Content="M" Grid.Row="2" Grid.Column="7" Click="Letra_Click" Margin="5"/>
-        <Button Content="Backspace" Grid.Row="2" Grid.Column="8" Click="Backspace_Click" Grid.ColumnSpan="2" Margin="5,0,0,5"/>
+            <!-- Quarta linha de teclas -->
+            <Button Content="123" Grid.Row="3" Grid.Column="0" Click="Numerico_Click" Margin="5"/>
+            <Button Content="_" Grid.Row="3" Grid.Column="1" Click="Underline_Click" FontWeight="UltraBold" Margin="5"/>
+            <Button Content="@" Grid.Row="3" Grid.Column="2" Click="Arroba_Click" Margin="5"/>
+            <Button Content=".com" Grid.Row="3" Grid.Column="3" Click="PontoCom_Click" Margin="5"/>
+            <Button Content="Space" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" Click="Space_Click" Margin="5"/>
+            <Button Content="Enter" Grid.Row="3" Grid.Column="7" Click="Run_Click" Grid.ColumnSpan="3" Margin="5"/>
+        </Grid>
 
-        <!-- Quarta linha de teclas -->
-        <Button Content="123" Grid.Row="3" Grid.Column="0" Click="Numerico_Click" Margin="5"/>
-        <Button Content="_" Grid.Row="3" Grid.Column="1" Click="Underline_Click" FontWeight="UltraBold" Margin="5"/>
-        <Button Content="@" Grid.Row="3" Grid.Column="2" Click="Arroba_Click" Margin="5"/>
-        <Button Content=".com" Grid.Row="3" Grid.Column="3" Click="PontoCom_Click" Margin="5"/>
-        <Button Content="Space" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="3" Click="Space_Click" Margin="5"/>
-        <Button Content="Enter" Grid.Row="3" Grid.Column="7" Click="Run_Click" Grid.ColumnSpan="3" Margin="5"/>
+        <!-- Grid para o Teclado Numérico -->
+        <Grid x:Name="TecladoNumerico" Visibility="Collapsed" Background="#F0F0F0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Teclas Numéricas -->
+            <Button Content="1" Grid.Row="0" Grid.Column="0" Click="Numero_Click" Margin="5"/>
+            <Button Content="2" Grid.Row="0" Grid.Column="1" Click="Numero_Click" Margin="5"/>
+            <Button Content="3" Grid.Row="0" Grid.Column="2" Click="Numero_Click" Margin="5"/>
+            <Button Content="4" Grid.Row="1" Grid.Column="0" Click="Numero_Click" Margin="5"/>
+            <Button Content="5" Grid.Row="1" Grid.Column="1" Click="Numero_Click" Margin="5"/>
+            <Button Content="6" Grid.Row="1" Grid.Column="2" Click="Numero_Click" Margin="5"/>
+            <Button Content="7" Grid.Row="2" Grid.Column="0" Click="Numero_Click" Margin="5"/>
+            <Button Content="8" Grid.Row="2" Grid.Column="1" Click="Numero_Click" Margin="5"/>
+            <Button Content="9" Grid.Row="2" Grid.Column="2" Click="Numero_Click" Margin="5"/>
+            <Button Content="0" Grid.Row="3" Grid.Column="1" Click="Numero_Click" Margin="5"/>
+
+            <!-- Botão para retornar ao teclado alfabético -->
+            <Button Content="ABC" Grid.Row="3" Grid.Column="0" Click="Alfabetico_Click" Margin="5"/>
+            <Button Content="Backspace" Grid.Row="3" Grid.Column="2" Click="Backspace_Click" Margin="5"/>
+        </Grid>
     </Grid>
 </Window>

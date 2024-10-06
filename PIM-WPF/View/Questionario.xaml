@@ -442,7 +442,7 @@
 
                 <!-- Espaço vazio para visibilidade -->
 
-                <TextBlock Margin="0,17,0,85" Grid.Row="1"/>
+                <TextBlock Margin="0,1240,0,0"/>
 
                 <TextBlock HorizontalAlignment="Center" 
                            Margin="0,154,0,0" 

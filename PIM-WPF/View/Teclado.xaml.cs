@@ -1,22 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PIM_WPF.View
 {
-    /// <summary>
-    /// Lógica interna para Teclado.xaml
-    /// </summary>
     public partial class Teclado : Window
     {
         private bool shiftAtivado = false;
@@ -58,21 +45,45 @@ namespace PIM_WPF.View
             }
         }
 
-        private void Letra_Click(object sender, RoutedEventArgs e)
+        private void Q_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "Q" : "q");
+        private void W_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "W" : "w");
+        private void E_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "E" : "e");
+        private void R_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "R" : "r");
+        private void T_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "T" : "t");
+        private void Y_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "Y" : "y");
+        private void U_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "U" : "u");
+        private void I_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "I" : "i");
+        private void O_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "O" : "o");
+        private void P_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "P" : "p");
+
+        private void A_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "A" : "a");
+        private void S_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "S" : "s");
+        private void D_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "D" : "d");
+        private void F_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "F" : "f");
+        private void G_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "G" : "g");
+        private void H_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "H" : "h");
+        private void J_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "J" : "j");
+        private void K_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "K" : "k");
+        private void L_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "L" : "l");
+
+        private void Z_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "Z" : "z");
+        private void X_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "X" : "x");
+        private void C_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "C" : "c");
+        private void V_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "V" : "v");
+        private void B_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "B" : "b");
+        private void N_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "N" : "n");
+        private void M_Click(object sender, RoutedEventArgs e) => AdicionarLetra(shiftAtivado ? "M" : "m");
+
+        private void Numero_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             if (button != null)
             {
-                string letra = button.Content.ToString();
-                AdicionarLetra(shiftAtivado ? letra.ToUpper() : letra.ToLower());
-                shiftAtivado = false;
+                AdicionarLetra(button.Content.ToString());
             }
         }
 
-        private void Shift_Click(object sender, RoutedEventArgs e)
-        {
-            shiftAtivado = !shiftAtivado;
-        }
+        private void Shift_Click(object sender, RoutedEventArgs e) => shiftAtivado = !shiftAtivado;
 
         private void Backspace_Click(object sender, RoutedEventArgs e)
         {
@@ -87,34 +98,25 @@ namespace PIM_WPF.View
             }
         }
 
-        private void Space_Click(object sender, RoutedEventArgs e)
-        {
-            AdicionarLetra(" ");
-        }
-
-        private void Underline_Click(object sender, RoutedEventArgs e)
-        {
-            AdicionarLetra("_");
-        }
-
-        private void Arroba_Click(object sender, RoutedEventArgs e)
-        {
-            AdicionarLetra("@");
-        }
-
-        private void PontoCom_Click(object sender, RoutedEventArgs e)
-        {
-            AdicionarLetra(".com");
-        }
+        private void Space_Click(object sender, RoutedEventArgs e) => AdicionarLetra(" ");
+        private void Underline_Click(object sender, RoutedEventArgs e) => AdicionarLetra("_");
+        private void Arroba_Click(object sender, RoutedEventArgs e) => AdicionarLetra("@");
+        private void PontoCom_Click(object sender, RoutedEventArgs e) => AdicionarLetra(".com");
 
         private void Numerico_Click(object sender, RoutedEventArgs e)
         {
-            // Abrir teclado numérico
+            // Alterna para o teclado numérico
+            TecladoAlfabeto.Visibility = Visibility.Collapsed;
+            TecladoNumerico.Visibility = Visibility.Visible;
         }
 
-        private void Run_Click(object sender, RoutedEventArgs e)
+        private void Alfabetico_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            // Alterna para o teclado alfabético
+            TecladoNumerico.Visibility = Visibility.Collapsed;
+            TecladoAlfabeto.Visibility = Visibility.Visible;
         }
+
+        private void Run_Click(object sender, RoutedEventArgs e) => this.Hide();
     }
 }
