@@ -23,9 +23,13 @@ namespace PIM_WPF.View
     /// </summary>
     public partial class Questionario : UserControl
     {
+        private Teclado teclado;
+
         public Questionario()
         {
             InitializeComponent();
+            teclado = new Teclado();
+
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -58,6 +62,8 @@ namespace PIM_WPF.View
             if (string.IsNullOrEmpty(textBoxMultiline.Text))
             {
                 place.Visibility = Visibility.Hidden;
+                teclado.SetTargetTextBox(textBoxMultiline);
+                teclado.Show();
             }
         }
 
@@ -76,6 +82,8 @@ namespace PIM_WPF.View
             if (string.IsNullOrEmpty(textBoxMultiline2.Text))
             {
                 place2.Visibility = Visibility.Hidden;
+                teclado.SetTargetTextBox(textBoxMultiline2);
+                teclado.Show();
             }
         }
 
