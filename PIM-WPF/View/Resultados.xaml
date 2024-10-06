@@ -20,14 +20,14 @@
                                HorizontalAlignment="Center" 
                                VerticalAlignment="Center"
                                FontSize="30" 
-                               Margin="0,40,0,0"
+                               Margin="35,40,0,0"
                                Opacity="0.6" 
                                FontFamily="Dela Gothic One"/>
 
                     <TextBlock Text="M é t r i c a s  d e  S a t i s f a ç ã o" 
                                HorizontalAlignment="Center"
                                FontSize="40" 
-                               Margin="0,25,0,0"
+                               Margin="35,25,0,0"
                                Foreground="#FF4500"
                                FontWeight="Bold"
                                FontFamily="Cooper Black"/>
@@ -55,7 +55,7 @@
                              Margin="0,123,10,0" />
 
                     <TextBlock x:Name="txtMediaExposicao"
-                               Text="Média"
+                               Text="Aguardando"
                                VerticalAlignment="Top"
                                HorizontalAlignment="Center"
                                FontSize="28" 
@@ -83,7 +83,7 @@
                              Margin="0,123,0,0" />
 
                     <TextBlock x:Name="txtMediaServicos"
-                               Text="Média"
+                               Text="Aguardando"
                                VerticalAlignment="Top"
                                HorizontalAlignment="Center"
                                FontSize="28" 
@@ -122,7 +122,7 @@
                     <!-- Grid para o conteúdo dos comentários -->
                     <Grid Margin="175,230,175,500" x:Name="rectangle1">
                         <TextBlock x:Name="txtComentario"
-                                   Text="Comentários"
+                                   Text="Aguardando"
                                    FontSize="30"
                                    VerticalAlignment="Top"
                                    TextWrapping="Wrap"
@@ -133,7 +133,7 @@
 
                         <TextBlock x:Name="txtEmail"
                                    Foreground="#FF8255"
-                                   Text="Email"
+                                   Text="Aguardando"
                                    FontSize="30"
                                    TextWrapping="Wrap"
                                    VerticalAlignment="Top"
