@@ -131,10 +131,10 @@ namespace PIM_WPF.View
             }
 
             // Remove o placeholder ao ganhar foco
-            if (textBoxMultiline.Text == "E m a i l")
+            if (textBoxMultiline2.Text == "E m a i l")
             {
-                textBoxMultiline.Text = string.Empty;
-                textBoxMultiline.Foreground = Brushes.Black; // Muda a cor do texto para preto
+                textBoxMultiline2.Text = string.Empty;
+                textBoxMultiline2.Foreground = Brushes.Black; // Muda a cor do texto para preto
             }
         }
 
@@ -148,10 +148,10 @@ namespace PIM_WPF.View
             }
 
             // Restaurar o placeholder se o campo estiver vazio ao perder o foco
-            if (string.IsNullOrWhiteSpace(textBoxMultiline.Text))
+            if (string.IsNullOrWhiteSpace(textBoxMultiline2.Text))
             {
-                textBoxMultiline.Text = "E m a i l";
-                textBoxMultiline.Foreground = Brushes.Gray; // Muda a cor do texto para cinza
+                textBoxMultiline2.Text = "E m a i l";
+                textBoxMultiline2.Foreground = Brushes.Gray; // Muda a cor do texto para cinza
             }
         }
 
