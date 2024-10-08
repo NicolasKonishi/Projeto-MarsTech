@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PIM_WPF.View"
              mc:Ignorable="d" 
-             d:DesignHeight="1300" 
-             d:DesignWidth="1300">
+             d:DesignHeight="800" 
+             d:DesignWidth="1360">
 
 
 
@@ -14,7 +14,7 @@
 
     <Grid>
 
-
+        
 
 
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
@@ -278,22 +278,15 @@
                          TextWrapping="Wrap"
                          AcceptsReturn="True"
                          Margin="0,606,0,0"
-                         FontSize="30"
-                         Foreground="Black"
-                         Background="White"
-                         GotFocus="TextBox_GotFocus"
-                         LostFocus="TextBox_LostFocus"/>
+                         Text="D e i x e  s u a  m e n s a g e m  a q u i"
+                         FontSize="27"
+                         Foreground="Gray"
+                         Background="White"  
+                         GotFocus="textBoxMultiline_GotFocus" 
+                         LostFocus="textBoxMultiline_LostFocus"
+                          />
 
-                <TextBlock x:Name="place"
-                           Text="D e i x e  s u a  m e n s a g e m  a q u i"
-                           FontSize="27"
-                           Foreground="Gray"
-                           FontFamily="Dela Gothic One"
-                           VerticalAlignment="Top"
-                           HorizontalAlignment="Left"
-                           Margin="118,606,0,0"
-                           IsHitTestVisible="False" 
-                           Visibility="Visible" Height="32" Width="452"/>
+               
 
                 <TextBlock Text="S e  v o c ê  d e s e j a  r e c e b e r  u m a  r e s p o s t a  s o b r e  o  s e u  c o m e n t á r i o ,  p o r   f a v o r ,  f o r n e ç a  s e u  e - m a i l : " 
                            HorizontalAlignment="Center" 
@@ -324,24 +317,14 @@
                          VerticalAlignment="Top"
                          TextWrapping="Wrap"
                          AcceptsReturn="True"
+                         Text="E m a i l"
                          Margin="0,829,0,0"
                          FontSize="30"
-                         Foreground="Black"
+                         Foreground="Gray"
                          Background="White"
-                         GotFocus="TextBox_GotFocus2"
-                         LostFocus="TextBox_LostFocus2" 
+                       
                          FontFamily="Dela Gothic One"/>
 
-                <TextBlock x:Name="place2"
-                           Text="E m a i l"
-                           FontSize="27"
-                           Foreground="Gray"
-                           FontFamily="Dela Gothic One"
-                           VerticalAlignment="Top"
-                           HorizontalAlignment="Left"
-                           Margin="118,836,0,0"
-                           IsHitTestVisible="False" 
-                           Visibility="Visible" Height="32" Width="93"/>
 
                 <Button x:Name="btnEnviar"
                         Content="E n v i a r"

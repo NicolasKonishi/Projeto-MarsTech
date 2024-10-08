@@ -28,9 +28,10 @@ namespace PIM_WPF.View
         public Questionario()
         {
             InitializeComponent();
-            teclado = new Teclado();
-
+            
         }
+
+      
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -56,45 +57,9 @@ namespace PIM_WPF.View
             }
         }
 
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            // Oculta o placeholder quando a caixa de texto ganha foco e está vazia
-            if (string.IsNullOrEmpty(textBoxMultiline.Text))
-            {
-                place.Visibility = Visibility.Hidden;
-                teclado.SetTargetTextBox(textBoxMultiline);
-                teclado.Show();
-            }
-        }
+       
 
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            // Mostra o placeholder novamente se a caixa de texto estiver vazia quando perder o foco
-            if (string.IsNullOrEmpty(textBoxMultiline.Text))
-            {
-                place.Visibility = Visibility.Visible;
-            }
-        }
 
-        private void TextBox_GotFocus2(object sender, RoutedEventArgs e)
-        {
-            // Oculta o placeholder quando a caixa de texto ganha foco e está vazia
-            if (string.IsNullOrEmpty(textBoxMultiline2.Text))
-            {
-                place2.Visibility = Visibility.Hidden;
-                teclado.SetTargetTextBox(textBoxMultiline2);
-                teclado.Show();
-            }
-        }
-
-        private void TextBox_LostFocus2(object sender, RoutedEventArgs e)
-        {
-            // Mostra o placeholder novamente se a caixa de texto estiver vazia quando perder o foco
-            if (string.IsNullOrEmpty(textBoxMultiline2.Text))
-            {
-                place2.Visibility = Visibility.Visible;
-            }
-        }
 
         private async void btnEnviar_Click(object sender, RoutedEventArgs e)
         {
@@ -120,6 +85,78 @@ namespace PIM_WPF.View
             }
 
         }
+        private void textBoxMultiline_GotFocus(object sender, RoutedEventArgs e)
+        {
+            // Exibe o teclado virtual apenas se ainda não estiver aberto
+            if (teclado == null)
+            {
+                teclado = new Teclado();
+                teclado.SetTargetTextBox(textBoxMultiline);
+                teclado.Show();
+            }
+
+            // Remove o placeholder ao ganhar foco
+            if (textBoxMultiline.Text == "D e i x e  s u a  m e n s a g e m  a q u i")
+            {
+                textBoxMultiline.Text = string.Empty;
+                textBoxMultiline.Foreground = Brushes.Black; // Muda a cor do texto para preto
+            }
+        }
+
+        private void textBoxMultiline_LostFocus(object sender, RoutedEventArgs e)
+        {
+            // Fechar o teclado quando a caixa de texto perder o foco
+            if (teclado != null)
+            {
+                teclado.Close();
+                teclado = null;
+            }
+
+            // Restaurar o placeholder se o campo estiver vazio ao perder o foco
+            if (string.IsNullOrWhiteSpace(textBoxMultiline.Text))
+            {
+                textBoxMultiline.Text = "D e i x e  s u a  m e n s a g e m  a q u i";
+                textBoxMultiline.Foreground = Brushes.Gray; // Muda a cor do texto para cinza
+            }
+        }
+
+        private void textBoxMultiline2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            // Exibe o teclado virtual apenas se ainda não estiver aberto
+            if (teclado == null)
+            {
+                teclado = new Teclado();
+                teclado.SetTargetTextBox(textBoxMultiline2);
+                teclado.Show();
+            }
+
+            // Remove o placeholder ao ganhar foco
+            if (textBoxMultiline.Text == "E m a i l")
+            {
+                textBoxMultiline.Text = string.Empty;
+                textBoxMultiline.Foreground = Brushes.Black; // Muda a cor do texto para preto
+            }
+        }
+
+        private void textBoxMultiline2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            // Fechar o teclado quando a caixa de texto perder o foco
+            if (teclado != null)
+            {
+                teclado.Close();
+                teclado = null;
+            }
+
+            // Restaurar o placeholder se o campo estiver vazio ao perder o foco
+            if (string.IsNullOrWhiteSpace(textBoxMultiline.Text))
+            {
+                textBoxMultiline.Text = "E m a i l";
+                textBoxMultiline.Foreground = Brushes.Gray; // Muda a cor do texto para cinza
+            }
+        }
+
     }
+
+
 }
         
