@@ -15,7 +15,7 @@
                       CanContentScroll="True">
             <!-- Remove o Height do Grid para evitar restrições -->
             <Grid Background="White">
-                <StackPanel Margin="0,0,0,10">
+                <StackPanel Margin="0,0,0,1376">
 
                     <TextBlock Text="R e s u l t a d o s" 
                                HorizontalAlignment="Center" 

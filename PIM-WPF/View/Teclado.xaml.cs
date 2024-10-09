@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace PIM_WPF.View
 {
     public partial class Teclado : Window
     {
         private bool shiftAtivado = false;
+        private bool shiftPermanente = false;
+        private DispatcherTimer backspaceTimer;
         private TextBox targetTextBox;
 
         public Teclado()
@@ -14,6 +19,11 @@ namespace PIM_WPF.View
             InitializeComponent();
             this.Loaded += Teclado_Load;
             this.Deactivated += Teclado_Deactivate;
+
+            // Configuração do Timer para o Backspace
+            backspaceTimer = new DispatcherTimer();
+            backspaceTimer.Interval = TimeSpan.FromMilliseconds(100); // Intervalo para deletar continuamente
+            backspaceTimer.Tick += BackspaceTimer_Tick;
         }
 
         public void SetTargetTextBox(TextBox textBox)
@@ -42,6 +52,12 @@ namespace PIM_WPF.View
                 int cursorPosition = targetTextBox.SelectionStart;
                 targetTextBox.Text = targetTextBox.Text.Insert(cursorPosition, letra);
                 targetTextBox.SelectionStart = cursorPosition + letra.Length;
+            }
+
+            if (shiftAtivado && !shiftPermanente)
+            {
+                shiftAtivado = false;
+                AtualizarEstadoShift();
             }
         }
 
@@ -83,10 +99,56 @@ namespace PIM_WPF.View
             }
         }
 
-        private void Shift_Click(object sender, RoutedEventArgs e) => shiftAtivado = !shiftAtivado;
-
-        private void Backspace_Click(object sender, RoutedEventArgs e)
+        private void Shift_Click(object sender, RoutedEventArgs e)
         {
+            if (shiftAtivado && shiftPermanente)
+            {
+                // Se ambos os estados estiverem ativos, desativa completamente o Shift
+                shiftAtivado = false;
+                shiftPermanente = false;
+            }
+            else if (shiftAtivado)
+            {
+                // Se o Shift já estava ativado uma vez, ativa o estado permanente
+                shiftPermanente = true;
+            }
+            else
+            {
+                // Ativa o Shift temporário
+                shiftAtivado = true;
+            }
+
+            AtualizarEstadoShift();
+        }
+
+        private void AtualizarEstadoShift()
+        {
+            if (shiftAtivado || shiftPermanente)
+            {
+                ShiftButton.Background = Brushes.LightBlue; // Cor para indicar que o Shift está ativo
+            }
+            else
+            {
+                ShiftButton.Background = Brushes.LightGray; // Cor padrão quando o Shift está inativo
+            }
+        }
+
+        // Evento MouseDown para iniciar o timer de exclusão
+        private void Backspace_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            backspaceTimer.Start(); // Inicia o timer quando o botão é pressionado
+        }
+
+        // Evento MouseUp ou PreviewMouseUp para parar o timer
+        private void Backspace_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            backspaceTimer.Stop(); // Para o timer quando o botão é solto
+        }
+
+        // Método chamado a cada intervalo do timer
+        private void BackspaceTimer_Tick(object sender, EventArgs e)
+        {
+            // Executa a exclusão contínua
             if (targetTextBox != null && targetTextBox.Text.Length > 0)
             {
                 int cursorPosition = targetTextBox.SelectionStart;
