@@ -7,11 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" 
              d:DesignWidth="1360">
-
-
-
-
-
+    
     <Grid>
 
         
@@ -322,7 +318,8 @@
                          FontSize="30"
                          Foreground="Gray"
                          Background="White"
-                       
+                         LostFocus="textBoxMultiline2_LostFocus"
+                         GotFocus="textBoxMultiline2_GotFocus"
                          FontFamily="Dela Gothic One"/>
 
 

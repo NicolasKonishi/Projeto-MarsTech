@@ -1,19 +1,10 @@
 ﻿using PIM_WPF.Entities;
 using PIM_WPF.Service;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using static MaterialDesignThemes.Wpf.Theme;
 
 namespace PIM_WPF.View
@@ -28,38 +19,17 @@ namespace PIM_WPF.View
         public Questionario()
         {
             InitializeComponent();
-            
         }
-
-      
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbClassificacao.SelectedItem != null)
-            {
-                placeholder.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                placeholder.Visibility = Visibility.Visible;
-            }
+            placeholder.Visibility = cbClassificacao.SelectedItem != null ? Visibility.Collapsed : Visibility.Visible;
         }
 
         private void cbClassificacao2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbClassificacao2.SelectedItem != null)
-            {
-                holder.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                holder.Visibility = Visibility.Visible;
-            }
+            holder.Visibility = cbClassificacao2.SelectedItem != null ? Visibility.Collapsed : Visibility.Visible;
         }
-
-       
-
-
 
         private async void btnEnviar_Click(object sender, RoutedEventArgs e)
         {
@@ -73,90 +43,78 @@ namespace PIM_WPF.View
 
             var apiService = new APIService();
 
-            bool sucesso = await apiService.EnviarDadosAsync(visitante);
+            bool sucesso = await EnviarDadosAsync(apiService, visitante);
 
-            if (sucesso)
-            {
-                MessageBox.Show("Dados enviados com sucesso!");
-            }
-            else
-            {
-                MessageBox.Show("Falha ao enviar dados.");
-            }
-
+            MessageBox.Show(sucesso ? "Dados enviados com sucesso!" : "Falha ao enviar dados.");
         }
+
+        private async Task<bool> EnviarDadosAsync(APIService apiService, QuestionarioResposta visitante)
+        {
+            try
+            {
+                return await apiService.EnviarDadosAsync(visitante);
+            }
+            catch (Exception ex)
+            {
+                // Logar ou tratar a exceção conforme necessário
+                MessageBox.Show($"Erro ao enviar dados: {ex.Message}");
+                return false;
+            }
+        }
+
         private void textBoxMultiline_GotFocus(object sender, RoutedEventArgs e)
         {
-            // Exibe o teclado virtual apenas se ainda não estiver aberto
-            if (teclado == null)
-            {
-                teclado = new Teclado();
-                teclado.SetTargetTextBox(textBoxMultiline);
-                teclado.Show();
-            }
-
-            // Remove o placeholder ao ganhar foco
-            if (textBoxMultiline.Text == "D e i x e  s u a  m e n s a g e m  a q u i")
-            {
-                textBoxMultiline.Text = string.Empty;
-                textBoxMultiline.Foreground = Brushes.Black; // Muda a cor do texto para preto
-            }
+            HandleTextBoxGotFocus(textBoxMultiline, "D e i x e  s u a  m e n s a g e m  a q u i");
         }
 
         private void textBoxMultiline_LostFocus(object sender, RoutedEventArgs e)
         {
-            // Fechar o teclado quando a caixa de texto perder o foco
-            if (teclado != null)
-            {
-                teclado.Close();
-                teclado = null;
-            }
-
-            // Restaurar o placeholder se o campo estiver vazio ao perder o foco
-            if (string.IsNullOrWhiteSpace(textBoxMultiline.Text))
-            {
-                textBoxMultiline.Text = "D e i x e  s u a  m e n s a g e m  a q u i";
-                textBoxMultiline.Foreground = Brushes.Gray; // Muda a cor do texto para cinza
-            }
+            HandleTextBoxLostFocus(textBoxMultiline, "D e i x e  s u a  m e n s a g e m  a q u i");
         }
 
         private void textBoxMultiline2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            HandleTextBoxGotFocus(textBoxMultiline2, "E m a i l");
+        }
+
+        private void textBoxMultiline2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            HandleTextBoxLostFocus(textBoxMultiline2, "E m a i l");
+        }
+
+        private void HandleTextBoxGotFocus(TextBox textBox, string placeholderText)
         {
             // Exibe o teclado virtual apenas se ainda não estiver aberto
             if (teclado == null)
             {
                 teclado = new Teclado();
-                teclado.SetTargetTextBox(textBoxMultiline2);
+                teclado.SetTargetTextBox(textBox);
                 teclado.Show();
             }
 
             // Remove o placeholder ao ganhar foco
-            if (textBoxMultiline2.Text == "E m a i l")
+            if (textBox.Text == placeholderText)
             {
-                textBoxMultiline2.Text = string.Empty;
-                textBoxMultiline2.Foreground = Brushes.Black; // Muda a cor do texto para preto
+                textBox.Text = string.Empty;
+                textBox.Foreground = Brushes.Black; // Muda a cor do texto para preto
             }
         }
 
-        private void textBoxMultiline2_LostFocus(object sender, RoutedEventArgs e)
+        private void HandleTextBoxLostFocus(TextBox textBox, string placeholderText)
         {
-            // Fechar o teclado quando a caixa de texto perder o foco
-            if (teclado != null)
+            // Verifica se o teclado deve ser fechado apenas se a TextBox perder foco de um elemento diferente
+            if (teclado != null && !textBox.IsFocused)
             {
                 teclado.Close();
                 teclado = null;
             }
 
             // Restaurar o placeholder se o campo estiver vazio ao perder o foco
-            if (string.IsNullOrWhiteSpace(textBoxMultiline2.Text))
+            if (string.IsNullOrWhiteSpace(textBox.Text))
             {
-                textBoxMultiline2.Text = "E m a i l";
-                textBoxMultiline2.Foreground = Brushes.Gray; // Muda a cor do texto para cinza
+                textBox.Text = placeholderText;
+                textBox.Foreground = Brushes.Gray; // Muda a cor do texto para cinza
             }
         }
-
     }
-
-
 }
-        
