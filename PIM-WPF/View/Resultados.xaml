@@ -14,7 +14,7 @@
                       HorizontalScrollBarVisibility="Disabled" 
                       CanContentScroll="True">
             <!-- Remove o Height do Grid para evitar restrições -->
-            <Grid Background="White">
+            <Grid Background="White" Height="1955">
                 <StackPanel Margin="0,0,0,1376">
 
                     <TextBlock Text="R e s u l t a d o s" 
@@ -106,7 +106,7 @@
 
                     <Rectangle Stroke="Gray" 
                                StrokeThickness="10" 
-                               Margin="175,226,175,500">
+                               Margin="175,226,175,914">
                         <Rectangle.Effect>
                             <BlurEffect Radius="75" />
                         </Rectangle.Effect>
