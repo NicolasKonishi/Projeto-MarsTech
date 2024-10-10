@@ -866,6 +866,12 @@ footer {
 
     .welcome-container {
         margin-top: 10rem;
+        height: 100vh;
+
+    }
+    .signature-container {
+        margin-top: 190px;
+        height: 100vh;
     }
 
     .signature-content {
