@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Threading;
 
 namespace PIM_WPF.View
 {
@@ -11,7 +10,6 @@ namespace PIM_WPF.View
     {
         private bool shiftAtivado = false;
         private bool shiftPermanente = false;
-        private DispatcherTimer backspaceTimer;
         private TextBox targetTextBox;
 
         public Teclado()
@@ -19,11 +17,6 @@ namespace PIM_WPF.View
             InitializeComponent();
             this.Loaded += Teclado_Load;
             this.Deactivated += Teclado_Deactivate;
-
-            // Configuração do Timer para o Backspace
-            backspaceTimer = new DispatcherTimer();
-            backspaceTimer.Interval = TimeSpan.FromMilliseconds(100); // Intervalo para deletar continuamente
-            backspaceTimer.Tick += BackspaceTimer_Tick;
         }
 
         public void SetTargetTextBox(TextBox textBox)
@@ -133,22 +126,9 @@ namespace PIM_WPF.View
             }
         }
 
-        // Evento MouseDown para iniciar o timer de exclusão
-        private void Backspace_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Backspace_Click(object sender, RoutedEventArgs e)
         {
-            backspaceTimer.Start(); // Inicia o timer quando o botão é pressionado
-        }
-
-        // Evento MouseUp ou PreviewMouseUp para parar o timer
-        private void Backspace_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            backspaceTimer.Stop(); // Para o timer quando o botão é solto
-        }
-
-        // Método chamado a cada intervalo do timer
-        private void BackspaceTimer_Tick(object sender, EventArgs e)
-        {
-            // Executa a exclusão contínua
+            // Executa a exclusão de um caractere
             if (targetTextBox != null && targetTextBox.Text.Length > 0)
             {
                 int cursorPosition = targetTextBox.SelectionStart;

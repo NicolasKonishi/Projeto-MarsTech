@@ -82,7 +82,7 @@ namespace PIM_WPF.View
             HandleTextBoxLostFocus(textBoxMultiline2, "E m a i l");
         }
 
-        private void HandleTextBoxGotFocus(TextBox textBox, string placeholderText)
+        private void HandleTextBoxGotFocus(System.Windows.Controls.TextBox textBox, string placeholderText)
         {
             // Exibe o teclado virtual apenas se ainda não estiver aberto
             if (teclado == null)
@@ -100,7 +100,7 @@ namespace PIM_WPF.View
             }
         }
 
-        private void HandleTextBoxLostFocus(TextBox textBox, string placeholderText)
+        private void HandleTextBoxLostFocus(System.Windows.Controls.TextBox textBox, string placeholderText)
         {
             // Verifica se o teclado deve ser fechado apenas se a TextBox perder foco de um elemento diferente
             if (teclado != null && !textBox.IsFocused)

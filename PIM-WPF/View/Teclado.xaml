@@ -69,12 +69,9 @@
             <Button Content="B" Grid.Row="2" Grid.Column="5" Click="B_Click" Margin="5"/>
             <Button Content="N" Grid.Row="2" Grid.Column="6" Click="N_Click" Margin="5"/>
             <Button Content="M" Grid.Row="2" Grid.Column="7" Click="M_Click" Margin="5"/>
-            <Button x:Name="BackspaceButton" Content="Backspace" Grid.Row="3" Grid.Column="0" 
+            <Button x:Name="BackspaceButton" Content="Backspace" Grid.Row="2" Grid.Column="8" 
                     Click="Backspace_Click" 
-                    MouseDown="Backspace_MouseDown" 
-                    MouseUp="Backspace_MouseUp" 
-                    PreviewMouseUp="Backspace_MouseUp" 
-                    Margin="5"/>
+                    Margin="5,5,5,6" Grid.ColumnSpan="2"/>
             <!-- Quarta linha de teclas -->
             <Button Content="123" Grid.Row="3" Grid.Column="0" Click="Numerico_Click" Margin="5"/>
             <Button Content="_" Grid.Row="3" Grid.Column="1" Click="Underline_Click" FontWeight="UltraBold" Margin="5"/>
