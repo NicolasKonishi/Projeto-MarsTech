@@ -17,7 +17,7 @@ namespace PIM_WPF.Service
         public APIService()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net");
+            _httpClient.BaseAddress = new Uri("https://localhost:7195");
         }
 
         public async Task<bool> EnviarDadosAsync<T>(T dados)
@@ -25,14 +25,14 @@ namespace PIM_WPF.Service
             var json = JsonConvert.SerializeObject(dados);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario", content); // Use o caminho correto do endpoint
+            var response = await _httpClient.PostAsync("https://localhost:7195/api/questionario", content); // Use o caminho correto do endpoint
 
             return response.IsSuccessStatusCode;
         }
 
         public async Task<decimal> ObterMediaExposicaoAsync()
         {
-            var response = await _httpClient.GetAsync("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/average-exhibitions");
+            var response = await _httpClient.GetAsync("https://localhost:7195/api/questionario/average-exhibitions");
 
             if (response.IsSuccessStatusCode)
             {
@@ -46,7 +46,7 @@ namespace PIM_WPF.Service
 
         public async Task<decimal> ObterMediaQualidadeoAsync()
         {
-            var response = await _httpClient.GetAsync("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/average-satisfaction");
+            var response = await _httpClient.GetAsync("https://localhost:7195/api/questionario/average-satisfaction");
 
             if (response.IsSuccessStatusCode)
             {
@@ -60,7 +60,7 @@ namespace PIM_WPF.Service
 
         public async Task<ComentarioResponse> ObterComentarioAleatorioAsync()
         {
-            var response = await _httpClient.GetAsync("https://marsapi-b9gbhef8gxfkf5fp.brazilsouth-01.azurewebsites.net/api/questionario/random-comment"); // Utilize o endpoint correto
+            var response = await _httpClient.GetAsync("https://localhost:7195/api/questionario/random-comment"); // Utilize o endpoint correto
 
             if (response.IsSuccessStatusCode)
             {
