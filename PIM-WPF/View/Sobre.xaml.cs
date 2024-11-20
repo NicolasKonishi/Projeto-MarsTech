@@ -24,5 +24,13 @@ namespace PIM_WPF.View
         {
             InitializeComponent();
         }
+
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

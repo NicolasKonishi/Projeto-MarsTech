@@ -11,7 +11,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<QuestionarioContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("conexaoPadrao")));
+        options.UseMySql(
+           builder.Configuration.GetConnectionString("conexaoPadrao"),
+            new MySqlServerVersion(new Version(8, 0, 33))));
+
+//builder.Services.AddDbContext<QuestionarioContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("conexaoPadrao")));
 
 builder.Services.AddCors(options =>
 {

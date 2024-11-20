@@ -1,0 +1,136 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador</title>
+    <link rel="stylesheet" href="~/css/admin.css">
+
+</head>
+<body>
+
+    <header>
+        <a href="#home" class="active">MarsTech</a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+            &#9776; Menu
+        </a>
+    </header>
+
+    <div id="myLinks">
+        <a href="#adicionar-usuario">Adicionar Usuário</a>
+        <a href="#editar-usuario">Editar Usuário</a>
+        <a href="#excluir-usuario">Excluir Usuário</a>
+        <a href="#listar-avaliacoes">Listar Avaliações</a>
+    </div>
+
+    <main>
+        <section id="adicionar-usuario">
+            <h2>Adicionar Usuário</h2>
+            <form id="adicionar-usuario-form">
+                <label for="nome-adicionar">Nome:</label>
+                <input type="text" id="nome-adicionar" required>
+
+                <label for="email-adicionar">E-mail:</label>
+                <input type="email" id="email-adicionar" required>
+
+                <label for="satisfacao-adicionar">Satisfação Geral:</label>
+                <select id="satisfacao-adicionar" required>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Boa">Boa</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Ruim">Ruim</option>
+                </select>
+
+                <label for="qualidade-adicionar">Qualidade da Exposição:</label>
+                <select id="qualidade-adicionar" required>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Boa">Boa</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Ruim">Ruim</option>
+                </select>
+
+                <label for="comentario-adicionar">Comentário:</label>
+                <input type="text" id="comentario-adicionar">
+
+                <button type="submit">Adicionar Avaliação</button>
+            </form>
+            <div id="custom-alert-adicionar" class="alert">
+                <p id="alert-message-adicionar"></p>
+            </div>
+        </section>
+
+        <section id="editar-usuario">
+            <h2>Editar Avaliação</h2>
+            <form id="editar-usuario-form">
+                <label for="id-editar">ID da Avaliação:</label>
+                <input type="text" id="id-editar" required>
+
+                <label for="satisfacao-editar">Satisfação Geral:</label>
+                <select id="satisfacao-editar" required>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Boa">Boa</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Ruim">Ruim</option>
+                </select>
+
+                <label for="qualidade-editar">Qualidade da Exposição:</label>
+                <select id="qualidade-editar" required>
+                    <option value="Excelente">Excelente</option>
+                    <option value="Boa">Boa</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Ruim">Ruim</option>
+                </select>
+
+                <label for="comentario-editar">Comentário:</label>
+                <input type="text" id="comentario-editar">
+
+                <label for="email-editar">E-mail:</label>
+                <input type="email" id="email-editar" required>
+
+                <button type="submit">Editar Avaliação</button>
+            </form>
+            <div id="custom-alert-editar" class="alert alert-success">
+                <p id="alert-message-editar"></p>
+            </div>
+        </section>
+
+        <section id="excluir-usuario">
+            <h2>Excluir Usuário</h2>
+            <form id="excluir-usuario-form">
+                <label for="id-excluir">ID do Usuário:</label>
+                <input type="text" id="id-excluir" required>
+
+                <button type="submit">Excluir Usuário</button>
+            </form>
+            <div id="custom-alert-excluir" class="alert">
+                <p id="alert-message-excluir"></p>
+            </div>
+        </section>
+
+        <section id="listar-avaliacoes">
+            <h2>Listar Avaliações</h2>
+            <table id="tabela-avaliacoes">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Satisfação Geral</th>
+                        <th>Qualidade da Exposição</th>
+                        <th>Comentário</th>
+                        <th>E-mail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="~/js/administrador.js"></script>
+</body>
+
+
+</html>

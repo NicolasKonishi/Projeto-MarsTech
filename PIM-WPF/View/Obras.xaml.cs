@@ -16,6 +16,14 @@ namespace PIM_WPF.View
             InitializeComponent();
         }
 
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
             var radioButton = sender as RadioButton;

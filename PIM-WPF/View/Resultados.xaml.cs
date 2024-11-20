@@ -32,6 +32,22 @@ namespace PIM_WPF.View
             CarregarComentariosAsync();
         }
 
+        internal APIService APIService
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private async void CarregarMediaExposicao()
         {
             try

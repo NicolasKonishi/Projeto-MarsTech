@@ -19,6 +19,14 @@ namespace PIM_WPF.View
             this.Deactivated += Teclado_Deactivate;
         }
 
+        public Questionario Questionario
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void SetTargetTextBox(TextBox textBox)
         {
             targetTextBox = textBox;

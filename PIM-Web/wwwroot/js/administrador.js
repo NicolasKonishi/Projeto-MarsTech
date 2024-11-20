@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const alertBox = document.getElementById('custom-alert-adicionar');
 
         try {
-            const response = await fetch('https://localhost:7195/api/Questionario', {
+            const response = await fetch('https://marstechapi-gbg8b3h2dxc4gzb5.brazilsouth-01.azurewebsites.net/api/Questionario', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const comentario = document.getElementById('comentario-editar').value;
         const email = document.getElementById('email-editar').value;
 
-        const response = await fetch(`https://localhost:7195/api/Questionario/${id}`, {
+        const response = await fetch(`https://marstechapi-gbg8b3h2dxc4gzb5.brazilsouth-01.azurewebsites.net/api/Questionario/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const alertBox = document.getElementById('custom-alert-excluir');
 
         try {
-            const response = await fetch(`https://localhost:7195/api/Questionario/${id}`, {
+            const response = await fetch(`/Questionario/${id}`, {
                 method: 'DELETE'
             });
 
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tableBody = document.querySelector('#tabela-avaliacoes tbody');
 
         try {
-            const response = await fetch('https://localhost:7195/api/Questionario');
+            const response = await fetch('https://marstechapi-gbg8b3h2dxc4gzb5.brazilsouth-01.azurewebsites.net/api/Questionario');
             const avaliacoes = await response.json();
 
             tableBody.innerHTML = '';

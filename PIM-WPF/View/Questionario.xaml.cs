@@ -21,6 +21,22 @@ namespace PIM_WPF.View
             InitializeComponent();
         }
 
+        internal APIService APIService
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             placeholder.Visibility = cbClassificacao.SelectedItem != null ? Visibility.Collapsed : Visibility.Visible;

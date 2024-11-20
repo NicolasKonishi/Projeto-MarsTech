@@ -121,7 +121,7 @@ async function fetchValidComment(displayedComments) {
         let validComment = null;
 
         while (!validComment) {
-            const response = await fetch("https://localhost:7195/api/questionario/random-comment");
+            const response = await fetch("https://marstechapi-gbg8b3h2dxc4gzb5.brazilsouth-01.azurewebsites.net/api/Questionario/random-comment");
             const commentData = await response.json();
 
             if (commentData && commentData.email && commentData.email.includes('@')) {
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 async function fetchAverageExhibitions() {
     try {
-        const response = await fetch('https://localhost:7195/api/questionario/average-exhibitions');
+        const response = await fetch('https://marstechapi-gbg8b3h2dxc4gzb5.brazilsouth-01.azurewebsites.net/api/Questionario/average-exhibitions');
         if (!response.ok) {
             throw new Error('Erro ao buscar a média de exposições.');
         }
@@ -201,7 +201,7 @@ async function fetchAverageExhibitions() {
 
 async function fetchAverageSatisfaction() {
     try {
-        const response = await fetch('https://localhost:7195/api/Questionario/average-satisfaction');
+        const response = await fetch('https://marstechapi-gbg8b3h2dxc4gzb5.brazilsouth-01.azurewebsites.net/api/Questionario/average-satisfaction');
         if (!response.ok) {
             throw new Error('Erro ao buscar a média de satisfação.');
         }
@@ -227,7 +227,7 @@ document.getElementById("submit-form").addEventListener("click", async function 
     const alertBox = document.getElementById("custom-alert");
 
     try {
-        const response = await fetch("https://localhost:7195/api/Questionario", {
+        const response = await fetch("https://marstechapi-gbg8b3h2dxc4gzb5.brazilsouth-01.azurewebsites.net/api/Questionario", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
