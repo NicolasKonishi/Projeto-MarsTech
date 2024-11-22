@@ -225,6 +225,7 @@ document.getElementById("submit-form").addEventListener("click", async function 
 
     const alertMessage = document.getElementById("alert-message");
     const alertBox = document.getElementById("custom-alert");
+    const form = document.getElementById("questionario-form"); 
 
     try {
         const response = await fetch("https://marstechapi-gbg8b3h2dxc4gzb5.brazilsouth-01.azurewebsites.net/api/Questionario", {
@@ -237,6 +238,7 @@ document.getElementById("submit-form").addEventListener("click", async function 
 
         if (response.ok) {
             alertMessage.textContent = "Obrigado por enviar sua opinião!";
+            form.reset(); 
         } else {
             alertMessage.textContent = "Erro ao enviar sua opinião.";
         }
@@ -247,6 +249,7 @@ document.getElementById("submit-form").addEventListener("click", async function 
 
     showAlert();
 });
+
 
 
 function showAlert() {
