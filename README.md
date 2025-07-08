@@ -55,11 +55,6 @@ A API desenvolvida serve como um intermediário para a comunicação entre o ban
 - **Boas Práticas:** Seguir as melhores práticas de desenvolvimento e padrões de código.
 - **Relatórios:** Implementação de relatórios baseados nas respostas dos questionários para decisões estratégicas.
 
-## Cronograma
-- Fase de Análise: [Data de início] - [Data de término]
-- Fase de Desenvolvimento: [Data de início] - [Data de término]
-- Testes e Implementação: [Data de início] - [Data de término]
-- Apresentação Final: [Data de término]
 
 ## Controle de Qualidade
 - **Testes Automatizados:** Implementação de testes unitários e de integração.
